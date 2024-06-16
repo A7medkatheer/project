@@ -5,6 +5,13 @@ abstract class UserState {}
 final class UserInitial extends UserState {}
 
 final class SignUpSuccess extends UserState {}
+final class InBodySuccess extends UserState {}
+final class InBodyLoading extends UserState {}
+final class InBodyFailure extends UserState {
+  final String errMessage;
+
+  InBodyFailure({required this.errMessage});
+}
 
 final class SignUpLoading extends UserState {}
 

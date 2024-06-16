@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/onBoardingScreens/Splash.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/dio_consumer.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: InBody(),
+      home: Splash(),
     );
   }
 }

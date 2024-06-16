@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/Forget_password.dart';
 import 'package:flutter_application_1/pages/core/signUp.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
+import 'package:flutter_application_1/pages/in_body.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -32,6 +33,10 @@ class Login extends StatelessWidget {
                           SnackBar(
                             content: Text('Sign In Success'),
                           ),
+                        );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => InBody()),
                         );
                         // Navigator.push(
                         //   context,
@@ -238,42 +243,47 @@ class Login extends StatelessWidget {
                                         width: 130,
                                       ),
                                       state is SignInLoading
-                                ? const CircularProgressIndicator()
-                                : ElevatedButton(
-                                        onPressed: () {},
-                                        style: ButtonStyle(
-                                          backgroundColor:
-                                              MaterialStateProperty.all(
-                                                  Color(0xffD0FD3E)),
-                                          padding: MaterialStateProperty.all(
-                                              EdgeInsets.symmetric(
-                                                  horizontal: 30,
-                                                  vertical: 10)),
-                                          shape: MaterialStateProperty.all(
-                                              RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          27))),
-                                        ),
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            
-                                            if (signInEmailKey.currentState!
-                                                .validate()) {
-                                              context.read<UserCubit>().signIn(
-                                                  email: signInEmail.text,
-                                                  password:
-                                                      signInPassword.text);
-                                            }
-                                          },
-                                          child: Text(
-                                            "login >",
-                                            style: TextStyle(
-                                                fontSize: 24,
-                                                color: Colors.black),
-                                          ),
-                                        ),
-                                      ),
+                                          ? const CircularProgressIndicator()
+                                          : ElevatedButton(
+                                              onPressed: () {},
+                                              style: ButtonStyle(
+                                                backgroundColor:
+                                                    MaterialStateProperty.all(
+                                                        Color(0xffD0FD3E)),
+                                                padding:
+                                                    MaterialStateProperty.all(
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 30,
+                                                            vertical: 10)),
+                                                shape: MaterialStateProperty
+                                                    .all(RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(27))),
+                                              ),
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  if (signInEmailKey
+                                                      .currentState!
+                                                      .validate()) {
+                                                    context
+                                                        .read<UserCubit>()
+                                                        .signIn(
+                                                            email: signInEmail
+                                                                .text,
+                                                            password:
+                                                                signInPassword
+                                                                    .text);
+                                                  }
+                                                },
+                                                child: Text(
+                                                  "login >",
+                                                  style: TextStyle(
+                                                      fontSize: 24,
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                            ),
                                     ],
                                   ),
                                 ),
