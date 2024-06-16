@@ -294,7 +294,8 @@ class Signup extends StatelessWidget {
                                 const SizedBox(
                                   width: 100,
                                 ),
-                                state is SignInLoading
+                                state is SignUpLoading ||
+                                        state is SendCodeLoading
                                     ? const CircularProgressIndicator()
                                     : ElevatedButton(
                                         onPressed: () {
