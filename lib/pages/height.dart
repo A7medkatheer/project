@@ -93,7 +93,7 @@ class _HeightPickerState extends State<HeightPicker> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Weight()),
+                      MaterialPageRoute(builder: (context) => const Weight()),
                     );
                   },
                   child: const Icon(
