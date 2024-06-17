@@ -145,21 +145,29 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(height: 20),
             buildTextFieldRow('Name', 'Saied Ahmed', false),
             buildTextFieldRow('Email', 'barbarysaied2@gmail.com', false),
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const ChangePassword()),
-                );
-              },
-              child: const Text(
-                'Change password',
-                style: TextStyle(color: Colors.red, fontSize: 30),
-              ),
-            ),
             buildDateFieldRow('Date of Birth', '9/06/2002'),
             buildDropdownRow('Country/Region', 'Ismailia'),
+            SizedBox(
+              height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ChangePassword()),
+                    );
+                  },
+                  child: Text(
+                    'Change password',
+                    style: TextStyle(color: Color(0xffD0FD3E), fontSize: 22),
+                  ),
+                ),
+              ],
+            ),
             const SizedBox(height: 20),
             Center(
               child: ElevatedButton(
