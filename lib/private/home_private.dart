@@ -117,7 +117,8 @@ class HomePrivate extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const StopwatchApp()),
+                    MaterialPageRoute(
+                        builder: (context) => const StopwatchApp()),
                   );
                 },
                 child: Stack(
@@ -174,7 +175,8 @@ class HomePrivate extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const FoodBulkingAndDryingUp1()),
+                          builder: (context) =>
+                              const FoodBulkingAndDryingUp1()),
                     );
                   },
                   child: Image.asset('assets/assets/images/Private_NP.png')),
@@ -260,7 +262,8 @@ class HomePrivate extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) =>  DryingLevels()),
+                      MaterialPageRoute(
+                          builder: (context) => const DryingLevels()),
                     );
                   },
                   child:
@@ -273,7 +276,8 @@ class HomePrivate extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HealthyRecipesBulkingUp1()),
+                          builder: (context) =>
+                              const HealthyRecipesBulkingUp1()),
                     );
                   },
                   child: Image.asset(

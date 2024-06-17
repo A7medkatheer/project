@@ -5,8 +5,11 @@ abstract class UserState {}
 final class UserInitial extends UserState {}
 
 final class SignUpSuccess extends UserState {}
+
 final class InBodySuccess extends UserState {}
+
 final class InBodyLoading extends UserState {}
+
 final class InBodyFailure extends UserState {
   final String errMessage;
 
@@ -33,7 +36,11 @@ final class SignInFailure extends UserState {
 
 final class VerifyCodeLoading extends UserState {}
 
+final class VerifyResetCodeLoading extends UserState {}
+
 final class VerifyCodeSuccess extends UserState {}
+
+final class VerifyResetCodeSuccess extends UserState {}
 
 final class VerifyCodeFailure extends UserState {
   final String errMessage;
@@ -41,9 +48,16 @@ final class VerifyCodeFailure extends UserState {
   VerifyCodeFailure({required this.errMessage});
 }
 
+final class VerifyResetCodeFailure extends UserState {
+  final String errMessage;
+
+  VerifyResetCodeFailure({required this.errMessage});
+}
+
 final class SendCodeSuccess extends UserState {}
 
 final class SendCodeLoading extends UserState {}
+
 final class SendCodeFailure extends UserState {
   final String errMessage;
 
@@ -58,4 +72,13 @@ final class SendForgetPassCodeFailure extends UserState {
   final String errMessage;
 
   SendForgetPassCodeFailure({required this.errMessage});
+}
+
+final class ResetPasswordSucess extends UserState {}
+final class ResetPasswordLoading extends UserState {}
+final class ResetPasswordFailure extends UserState {
+    final String errMessage;
+
+  ResetPasswordFailure({required this.errMessage});
+
 }

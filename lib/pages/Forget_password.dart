@@ -62,7 +62,7 @@ class _PinputExampleState extends State<ForgetPassword> {
                   ),
                 );
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Code Sent to $email")),
+                  SnackBar(content: Text(" Reset Code Sent to $email")),
                 );
               } else if (state is SendForgetPassCodeFailure) {
                 ScaffoldMessenger.of(context).showSnackBar(

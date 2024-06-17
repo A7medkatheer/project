@@ -147,7 +147,7 @@ class _ProfilePageState extends State<ProfilePage> {
             buildTextFieldRow('Email', 'barbarysaied2@gmail.com', false),
             buildDateFieldRow('Date of Birth', '9/06/2002'),
             buildDropdownRow('Country/Region', 'Ismailia'),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Row(
@@ -161,7 +161,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           builder: (context) => const ChangePassword()),
                     );
                   },
-                  child: Text(
+                  child: const Text(
                     'Change password',
                     style: TextStyle(color: Color(0xffD0FD3E), fontSize: 22),
                   ),

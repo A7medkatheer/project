@@ -36,7 +36,7 @@ class PirvacyPolicy extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: ListView(
-          children: [
+          children: const [
             // Title 1
             Text(
               '1- Types Data We Collect',

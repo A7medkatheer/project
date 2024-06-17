@@ -1,8 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/Forget_password.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
+import 'package:flutter_application_1/pages/password.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
@@ -12,7 +14,7 @@ import 'package:pinput/pinput.dart';
 // import 'package:ui_screens/pages/core/login.dart';
 
 class Verification extends StatefulWidget {
-  const Verification({super.key, required this.email,required this.type});
+  const Verification({super.key, required this.email, required this.type});
   final String email;
   final String type;
 
@@ -64,6 +66,20 @@ class _PinputExampleState extends State<Verification> {
                 content: Text(state.errMessage),
               ),
             );
+          } else if (state is VerifyResetCodeFailure) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errMessage),
+              ),
+            );
+          } else if (state is VerifyResetCodeSuccess) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Password(
+                        email: widget.email,
+                      )),
+            );
           }
         },
         builder: (context, state) {
@@ -71,11 +87,13 @@ class _PinputExampleState extends State<Verification> {
             child: Column(
               // mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Row(
+                Row(
                   children: [
                     Text(
-                      '    VERIFICATION',
-                      style: TextStyle(color: Colors.white, fontSize: 24),
+                      widget.type == "forgetPasswordSendCode"
+                          ? '    reset Password'
+                          : '    VERIFICATION',
+                      style: const TextStyle(color: Colors.white, fontSize: 24),
                     ),
                   ],
                 ),
@@ -119,15 +137,7 @@ class _PinputExampleState extends State<Verification> {
                   height: 220,
                 ),
                 GestureDetector(
-                  onTap: () {
-                    if (widget.type == "sendCodeVerfiy") {
-                      context.read<UserCubit>().sendCode(email: widget.email);
-                    } else if (widget.type == "forgetPasswordSendCode") {
-                      context
-                          .read<UserCubit>()
-                          .sendForgetPasswordCode(email: widget.email);
-                    }
-                  },
+                  onTap: () {},
                   child: const Text(
                     'Did you receive any code?',
                     style: TextStyle(color: Color(0xffD0FD3E)),
@@ -136,23 +146,26 @@ class _PinputExampleState extends State<Verification> {
                 const SizedBox(
                   height: 20,
                 ),
-                state is VerifyCodeLoading
+                state is VerifyCodeLoading || state is VerifyResetCodeLoading
                     ? const CircularProgressIndicator()
                     : ElevatedButton(
                         onPressed: () {
-                          context
-                              .read<UserCubit>()
-                              .verfiyCode(code: _inputText);
+                          widget.type == "forgetPasswordSendCode"
+                              ? context
+                                  .read<UserCubit>()
+                                  .verfiyRestCode(code: _inputText)
+                              : context
+                                  .read<UserCubit>()
+                                  .sendCode(email: widget.email);
                         },
                         style: ButtonStyle(
-                          backgroundColor: WidgetStateProperty.all(
-                              const Color(0xffD0FD3E)),
+                          backgroundColor:
+                              WidgetStateProperty.all(const Color(0xffD0FD3E)),
                           padding: WidgetStateProperty.all(
                               const EdgeInsets.symmetric(
                                   horizontal: 90, vertical: 10)),
-                          shape: WidgetStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(27))),
+                          shape: WidgetStateProperty.all(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(27))),
                         ),
                         child: const Text(
                           "Verify",

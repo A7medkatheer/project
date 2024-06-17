@@ -148,4 +148,41 @@ class UserCubit extends Cubit<UserState> {
       emit(VerifyCodeFailure(errMessage: e.errModel.errorMessage));
     }
   }
+
+  verfiyRestCode({required String code}) async {
+    try {
+      emit(VerifyResetCodeLoading());
+      final response = await api.post(
+        "auth/verifyResetCode",
+        data: {
+          "resetCode": code,
+        },
+      );
+      emit(VerifyResetCodeSuccess());
+      print(response);
+    } on ServerException catch (e) {
+      emit(VerifyResetCodeFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+  resetPassword(
+      {required String email,
+      required String password,
+      required String confirmPassword}) async {
+    try {
+      emit(ResetPasswordLoading());
+      final response = await api.put(
+        "auth/resetPassword",
+        data: {
+          ApiKey.email: email,
+          ApiKey.password: password,
+          ApiKey.confirmPassword: confirmPassword,
+        },
+      );
+      emit(ResetPasswordSucess());
+      print(response);
+    } on ServerException catch (e) {
+      emit(ResetPasswordFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
 }
