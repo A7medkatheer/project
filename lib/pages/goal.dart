@@ -14,7 +14,7 @@ class Goal extends StatefulWidget {
 }
 
 class _AgePickerState extends State<Goal> {
-  int selectedAge = 1; // Default age
+  int selectedAge = 11; // Default age
 
   @override
   Widget build(BuildContext context) {
