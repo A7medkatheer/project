@@ -1,8 +1,11 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/profile/change_password.dart';
 import 'package:flutter_application_1/profile/setting_screen.dart';
-// import 'package:ui_screens/profile/setting_screen.dart';
+import 'package:image_picker/image_picker.dart';
+import 'dart:io';
+
 import '../constant/constant.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -14,11 +17,11 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   DateTime? _selectedDate;
-
   String _selectedCity = 'Ismailia';
+  File? _profileImage;
 
   final List<String> _cities = [
-    'Cairo',
+    'Cairo ',
     'Alexandria',
     'Giza',
     'Shubra El Kheima',
@@ -65,6 +68,17 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
+  Future<void> _pickImage() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+
+    if (image != null) {
+      setState(() {
+        _profileImage = File(image.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,21 +110,34 @@ class _ProfilePageState extends State<ProfilePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 30),
-            const Center(
+            Center(
               child: Stack(
                 alignment: Alignment.bottomRight,
                 children: [
                   CircleAvatar(
-                    backgroundColor: Color(0xffD0FD3E),
+                    backgroundColor: const Color(0xffD0FD3E),
                     radius: 85,
                     child: CircleAvatar(
                       backgroundColor: Colors.black,
                       radius: 80,
+                      backgroundImage: _profileImage != null
+                          ? FileImage(_profileImage!)
+                          : null,
+                      child: _profileImage == null
+                          ? const Icon(
+                              Icons.person,
+                              color: Colors.white,
+                              size: 80,
+                            )
+                          : null,
                     ),
                   ),
-                  Icon(
-                    Icons.camera_alt,
-                    color: Colors.white,
+                  IconButton(
+                    icon: const Icon(
+                      Icons.camera_alt,
+                      color: Colors.white,
+                    ),
+                    onPressed: _pickImage,
                   ),
                 ],
               ),
@@ -118,7 +145,18 @@ class _ProfilePageState extends State<ProfilePage> {
             const SizedBox(height: 20),
             buildTextFieldRow('Name', 'Saied Ahmed', false),
             buildTextFieldRow('Email', 'barbarysaied2@gmail.com', false),
-            buildTextFieldRow('Password', '*************', true),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChangePassword()),
+                );
+              },
+              child: Text(
+                'Change password',
+                style: TextStyle(color: Colors.red, fontSize: 30),
+              ),
+            ),
             buildDateFieldRow('Date of Birth', '9/06/2002'),
             buildDropdownRow('Country/Region', 'Ismailia'),
             const SizedBox(height: 20),
@@ -127,7 +165,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xffD0FD3E),
-                  padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(13),
                   ),
