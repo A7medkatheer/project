@@ -1,4 +1,3 @@
-
 // ignore_for_file: unused_field, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
@@ -109,10 +108,10 @@ class _PinputExampleState extends State<PaymentResendCode> {
                   onPressed: () {},
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(const Color(0xffD0FD3E)),
-                    padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(horizontal: 30, vertical: 10)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        WidgetStateProperty.all(const Color(0xffD0FD3E)),
+                    padding: WidgetStateProperty.all(const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 10)),
+                    shape: WidgetStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(27))),
                   ),
                   child: const Text(

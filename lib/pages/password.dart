@@ -27,7 +27,7 @@ class _PasswordState extends State<Password> {
         // ),
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text(
+        title: const Text(
           'New password',
           style: TextStyle(color: Colors.white),
         ),
@@ -38,7 +38,7 @@ class _PasswordState extends State<Password> {
         children: [
           buildTextFieldRow('Enter Your New Password', 'new password', false),
           buildTextFieldRow('Confirm Password', 'confirm password', false),
-          SizedBox(
+          const SizedBox(
             height: 100,
           ),
           Center(

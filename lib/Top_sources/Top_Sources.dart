@@ -3,29 +3,28 @@
 import 'package:flutter/material.dart';
 
 import '../constant/constant.dart';
+
 class TopSources extends StatelessWidget {
-   final int initialIndex;
+  final int initialIndex;
 
   const TopSources({super.key, this.initialIndex = 0});
 
-  
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-            initialIndex: initialIndex,
-
+      initialIndex: initialIndex,
       length: 5,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(50.0),
+            preferredSize: const Size.fromHeight(50.0),
             child: AppBar(
               backgroundColor: Colors.black,
-              bottom: CustomTabBar(),
+              bottom: const CustomTabBar(),
             ),
           ),
-          body: TabBarView(
+          body: const TabBarView(
             children: [
               //!   Protein
 
@@ -33,7 +32,7 @@ class TopSources extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 50.0),
+                      padding: EdgeInsets.only(top: 50.0),
                       child: Center(
                         child: Text(
                           'In this table, we have summarizes the best and\nrichest sources of protein, along with the \naverage values and nutritional elements per \n                                  100 grams ',
@@ -161,7 +160,7 @@ class TopSources extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 50.0),
+                        padding: EdgeInsets.only(top: 50.0),
                         child: Center(
                           child: Text(
                             'In this table, we have summarizes the best and\nrichest sources of protein, along with the \naverage values and nutritional elements per \n                                  100 grams ',
@@ -289,7 +288,7 @@ class TopSources extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 50.0),
+                      padding: EdgeInsets.only(top: 50.0),
                       child: Center(
                         child: Text(
                           'In this table, we have summarizes the best and\nrichest sources of protein, along with the \naverage values and nutritional elements per \n                                  100 grams ',
@@ -384,7 +383,7 @@ class TopSources extends StatelessWidget {
                   child: Column(
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 50.0),
+                        padding: EdgeInsets.only(top: 50.0),
                         child: Center(
                           child: Text(
                             'In this table, we have summarizes the best and\nrichest sources of protein, along with the \naverage values and nutritional elements per \n                                  100 grams ',
@@ -543,7 +542,7 @@ class TopSources extends StatelessWidget {
                 child: Column(
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 50.0),
+                      padding: EdgeInsets.only(top: 50.0),
                       child: Center(
                         child: Text(
                           'In this table, we have summarizes the best and\nrichest sources of fat, along with the \naverage values and nutritional elements per \n                                  100 grams ',
@@ -655,7 +654,7 @@ class Divider1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Divider(
+    return const Divider(
       thickness: 1,
       color: Colors.white,
     );
@@ -663,15 +662,17 @@ class Divider1 extends StatelessWidget {
 }
 
 class CustomTabBar extends StatelessWidget implements PreferredSizeWidget {
+  const CustomTabBar({super.key});
+
   @override
-  Size get preferredSize => Size.fromHeight(30.0);
+  Size get preferredSize => const Size.fromHeight(30.0);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: preferredSize.height,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [Colors.black, Colors.black],
           begin: Alignment.centerLeft,
           end: Alignment.centerRight,
@@ -681,7 +682,7 @@ class CustomTabBar extends StatelessWidget implements PreferredSizeWidget {
       child: TabBar(
         indicator: BoxDecoration(
           borderRadius: BorderRadius.circular(15.0),
-          color: Color(0xffD0FD3E),
+          color: const Color(0xffD0FD3E),
         ),
         tabs: [
           _buildTab('Protein'),
@@ -711,13 +712,13 @@ class CustomPadding extends StatelessWidget {
   final String fatNum;
 
   const CustomPadding({
-    Key? key,
+    super.key,
     required this.name,
     required this.caloriesNum,
     required this.proteinNum,
     required this.carbNum,
     required this.fatNum,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -727,7 +728,7 @@ class CustomPadding extends StatelessWidget {
         children: [
           Text(
             '$name            $caloriesNum                 $proteinNum                 $carbNum              $fatNum',
-            style: TextStyle(color: Colors.white, fontSize: 12),
+            style: const TextStyle(color: Colors.white, fontSize: 12),
           )
         ],
       ),

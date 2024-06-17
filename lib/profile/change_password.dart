@@ -17,17 +17,17 @@ class _PasswordState extends State<ChangePassword> {
           onTap: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => ProfilePage()),
+              MaterialPageRoute(builder: (context) => const ProfilePage()),
             );
           },
-          child: Icon(
+          child: const Icon(
             Icons.arrow_back_ios_new_outlined,
             color: Colors.white,
           ),
         ),
         centerTitle: true,
         backgroundColor: Colors.black,
-        title: Text(
+        title: const Text(
           'Security',
           style: TextStyle(color: Colors.white),
         ),
@@ -39,7 +39,7 @@ class _PasswordState extends State<ChangePassword> {
           buildTextFieldRow('Enter Your Old Password', 'old password', false),
           buildTextFieldRow('Enter Your New Password', 'new password', false),
           buildTextFieldRow('Confirm Password', 'confirm password', false),
-          SizedBox(
+          const SizedBox(
             height: 100,
           ),
           Center(

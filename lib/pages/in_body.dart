@@ -405,12 +405,12 @@ class _MyWidgetState extends State<InBody> {
                           ElevatedButton(
                             onPressed: () {},
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(
+                              backgroundColor: WidgetStateProperty.all(
                                   const Color(0xffD0FD3E)),
-                              padding: MaterialStateProperty.all(
+                              padding: WidgetStateProperty.all(
                                   const EdgeInsets.symmetric(
                                       horizontal: 25, vertical: 10)),
-                              shape: MaterialStateProperty.all(
+                              shape: WidgetStateProperty.all(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(13))),
                             ),

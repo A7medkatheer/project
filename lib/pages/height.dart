@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'in_body.dart';
 import 'weight.dart';
 
-
 class HeightPicker extends StatefulWidget {
   const HeightPicker({super.key});
 
@@ -42,7 +41,7 @@ class _HeightPickerState extends State<HeightPicker> {
             ),
           ),
           Center(
-            child: Container(
+            child: SizedBox(
               height: 200,
               child: ListWheelScrollView(
                 itemExtent: 80, // Increase height for each item
@@ -57,12 +56,13 @@ class _HeightPickerState extends State<HeightPicker> {
                       children: [
                         Text(
                           '$height cm',
-                          style: const TextStyle(fontSize: 32, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 32, color: Colors.white),
                         ),
-                        Center(
-                          child: Container(
+                        const Center(
+                          child: SizedBox(
                             width: 100,
-                            child: const Divider(
+                            child: Divider(
                               color: Color(0xffD0FD3E),
                               height: 5,
                               thickness: 2,
@@ -109,10 +109,10 @@ class _HeightPickerState extends State<HeightPicker> {
                   onPressed: () {},
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(const Color(0xffD0FD3E)),
-                    padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 10)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        WidgetStateProperty.all(const Color(0xffD0FD3E)),
+                    padding: WidgetStateProperty.all(const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 10)),
+                    shape: WidgetStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(27))),
                   ),
                   child: GestureDetector(

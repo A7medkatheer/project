@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'gender.dart';
 import 'weight.dart';
 
-
 class Age extends StatefulWidget {
   const Age({super.key});
 
@@ -58,7 +57,8 @@ class _AgePickerState extends State<Age> {
                       children: [
                         Text(
                           age.toString(),
-                          style: const TextStyle(fontSize: 35, color: Colors.white),
+                          style: const TextStyle(
+                              fontSize: 35, color: Colors.white),
                         ),
                         const Center(
                           child: SizedBox(
@@ -115,7 +115,8 @@ class _AgePickerState extends State<Age> {
                     backgroundColor:
                         MaterialStateProperty.all(const Color(0xffD0FD3E)),
                     padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 10)),
+                        const EdgeInsets.symmetric(
+                            horizontal: 25, vertical: 10)),
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(27))),
                   ),
@@ -123,7 +124,7 @@ class _AgePickerState extends State<Age> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Weight()),
+                        MaterialPageRoute(builder: (context) => const Weight()),
                       );
                     },
                     child: const Text(

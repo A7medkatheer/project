@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'age.dart';
 import 'height.dart';
 
-
 class Weight extends StatefulWidget {
+  const Weight({super.key});
+
   @override
   _HeightPickerState createState() => _HeightPickerState();
 }
@@ -38,7 +39,7 @@ class _HeightPickerState extends State<Weight> {
             ),
           ),
           Center(
-            child: Container(
+            child: SizedBox(
               height: 200,
               child: ListWheelScrollView(
                 itemExtent: 80, // Increase height for each item
@@ -56,8 +57,8 @@ class _HeightPickerState extends State<Weight> {
                           children: [
                             Text(
                               '$Weight',
-                              style:
-                                  const TextStyle(fontSize: 32, color: Colors.white),
+                              style: const TextStyle(
+                                  fontSize: 32, color: Colors.white),
                             ),
                             const Text(
                               ' kg',
@@ -68,10 +69,10 @@ class _HeightPickerState extends State<Weight> {
                             )
                           ],
                         ),
-                        Center(
-                          child: Container(
+                        const Center(
+                          child: SizedBox(
                             width: 100,
-                            child: const Divider(
+                            child: Divider(
                               color: Color(0xffD0FD3E),
                               height: 5,
                               thickness: 2,
@@ -102,7 +103,7 @@ class _HeightPickerState extends State<Weight> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Age()),
+                      MaterialPageRoute(builder: (context) => const Age()),
                     );
                   },
                   child: const Icon(
@@ -118,17 +119,18 @@ class _HeightPickerState extends State<Weight> {
                   onPressed: () {},
                   style: ButtonStyle(
                     backgroundColor:
-                        MaterialStateProperty.all(const Color(0xffD0FD3E)),
-                    padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 10)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        WidgetStateProperty.all(const Color(0xffD0FD3E)),
+                    padding: WidgetStateProperty.all(const EdgeInsets.symmetric(
+                        horizontal: 25, vertical: 10)),
+                    shape: WidgetStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(27))),
                   ),
                   child: GestureDetector(
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HeightPicker()),
+                        MaterialPageRoute(
+                            builder: (context) => const HeightPicker()),
                       );
                     },
                     child: const Text(
