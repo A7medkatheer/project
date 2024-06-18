@@ -106,9 +106,6 @@ final class UploadProfilePicFailure extends UserState {
 
 final class GetUserLoading extends UserState {}
 final class GetUserSucess extends UserState {
-  final UserModel user;
-
-  GetUserSucess({required this.user});
 
 }
 final class GetUserFailure extends UserState {
@@ -116,4 +113,10 @@ final class GetUserFailure extends UserState {
 
   GetUserFailure({required this.errMessage});
 }
+final class UpdataDataLoading extends UserState {}
+final class UpdataDataSucess extends UserState {}
+final class UpdataDataFailure extends UserState {
+  final String errMessage;
 
+  UpdataDataFailure({required this.errMessage});
+}

@@ -24,6 +24,7 @@ class UserCubit extends Cubit<UserState> {
   }
 
   SignInModel? user;
+  // UserModel? getData;
   signIn({required String email, required String password}) async {
     try {
       emit(SignInLoading());
@@ -49,6 +50,23 @@ class UserCubit extends Cubit<UserState> {
 
   uploadProfilePic(XFile image) {
     profilePic = image;
+    emit(UploadProfilePic());
+  }
+
+  uploadImage({required XFile profilePic}) async {
+    try {
+      emit(UploadProfilePicLoading());
+      final response = await api.post(
+        EndPoint.getUserIdUploadimage(
+            CacheHelper().getData(key: ApiKey.userId)),
+        isFromData: true,
+        data: {"profileImage": await uploadImageToAPI(profilePic)},
+      );
+      print(response);
+      emit(UploadProfilePicSucess());
+    } on ServerException catch (e) {
+      emit(UploadProfilePicFailure(errMessage: e.errModel.errorMessage));
+    }
   }
 
   signUp(
@@ -172,22 +190,6 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  uploadImage({required XFile profilePic}) async {
-    try {
-      emit(UploadProfilePicLoading());
-      final response = await api.post(
-        EndPoint.getUserIdUploadimage(
-            CacheHelper().getData(key: ApiKey.userId)),
-        isFromData: true,
-        data: {"profileImage": await uploadImageToAPI(profilePic)},
-      );
-      print(response);
-      emit(UploadProfilePicSucess());
-    } on ServerException catch (e) {
-      emit(UploadProfilePicFailure(errMessage: e.errModel.errorMessage));
-    }
-  }
-
   resetPassword(
       {required String email,
       required String password,
@@ -237,9 +239,46 @@ class UserCubit extends Cubit<UserState> {
           CacheHelper().getData(key: ApiKey.userId),
         ),
       );
-      emit(GetUserSucess(user: UserModel.fromJson(response)));
+      final getData = UserModel.fromJson(response);
+      
+      CacheHelper().saveData(key: ApiKey.name, value: getData.name);
+      CacheHelper().saveData(key: ApiKey.email, value: getData.email);
+      CacheHelper().saveData(key: ApiKey.profilePic, value: getData.profilePic);
+
+      print("${getData.name} ${getData.email} ${getData.profilePic}");
+      emit(GetUserSucess());
     } on ServerException catch (e) {
       emit(GetUserFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+  updataData({
+    String? name,
+    String? email,
+  }) async {
+    try {
+      emit(UpdataDataLoading());
+
+      // Create a new map
+      var data = <String, String>{};
+
+      // Add values to the map only if they are not null and not empty
+      if (name != null && name.isNotEmpty) {
+        data[ApiKey.name] = name;
+      }
+      if (email != null && email.isNotEmpty) {
+        data[ApiKey.email] = email;
+      }
+
+      final response = await api.put(
+        EndPoint.getUserData(CacheHelper().getData(key: ApiKey.userId)),
+        data: data, // Use the new map as the request body
+      );
+
+      emit(UpdataDataSucess());
+      print(response);
+    } on ServerException catch (e) {
+      emit(UpdataDataFailure(errMessage: e.errModel.errorMessage));
     }
   }
 }

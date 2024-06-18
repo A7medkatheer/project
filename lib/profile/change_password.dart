@@ -22,10 +22,7 @@ class _PasswordState extends State<ChangePassword> {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const ProfilePage()),
-            );
+            Navigator.pop(context);
           },
           child: const Icon(
             Icons.arrow_back_ios_new_outlined,
@@ -150,6 +147,12 @@ Widget buildTextFieldRow({
             border: InputBorder.none,
           ),
           controller: controller,
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'required';
+            }
+            return null;
+          },
         ),
       ),
     ],
