@@ -6,8 +6,14 @@ class EndPoint {
   static String sendCode = "auth/sendcode";
   static String forgotPassword = "auth/forgotPassword";
   static String verifyCode = "auth/verifyemail";
-  static String getUserDataEndPoint(id) {
+  static String getUserIdUploadimage(id) {
+    return "user/uploadimage/$id";
+  }
+  static String getUserData(id) {
     return "user/$id";
+  }
+  static String changePassword(id) {
+    return "user/changePassword/$id";
   }
 }
 
@@ -24,5 +30,5 @@ class ApiKey {
   static String userId = "userId";
   static String phone = "phone";
   static String location = "location";
-  static String profilePic = "profilePic";
+  static String profilePic = "profileImage";
 }

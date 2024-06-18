@@ -4,16 +4,19 @@ import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/api_consumer.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:flutter_application_1/pages/core/errors/exceptions.dart';
+import 'package:flutter_application_1/pages/core/functions/upload_image_to_api.dart';
 import 'package:flutter_application_1/pages/core/models/sign_in_model.dart';
+import 'package:flutter_application_1/pages/core/models/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
 
 part 'user_state.dart';
 
 class UserCubit extends Cubit<UserState> {
   UserCubit(this.api) : super(UserInitial());
+  XFile? profilePic;
   final ApiConsumer api;
-
   @override
   void onChange(Change<UserState> change) {
     super.onChange(change);
@@ -42,6 +45,10 @@ class UserCubit extends Cubit<UserState> {
     } on ServerException catch (e) {
       emit(SignInFailure(errMessage: e.errModel.errorMessage));
     }
+  }
+
+  uploadProfilePic(XFile image) {
+    profilePic = image;
   }
 
   signUp(
@@ -165,6 +172,22 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+  uploadImage({required XFile profilePic}) async {
+    try {
+      emit(UploadProfilePicLoading());
+      final response = await api.post(
+        EndPoint.getUserIdUploadimage(
+            CacheHelper().getData(key: ApiKey.userId)),
+        isFromData: true,
+        data: {"profileImage": await uploadImageToAPI(profilePic)},
+      );
+      print(response);
+      emit(UploadProfilePicSucess());
+    } on ServerException catch (e) {
+      emit(UploadProfilePicFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
   resetPassword(
       {required String email,
       required String password,
@@ -183,6 +206,40 @@ class UserCubit extends Cubit<UserState> {
       print(response);
     } on ServerException catch (e) {
       emit(ResetPasswordFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+  changePassword(
+      {required String oldPassword,
+      required String password,
+      required String confirmPassword}) async {
+    try {
+      emit(PasswordLoading());
+      final response = await api.put(
+        EndPoint.changePassword(CacheHelper().getData(key: ApiKey.userId)),
+        data: {
+          "currentPassword": oldPassword,
+          ApiKey.password: password,
+          ApiKey.confirmPassword: confirmPassword,
+        },
+      );
+      emit(PasswordSucess());
+      print(response);
+    } on ServerException catch (e) {
+      emit(PasswordFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+  getUser() async {
+    try {
+      final response = await api.get(
+        EndPoint.getUserData(
+          CacheHelper().getData(key: ApiKey.userId),
+        ),
+      );
+      emit(GetUserSucess(user: UserModel.fromJson(response)));
+    } on ServerException catch (e) {
+      emit(GetUserFailure(errMessage: e.errModel.errorMessage));
     }
   }
 }

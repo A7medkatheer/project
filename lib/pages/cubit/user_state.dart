@@ -75,10 +75,45 @@ final class SendForgetPassCodeFailure extends UserState {
 }
 
 final class ResetPasswordSucess extends UserState {}
+
 final class ResetPasswordLoading extends UserState {}
+
 final class ResetPasswordFailure extends UserState {
-    final String errMessage;
+  final String errMessage;
 
   ResetPasswordFailure({required this.errMessage});
+}
+final class PasswordSucess extends UserState {}
+
+final class PasswordLoading extends UserState {}
+
+final class PasswordFailure extends UserState {
+  final String errMessage;
+
+  PasswordFailure({required this.errMessage});
+
+  
+}
+
+final class UploadProfilePic extends UserState {}
+final class UploadProfilePicLoading extends UserState {}
+final class UploadProfilePicSucess extends UserState {}
+final class UploadProfilePicFailure extends UserState {
+  final String errMessage;
+
+  UploadProfilePicFailure({required this.errMessage});
+}
+
+final class GetUserLoading extends UserState {}
+final class GetUserSucess extends UserState {
+  final UserModel user;
+
+  GetUserSucess({required this.user});
 
 }
+final class GetUserFailure extends UserState {
+  final String errMessage;
+
+  GetUserFailure({required this.errMessage});
+}
+

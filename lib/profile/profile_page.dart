@@ -1,8 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/profile/change_password.dart';
 import 'package:flutter_application_1/profile/setting_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
@@ -18,7 +20,7 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   DateTime? _selectedDate;
   String _selectedCity = 'Ismailia';
-  File? _profileImage;
+  // File? _profileImage;
 
   final List<String> _cities = [
     'Cairo ',
@@ -68,16 +70,16 @@ class _ProfilePageState extends State<ProfilePage> {
     }
   }
 
-  Future<void> _pickImage() async {
-    final ImagePicker picker = ImagePicker();
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+  // Future<void> _pickImage() async {
+  //   final ImagePicker picker = ImagePicker();
+  //   final XFile? image = await picker.pickImage(source: ImageSource.gallery);
 
-    if (image != null) {
-      setState(() {
-        _profileImage = File(image.path);
-      });
-    }
-  }
+  //   if (image != null) {
+  //     setState(() {
+  //       _profileImage = File(image.path);
+  //     });
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -89,10 +91,7 @@ class _ProfilePageState extends State<ProfilePage> {
         centerTitle: true,
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const SettingScreen()),
-            );
+            Navigator.pop(context);
           },
           child: const Icon(
             Icons.arrow_back_ios,
@@ -104,96 +103,140 @@ class _ProfilePageState extends State<ProfilePage> {
           style: TextStyle(fontSize: 24, color: Colors.white),
         ),
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 30),
-            Center(
-              child: Stack(
-                alignment: Alignment.bottomRight,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: const Color(0xffD0FD3E),
-                    radius: 85,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.black,
-                      radius: 80,
-                      backgroundImage: _profileImage != null
-                          ? FileImage(_profileImage!)
-                          : null,
-                      child: _profileImage == null
-                          ? const Icon(
-                              Icons.person,
-                              color: Colors.white,
-                              size: 80,
-                            )
-                          : null,
-                    ),
-                  ),
-                  IconButton(
-                    icon: const Icon(
-                      Icons.camera_alt,
-                      color: Colors.white,
-                    ),
-                    onPressed: _pickImage,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 20),
-            buildTextFieldRow('Name', 'Saied Ahmed', false),
-            buildTextFieldRow('Email', 'barbarysaied2@gmail.com', false),
-            buildDateFieldRow('Date of Birth', '9/06/2002'),
-            buildDropdownRow('Country/Region', 'Ismailia'),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ChangePassword()),
-                    );
-                  },
-                  child: const Text(
-                    'Change password',
-                    style: TextStyle(color: Color(0xffD0FD3E), fontSize: 22),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 20),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xffD0FD3E),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(13),
-                  ),
-                ),
-                child: const Text(
-                  "Save Change",
-                  style: TextStyle(fontSize: 24, color: Colors.black),
-                ),
-              ),
-            ),
-          ],
-        ),
+      body: BlocConsumer<UserCubit, UserState>(
+        listener: (context, state) {
+          if (state is UploadProfilePicSucess) {
+            context.read<UserCubit>().getUser();
+          } else {
+            // context.read<UserCubit>().getUser();
+          }
+        },
+        builder: (context, state) {
+          return SingleChildScrollView(
+            padding: const EdgeInsets.all(12.0),
+            child: state is GetUserSucess
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 30),
+                      Center(
+                        child: Stack(
+                          alignment: Alignment.bottomRight,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: const Color(0xffD0FD3E),
+                              radius: 85,
+                              child: CircleAvatar(
+                                backgroundColor: Colors.black,
+                                radius: 80,
+                                backgroundImage:
+                                    context.read<UserCubit>().profilePic != null
+                                        ? FileImage(File(context
+                                            .read<UserCubit>()
+                                            .profilePic!
+                                            .path))
+                                        : NetworkImage(state.user.profilePic!),
+                              ),
+                            ),
+                            IconButton(
+                              icon: const Icon(
+                                Icons.camera_alt,
+                                color: Colors.white,
+                              ),
+                              onPressed: () {
+                                ImagePicker()
+                                    .pickImage(source: ImageSource.gallery)
+                                    .then((value) {
+                                  if (value != null) {
+                                    context
+                                        .read<UserCubit>()
+                                        .uploadProfilePic(value);
+                                  }
+
+                                  context.read<UserCubit>().uploadImage(
+                                      profilePic: context
+                                          .read<UserCubit>()
+                                          .profilePic!);
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
+                      Column(
+                        children: [
+                          buildTextFieldRow(
+                              label: 'Name',
+                              hintText: state.user.name,
+                              obscureText: false),
+                          buildTextFieldRow(
+                              label: 'Email',
+                              hintText: state.user.email,
+                              obscureText: false),
+                          buildDateFieldRow('Date of Birth', '9/06/2002'),
+                          buildDropdownRow('Country/Region', 'Ismailia'),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ChangePassword()),
+                              );
+                            },
+                            child: const Text(
+                              'Change password',
+                              style: TextStyle(
+                                  color: Color(0xffD0FD3E), fontSize: 22),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Center(
+                        child: state is GetUserLoading ||
+                                state is UploadProfilePicLoading
+                            ? const CircularProgressIndicator()
+                            : ElevatedButton(
+                                onPressed: () {},
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: const Color(0xffD0FD3E),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 25, vertical: 10),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(13),
+                                  ),
+                                ),
+                                child: const Text(
+                                  "Save Change",
+                                  style: TextStyle(
+                                      fontSize: 24, color: Colors.black),
+                                ),
+                              ),
+                      ),
+                    ],
+                  )
+                : const Center(child: CircularProgressIndicator()),
+          );
+        },
       ),
       bottomNavigationBar: const bottom_tab_bar(),
     );
   }
 
-  Widget buildTextFieldRow(String label, String hintText, bool obscureText) {
+  Widget buildTextFieldRow(
+      {required String label,
+      required String hintText,
+      required bool obscureText}) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

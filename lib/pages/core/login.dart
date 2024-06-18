@@ -5,6 +5,7 @@ import 'package:flutter_application_1/pages/Forget_password.dart';
 import 'package:flutter_application_1/pages/core/signUp.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
+import 'package:flutter_application_1/profile/profile_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -29,14 +30,19 @@ class Login extends StatelessWidget {
                   child: BlocConsumer<UserCubit, UserState>(
                     listener: (context, state) {
                       if (state is SignInSuccess) {
+                        context.read<UserCubit>().getUser();
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
                             content: Text('Sign In Success'),
                           ),
                         );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) => InBody()),
+                        // );
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => InBody()),
+                          MaterialPageRoute(builder: (context) => ProfilePage()),
                         );
                         // Navigator.push(
                         //   context,

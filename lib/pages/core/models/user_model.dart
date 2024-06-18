@@ -1,30 +1,22 @@
 
-// import 'package:ui_screens/pages/core/api/end_ponits.dart';
-
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 
 class UserModel {
-  // final String profilePic;
+  final String ? profilePic;
   final String email;
-  // final String phone;
   final String name;
-  final Map<String, dynamic> address;
 
   UserModel({
-    // required this.profilePic,
+     this.profilePic,
     required this.email,
-    // required this.phone,
     required this.name,
-    required this.address,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> jsonData) {
     return UserModel(
-      // profilePic: jsonData['user'][ApiKey.profilePic],
-      email: jsonData['user'][ApiKey.email],
-      // phone: jsonData['user'][ApiKey.phone],
-      name: jsonData['user'][ApiKey.name],
-      address: jsonData['user'][ApiKey.location],
+      profilePic: jsonData[ApiKey.profilePic]??'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCHU5JIkqfD2z1KMc4c1nW4zdArnxBM3cCcQ&s',
+      email: jsonData[ApiKey.email],
+      name: jsonData[ApiKey.name],
     );
   }
 }

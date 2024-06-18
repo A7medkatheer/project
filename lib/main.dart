@@ -6,6 +6,7 @@ import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/dio_consumer.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
+import 'package:flutter_application_1/profile/profile_page.dart';
 // import 'package:flutter_application_1/pages/in_body.dart';
 // import 'package:flutter_application_1/pages/password.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

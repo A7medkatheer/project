@@ -30,7 +30,7 @@ class _BottomTabBarState extends State<bottom_tab_bar> {
       case 3:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const ProfilePage()),
+          MaterialPageRoute(builder: (context) =>  const ProfilePage()),
         );
         break;
     }

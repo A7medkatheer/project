@@ -156,7 +156,7 @@ class _PinputExampleState extends State<Verification> {
                                   .verfiyRestCode(code: _inputText)
                               : context
                                   .read<UserCubit>()
-                                  .sendCode(email: widget.email);
+                                  .verfiyCode(code: _inputText);
                         },
                         style: ButtonStyle(
                           backgroundColor:
