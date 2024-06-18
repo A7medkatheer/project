@@ -18,18 +18,7 @@ class _PasswordState extends State<Password> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: GestureDetector(
-        //   onTap: () {
-        //     Navigator.push(
-        //       context,
-        //       MaterialPageRoute(builder: (context) => ProfilePage()),
-        //     );
-        //   },
-        //   child: Icon(
-        //     Icons.arrow_back_ios_new_outlined,
-        //     color: Colors.white,
-        //   ),
-        // ),
+    
         centerTitle: true,
         backgroundColor: Colors.black,
         title: const Text(
