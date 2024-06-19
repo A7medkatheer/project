@@ -9,17 +9,26 @@ class EndPoint {
   static String getUserIdUploadimage(id) {
     return "user/uploadimage/$id";
   }
+
   static String getUserData(id) {
     return "user/$id";
   }
+  static String getMbodyId(id) {
+    return "mbody/$id";
+  }
+
   static String changePassword(id) {
     return "user/changePassword/$id";
   }
 }
 
 class ApiKey {
-  static String name = "name";
+  static String mBodyId = "mBodyId";
   static String error = "errors";
+  static String age = "age";
+  static String height = "height";
+  static String weight = "weight";
+  static String name = "name";
   static String email = "email";
   static String password = "password";
   static String confirmPassword = "passwordConfirm";

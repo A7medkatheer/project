@@ -11,6 +11,7 @@ class WorkoutCategory extends StatefulWidget {
 }
 
 class _GenderSelectionState extends State<WorkoutCategory> {
+  late int level;
   bool isBeginner = false;
   bool isIntermediate = false;
   bool isAdvance = false;
@@ -44,13 +45,26 @@ class _GenderSelectionState extends State<WorkoutCategory> {
               ),
               Stack(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      'assets/assets/images/beginner_level.jpg',
-                      width: 400,
-                      height: 200,
-                      fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: () {
+                      int level = 1;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(
+                            index: level,
+                          ),
+                        ),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        'assets/assets/images/beginner_level.jpg',
+                        width: 400,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const Text(
@@ -64,13 +78,26 @@ class _GenderSelectionState extends State<WorkoutCategory> {
               ),
               Stack(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      'assets/assets/images/middle.jpg',
-                      width: 400,
-                      height: 200,
-                      fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: () {
+                      int level = 2;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(
+                            index: level,
+                          ),
+                        ),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        'assets/assets/images/middle.jpg',
+                        width: 400,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const Text(
@@ -84,13 +111,26 @@ class _GenderSelectionState extends State<WorkoutCategory> {
               ),
               Stack(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.asset(
-                      'assets/assets/images/advance.jpg',
-                      width: 400,
-                      height: 200,
-                      fit: BoxFit.cover,
+                  GestureDetector(
+                    onTap: () {
+                      int level = 3;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomeScreen(
+                            index: level,
+                          ),
+                        ),
+                      );
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.asset(
+                        'assets/assets/images/advance.jpg',
+                        width: 400,
+                        height: 200,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   const Text(

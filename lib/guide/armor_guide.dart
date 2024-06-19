@@ -37,9 +37,7 @@ class ArmorGuide extends StatelessWidget {
         ],
         centerTitle: true,
         leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(context);
-          },
+          onTap: () {},
           child: const Icon(
             Icons.arrow_circle_left_outlined,
             color: Colors.black,

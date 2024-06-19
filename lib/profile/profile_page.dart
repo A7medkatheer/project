@@ -114,11 +114,6 @@ class _ProfilePageState extends State<ProfilePage> {
             context.read<UserCubit>().getUser();
             nameController.clear();
             emailController.clear();
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text("Profile Pic Uploaded"),
-              ),
-            );
           } else if (state is UploadProfilePicSucess) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
@@ -231,10 +226,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                     profilePic:
                                         context.read<UserCubit>().profilePic!);
                               }
-                              context.read<UserCubit>().updataData(
-                                    name: nameController.text,
-                                    email: emailController.text,
-                                  );
+                              if (nameController.text.isNotEmpty ||
+                                  emailController.text.isNotEmpty) {
+                                context.read<UserCubit>().updataData(
+                                      name: nameController.text,
+                                      email: emailController.text,
+                                    );
+                              }
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: const Color(0xffD0FD3E),

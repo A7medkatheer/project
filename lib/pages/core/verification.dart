@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/Forget_password.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
+import 'package:flutter_application_1/pages/in_body.dart';
 import 'package:flutter_application_1/pages/password.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,7 +59,7 @@ class _PinputExampleState extends State<Verification> {
             );
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const Login()),
+              MaterialPageRoute(builder: (context) => const InBody()),
             );
           } else if (state is VerifyCodeFailure) {
             ScaffoldMessenger.of(context).showSnackBar(

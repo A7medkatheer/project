@@ -1,9 +1,7 @@
-
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/home.dart';
-
 
 import '../constant/constant.dart';
 
@@ -20,10 +18,7 @@ class NutritionProgramSeeAll extends StatelessWidget {
           padding: const EdgeInsets.all(12.0),
           child: GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
-              );
+              Navigator.pop(context);
             },
             child: const Icon(
               Icons.arrow_circle_left_outlined,

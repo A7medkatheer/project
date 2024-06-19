@@ -18,10 +18,7 @@ class Nutritionguide extends StatelessWidget {
           padding: const EdgeInsets.all(12.0),
           child: GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
-              );
+              Navigator.pop(context);
             },
             child: const Icon(
               Icons.arrow_circle_left_outlined,

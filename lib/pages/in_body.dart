@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/workout_category.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
@@ -62,7 +63,8 @@ class _MyWidgetState extends State<InBody> {
             if (state is InBodySuccess) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const WorkoutCategory()),
               );
             } else if (state is InBodyFailure) {
               ScaffoldMessenger.of(context).showSnackBar(

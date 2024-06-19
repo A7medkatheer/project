@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:flutter_application_1/core/home.dart';
+import 'package:flutter_application_1/pages/cache/cache_helper.dart';
+import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
+import 'package:flutter_application_1/pages/weight.dart';
 import 'package:flutter_application_1/private/home_private.dart';
 
 class Welcome extends StatefulWidget {
@@ -12,13 +15,17 @@ class Welcome extends StatefulWidget {
 }
 
 class _IntroductionState extends State<Welcome> {
-  final double weight = 65;
-  final double height = 177;
-  final int age = 22;
+  final int weight = CacheHelper().getData(key: ApiKey.weight);
+  final int height = CacheHelper().getData(key: ApiKey.height);
+  final int age = CacheHelper().getData(key: ApiKey.age);
   final String activityLevel = 'moderately active'; // Activity level
-
+  var image = CacheHelper().getData(key: ApiKey.profilePic);
+  var name = CacheHelper().getData(key: ApiKey.name);
   double calculateBMR() {
-    return 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+    return 88.362 +
+        (13.397 * weight.toDouble()) +
+        (4.799 * height.toDouble()) -
+        (5.677 * age.toDouble());
   }
 
   double calculateTDEE(double bmr) {
@@ -48,12 +55,13 @@ class _IntroductionState extends State<Welcome> {
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
                   children: [
-                    const CircleAvatar(
-                      backgroundColor: Color(0xffD0FD3E),
+                    CircleAvatar(
+                      backgroundColor: const Color(0xffD0FD3E),
                       radius: 30,
                       child: CircleAvatar(
                         backgroundColor: Colors.white,
                         radius: 28,
+                        backgroundImage: NetworkImage(image),
                       ),
                     ),
                     const SizedBox(
@@ -68,9 +76,10 @@ class _IntroductionState extends State<Welcome> {
                               color: Colors.white.withOpacity(0.7),
                               fontSize: 18),
                         ),
-                        const Text(
-                          'Said Ahmed ',
-                          style: TextStyle(color: Colors.white, fontSize: 22),
+                        Text(
+                          name,
+                          style: const TextStyle(
+                              color: Colors.white, fontSize: 22),
                         ),
                       ],
                     ),
@@ -89,12 +98,12 @@ class _IntroductionState extends State<Welcome> {
             const SizedBox(
               height: 30,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                InfoCard(label: 'Height', value: '177 cm'),
-                InfoCard(label: 'Weight', value: '65 kg'),
-                InfoCard(label: 'Age', value: '22 years'),
+                InfoCard(label: 'Height', value: '${height.toInt()} cm'),
+                InfoCard(label: 'Weight', value: '${weight.toInt()} kg'),
+                InfoCard(label: 'Age', value: '$age years'),
               ],
             ),
             const SizedBox(

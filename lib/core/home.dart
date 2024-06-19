@@ -13,8 +13,8 @@ import 'nutrition_guide_see_all.dart';
 import 'training_programs_see_all.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
+  const HomeScreen({super.key, this.index});
+  final int? index;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -184,8 +184,8 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const DryingLevels(
-                              initialIndex: 1,
+                        builder: (context) => DryingLevels(
+                              initialIndex: index ?? 1,
                             )),
                   );
                 },
@@ -212,7 +212,8 @@ class HomeScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const NutritionProgramSeeAll()),
+                            builder: (context) =>
+                                const NutritionProgramSeeAll()),
                       );
                     },
                     child: const Text(
@@ -226,7 +227,8 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const DryingLevels()),
+                      MaterialPageRoute(
+                          builder: (context) => const DryingLevels()),
                     );
                   },
                   child: Image.asset('assets/assets/images/Dietart.jpg')),
@@ -238,7 +240,8 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const HealthyRecipesBulkingUp1()),
+                          builder: (context) =>
+                              const HealthyRecipesBulkingUp1()),
                     );
                   },
                   child: Image.asset('assets/assets/images/Nutritional.jpg')),
@@ -249,7 +252,8 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const LossWightUp1()),
+                      MaterialPageRoute(
+                          builder: (context) => const LossWightUp1()),
                     );
                   },
                   child: Image.asset('assets/assets/images/weight loss.jpg')),

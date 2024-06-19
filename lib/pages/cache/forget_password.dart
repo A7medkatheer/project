@@ -1,8 +1,7 @@
-// ignore_for_file: file_names, library_private_types_in_public_api, unused_field
+// ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
-
 
 class ForgetPassword extends StatefulWidget {
   const ForgetPassword({super.key});
@@ -78,7 +77,7 @@ class _PinputExampleState extends State<ForgetPassword> {
                     hintText: "Email ",
                     hintStyle: TextStyle(color: Colors.white),
                     border: InputBorder.none),
-                    controller: _textEditingController,
+                controller: _textEditingController,
               ),
             ),
             const Divider(
@@ -100,7 +99,8 @@ class _PinputExampleState extends State<ForgetPassword> {
             ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
-                backgroundColor: WidgetStateProperty.all(const Color(0xffD0FD3E)),
+                backgroundColor:
+                    WidgetStateProperty.all(const Color(0xffD0FD3E)),
                 padding: WidgetStateProperty.all(
                     const EdgeInsets.symmetric(horizontal: 90, vertical: 10)),
                 shape: WidgetStateProperty.all(RoundedRectangleBorder(

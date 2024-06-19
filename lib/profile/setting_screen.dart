@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/onBoardingScreens/Splash.dart';
+import 'package:flutter_application_1/pages/cache/cache_helper.dart';
+import 'package:flutter_application_1/pages/welcome.dart';
 import '../constant/constant.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -21,67 +24,67 @@ class SettingScreen extends StatelessWidget {
           style: TextStyle(fontSize: 24, color: Colors.white),
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(15.0),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'Account',
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            ProfileItem(
+            const ProfileItem(
               icon: Icon(
                 Icons.person_2_outlined,
                 color: Color(0xffD0FD3E),
               ),
               text: 'Edit Profil',
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               'Support & About',
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            ProfileItem(
+            const ProfileItem(
               icon: Icon(
                 Icons.credit_card,
                 color: Color(0xffD0FD3E),
               ),
               text: 'My Subscribtion',
             ),
-            ProfileItem(
+            const ProfileItem(
               icon: Icon(
                 Icons.question_mark_rounded,
                 color: Color(0xffD0FD3E),
               ),
               text: 'Help & Support',
             ),
-            ProfileItem(
+            const ProfileItem(
               icon: Icon(
                 Icons.info_outlined,
                 color: Color(0xffD0FD3E),
               ),
               text: 'Terms and Policies',
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            Text(
+            const Text(
               'Actions',
               style: TextStyle(fontSize: 16, color: Colors.white),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            ProfileItem(
+            const ProfileItem(
               icon: Icon(
                 Icons.flag_outlined,
                 color: Color(0xffD0FD3E),
@@ -89,7 +92,15 @@ class SettingScreen extends StatelessWidget {
               text: 'Report a problem',
             ),
             ProfileItem(
-              icon: Icon(
+              onTap: () async {
+                CacheHelper cacheHelper = CacheHelper();
+                await cacheHelper.clearData();
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Splash()),
+                );
+              },
+              icon: const Icon(
                 Icons.logout_outlined,
                 color: Color(0xffD0FD3E),
               ),
@@ -111,8 +122,10 @@ class ProfileItem extends StatelessWidget {
   final double height;
   //final String PageLink;
   final double horizontalPadding;
+  final void Function()? onTap;
 
   const ProfileItem({
+    this.onTap,
     required this.icon,
     required this.text,
     // required this.PageLink,
@@ -126,7 +139,7 @@ class ProfileItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       //   Navigator.push(
       //     context,
       //     MaterialPageRoute(builder: (context) => PageLink()),

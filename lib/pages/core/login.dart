@@ -5,6 +5,7 @@ import 'package:flutter_application_1/pages/Forget_password.dart';
 import 'package:flutter_application_1/pages/core/signUp.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
+import 'package:flutter_application_1/pages/welcome.dart';
 import 'package:flutter_application_1/profile/profile_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -31,25 +32,11 @@ class Login extends StatelessWidget {
                     listener: (context, state) {
                       if (state is SignInSuccess) {
                         context.read<UserCubit>().getUser();
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text('Sign In Success'),
-                          ),
-                        );
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => InBody()),
-                        // );
+                        context.read<UserCubit>().mBodyData();
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => ProfilePage()),
+                          MaterialPageRoute(builder: (context) => Welcome()),
                         );
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => GenderSelection()),
-                        // );
                       } else if (state is SignInFailure) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -139,7 +126,6 @@ class Login extends StatelessWidget {
                                                 TextPosition(
                                                     offset: signInEmail
                                                         .text.length));
-                                                      
                                       },
                                       validator: (textValue) {
                                         if (textValue == null ||
@@ -171,7 +157,6 @@ class Login extends StatelessWidget {
                                         Icons.lock,
                                         color: Color(0xffD0FD3E),
                                         size: 19,
-
                                       ),
                                       hintText: " Password :",
                                       hintStyle: TextStyle(color: Colors.white),

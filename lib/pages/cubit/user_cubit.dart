@@ -6,7 +6,9 @@ import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:flutter_application_1/pages/core/errors/error_model.dart';
 import 'package:flutter_application_1/pages/core/errors/exceptions.dart';
 import 'package:flutter_application_1/pages/core/functions/upload_image_to_api.dart';
+import 'package:flutter_application_1/pages/core/models/get_mbody_model.dart';
 import 'package:flutter_application_1/pages/core/models/sign_in_model.dart';
+import 'package:flutter_application_1/pages/core/models/sign_up_model.dart';
 import 'package:flutter_application_1/pages/core/models/user_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -93,51 +95,6 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  inBody({
-    required String gender,
-    required String userId,
-    required String height,
-    required String weight,
-    required String age,
-    String? fat,
-    String? muscle,
-    String? water,
-    String? bmr,
-  }) async {
-    try {
-      emit(InBodyLoading());
-      var data = <String, String>{
-        "gender": gender,
-        "height": height,
-        "weight": weight,
-        "age": age,
-        "userId": userId,
-      };
-
-      // Add values to the map only if they are not null and not empty
-      if (fat != null && fat.isNotEmpty) {
-        data["fat"] = fat;
-      }
-      if (muscle != null && muscle.isNotEmpty) {
-        data["muscle"] = muscle;
-      }
-      if (water != null && water.isNotEmpty) {
-        data["water"] = water;
-      }
-      if (bmr != null && bmr.isNotEmpty) {
-        data["bmr"] = bmr;
-      }
-      final response = await api.post(
-        "mbody",
-        data: data,
-      );
-      emit(InBodySuccess());
-      print(response);
-    } on ServerException catch (e) {
-      emit(InBodyFailure(errMessage: e.errModel.errorMessage));
-    }
-  }
-
   sendCode({required String email}) async {
     try {
       emit(SendCodeLoading());
@@ -179,8 +136,12 @@ class UserCubit extends Cubit<UserState> {
           "resetCode": code,
         },
       );
+      user = SignInModel.fromJson(response);
+      final decodedToken = JwtDecoder.decode(user!.token);
+      CacheHelper().saveData(key: ApiKey.token, value: user!.token);
+      CacheHelper()
+          .saveData(key: ApiKey.userId, value: decodedToken[ApiKey.userId]);
       emit(VerifyCodeSuccess());
-      print(response);
     } on ServerException catch (e) {
       emit(VerifyCodeFailure(errMessage: e.errModel.errorMessage));
     }
@@ -264,6 +225,54 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
+  inBody({
+    required String gender,
+    required String userId,
+    required String height,
+    required String weight,
+    required String age,
+    String? fat,
+    String? muscle,
+    String? water,
+    String? bmr,
+  }) async {
+    try {
+      emit(InBodyLoading());
+      var data = <String, String>{
+        "gender": gender,
+        "height": height,
+        "weight": weight,
+        "age": age,
+        "userId": userId,
+      };
+
+      // Add values to the map only if they are not null and not empty
+      if (fat != null && fat.isNotEmpty) {
+        data["fat"] = fat;
+      }
+      if (muscle != null && muscle.isNotEmpty) {
+        data["muscle"] = muscle;
+      }
+      if (water != null && water.isNotEmpty) {
+        data["water"] = water;
+      }
+      if (bmr != null && bmr.isNotEmpty) {
+        data["bmr"] = bmr;
+      }
+      final response = await api.post(
+        "mbody",
+        data: data,
+      );
+      final getId = GetIdData.fromJson(response);
+      CacheHelper().saveData(key: ApiKey.mBodyId, value: getId.id);
+      print(getId.id);
+
+      emit(InBodySuccess());
+    } on ServerException catch (e) {
+      emit(InBodyFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
   updataData({
     String? name,
     String? email,
@@ -291,6 +300,26 @@ class UserCubit extends Cubit<UserState> {
       print(response);
     } on ServerException catch (e) {
       emit(UpdataDataFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+
+  mBodyData() async {
+    emit(MBodyDataLoading());
+    try {
+      final response = await api.get(
+        EndPoint.getMbodyId(
+          CacheHelper().getData(key: ApiKey.mBodyId),
+        ),
+      );
+      final getData = BodyDataModel.fromJson(response);
+
+      CacheHelper().saveData(key: ApiKey.age, value: getData.age);
+      CacheHelper().saveData(key: ApiKey.weight, value: getData.weight);
+      CacheHelper().saveData(key: ApiKey.height, value: getData.height);
+      print("${getData.age} ${getData.weight} ${getData.height}");
+      emit(MBodyDataSucess());
+    } on ServerException catch (e) {
+      emit(MBodyDataFailure(errMessage: e.errModel.errorMessage));
     }
   }
 }
