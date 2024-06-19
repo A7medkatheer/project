@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../constant/constant.dart';
 
 class DryingLevels extends StatelessWidget {
-  final int initialIndex;
 
-  const DryingLevels({super.key, this.initialIndex = 0});
+  const DryingLevels({super.key,  required this.initialIndex });
+  final int initialIndex;
 
   @override
   Widget build(BuildContext context) {

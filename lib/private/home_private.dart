@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/cache/cache_helper.dart';
+import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:flutter_application_1/private/food_bulking/bulking_and_drying_level_2.dart';
 // import 'package:ui_screens/private/food_bulking/bulking_and_drying_level_2.dart';
 
@@ -11,9 +13,9 @@ import 'food_bulking/bulking_and_drying_level_1.dart';
 
 class HomePrivate extends StatelessWidget {
   const HomePrivate({super.key});
-
   @override
   Widget build(BuildContext context) {
+final index = CacheHelper().getData(key: ApiKey.index);
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -263,7 +265,7 @@ class HomePrivate extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DryingLevels()),
+                          builder: (context) =>  DryingLevels(initialIndex: index,)),
                     );
                   },
                   child:
@@ -277,7 +279,7 @@ class HomePrivate extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              const HealthyRecipesBulkingUp1()),
+                               HealthyRecipesBulkingUp1(initialIndex:index,)),
                     );
                   },
                   child: Image.asset(

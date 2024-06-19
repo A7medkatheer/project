@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/home.dart';
+import 'package:flutter_application_1/pages/cache/cache_helper.dart';
+import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 
 class WorkoutCategory extends StatefulWidget {
   const WorkoutCategory({super.key});
@@ -11,7 +13,7 @@ class WorkoutCategory extends StatefulWidget {
 }
 
 class _GenderSelectionState extends State<WorkoutCategory> {
-  late int level;
+  late int index;
   bool isBeginner = false;
   bool isIntermediate = false;
   bool isAdvance = false;
@@ -47,13 +49,12 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      int level = 1;
+                      index = 0;
+                      CacheHelper().saveData(key: ApiKey.index, value: index);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(
-                            index: level,
-                          ),
+                          builder: (context) => const HomeScreen(),
                         ),
                       );
                     },
@@ -80,15 +81,15 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      int level = 2;
+                      index = 1;
+                      CacheHelper().saveData(key: ApiKey.index, value: index);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(
-                            index: level,
-                          ),
+                          builder: (context) => const HomeScreen(),
                         ),
                       );
+                      print(index);
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
@@ -113,13 +114,12 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      int level = 3;
+                      index = 2;
+                      CacheHelper().saveData(key: ApiKey.index, value: index);
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => HomeScreen(
-                            index: level,
-                          ),
+                          builder: (context) => const HomeScreen(),
                         ),
                       );
                     },

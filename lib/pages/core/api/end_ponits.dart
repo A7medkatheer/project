@@ -23,6 +23,7 @@ class EndPoint {
 }
 
 class ApiKey {
+  static String index = "index";
   static String mBodyId = "mBodyId";
   static String error = "errors";
   static String age = "age";

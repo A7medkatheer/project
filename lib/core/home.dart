@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/cache/cache_helper.dart';
+import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 
 import '../Drying/drying_levels.dart';
 import '../Top_sources/Top_Sources.dart';
@@ -13,10 +15,11 @@ import 'nutrition_guide_see_all.dart';
 import 'training_programs_see_all.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key, this.index});
-  final int? index;
+  const HomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final int  index = CacheHelper().getData(key: ApiKey.index);
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -185,7 +188,7 @@ class HomeScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => DryingLevels(
-                              initialIndex: index ?? 1,
+                              initialIndex: index,
                             )),
                   );
                 },
@@ -228,7 +231,7 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const DryingLevels()),
+                          builder: (context) =>  DryingLevels(initialIndex: index,)),
                     );
                   },
                   child: Image.asset('assets/assets/images/Dietart.jpg')),
@@ -241,7 +244,7 @@ class HomeScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              const HealthyRecipesBulkingUp1()),
+                               HealthyRecipesBulkingUp1(initialIndex: index,)),
                     );
                   },
                   child: Image.asset('assets/assets/images/Nutritional.jpg')),

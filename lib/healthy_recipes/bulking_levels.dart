@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import '../constant/constant.dart';
 
 class HealthyRecipesBulkingUp1 extends StatelessWidget {
-  const HealthyRecipesBulkingUp1({super.key});
+  const HealthyRecipesBulkingUp1({super.key, required this.initialIndex});
+  final int initialIndex;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
+      initialIndex: initialIndex > 1 ? 1 : 0,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black,
