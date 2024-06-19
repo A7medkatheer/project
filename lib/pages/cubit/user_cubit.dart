@@ -3,6 +3,7 @@
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/api_consumer.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
+import 'package:flutter_application_1/pages/core/errors/error_model.dart';
 import 'package:flutter_application_1/pages/core/errors/exceptions.dart';
 import 'package:flutter_application_1/pages/core/functions/upload_image_to_api.dart';
 import 'package:flutter_application_1/pages/core/models/sign_in_model.dart';
@@ -105,19 +106,30 @@ class UserCubit extends Cubit<UserState> {
   }) async {
     try {
       emit(InBodyLoading());
+      var data = <String, String>{
+        "gender": gender,
+        "height": height,
+        "weight": weight,
+        "age": age,
+        "userId": userId,
+      };
+
+      // Add values to the map only if they are not null and not empty
+      if (fat != null && fat.isNotEmpty) {
+        data["fat"] = fat;
+      }
+      if (muscle != null && muscle.isNotEmpty) {
+        data["muscle"] = muscle;
+      }
+      if (water != null && water.isNotEmpty) {
+        data["water"] = water;
+      }
+      if (bmr != null && bmr.isNotEmpty) {
+        data["bmr"] = bmr;
+      }
       final response = await api.post(
         "mbody",
-        data: {
-          "gender": gender,
-          "height": height,
-          "weight": weight,
-          "age": age,
-          "fat": fat,
-          "muscle": muscle,
-          "water": water,
-          "bmr": bmr,
-          "userId": userId,
-        },
+        data: data,
       );
       emit(InBodySuccess());
       print(response);
@@ -240,7 +252,7 @@ class UserCubit extends Cubit<UserState> {
         ),
       );
       final getData = UserModel.fromJson(response);
-      
+
       CacheHelper().saveData(key: ApiKey.name, value: getData.name);
       CacheHelper().saveData(key: ApiKey.email, value: getData.email);
       CacheHelper().saveData(key: ApiKey.profilePic, value: getData.profilePic);

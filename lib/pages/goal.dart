@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/height.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
 
-
 class Goal extends StatefulWidget {
   const Goal({super.key});
 
@@ -81,10 +80,7 @@ class _AgePickerState extends State<Goal> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  HeightPicker()),
-                    );
+                    Navigator.pop(context);
                   },
                   child: const Icon(
                     Icons.arrow_circle_left_outlined,
@@ -103,7 +99,8 @@ class _AgePickerState extends State<Goal> {
                     backgroundColor:
                         MaterialStateProperty.all(const Color(0xffD0FD3E)),
                     padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(horizontal: 25, vertical: 10)),
+                        const EdgeInsets.symmetric(
+                            horizontal: 25, vertical: 10)),
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(27))),
                   ),

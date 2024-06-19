@@ -137,7 +137,15 @@ class _PinputExampleState extends State<Verification> {
                   height: 220,
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    widget.type == "forgetPasswordSendCode"
+                        ? context
+                            .read<UserCubit>()
+                            .sendForgetPasswordCode(email: widget.email)
+                        : context
+                            .read<UserCubit>()
+                            .sendCode(email: widget.email);
+                  },
                   child: const Text(
                     'Did you receive any code?',
                     style: TextStyle(color: Color(0xffD0FD3E)),

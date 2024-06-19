@@ -4,7 +4,9 @@ import 'age.dart';
 import 'height.dart';
 
 class Weight extends StatefulWidget {
-  const Weight({super.key});
+  final String age;
+  final String gender;
+  const Weight({super.key, required this.age, required this.gender});
 
   @override
   _HeightPickerState createState() => _HeightPickerState();
@@ -48,7 +50,7 @@ class _HeightPickerState extends State<Weight> {
                 children: List.generate(
                   100, // Number of heights to display
                   (index) {
-                    final Weight = 150 + index; // Starting from 150 cm
+                    final Weight = 50 + index; // Starting from 150 cm
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -87,7 +89,7 @@ class _HeightPickerState extends State<Weight> {
                 ),
                 onSelectedItemChanged: (index) {
                   setState(() {
-                    selectedWeight = 150 + index; // Starting from 150 cm
+                    selectedWeight = 50 + index; // Starting from 150 cm
                   });
                 },
               ),
@@ -101,10 +103,7 @@ class _HeightPickerState extends State<Weight> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Age()),
-                    );
+                    Navigator.pop(context);
                   },
                   child: const Icon(
                     Icons.arrow_circle_left_outlined,
@@ -127,10 +126,17 @@ class _HeightPickerState extends State<Weight> {
                   ),
                   child: GestureDetector(
                     onTap: () {
+                      print(
+                          'Gender: ${widget.gender},\n Age: ${widget.age},\n Weight: $selectedWeight ');
+
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const HeightPicker()),
+                            builder: (context) => HeightPicker(
+                                  gender: widget.gender,
+                                  weight: selectedWeight.toString(),
+                                  age: widget.age,
+                                )),
                       );
                     },
                     child: const Text(

@@ -42,7 +42,8 @@ class Login extends StatelessWidget {
                         // );
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => ProfilePage()),
+                          MaterialPageRoute(
+                              builder: (context) => ProfilePage()),
                         );
                         // Navigator.push(
                         //   context,
@@ -138,6 +139,7 @@ class Login extends StatelessWidget {
                                                 TextPosition(
                                                     offset: signInEmail
                                                         .text.length));
+                                                      
                                       },
                                       validator: (textValue) {
                                         if (textValue == null ||
@@ -169,6 +171,7 @@ class Login extends StatelessWidget {
                                         Icons.lock,
                                         color: Color(0xffD0FD3E),
                                         size: 19,
+
                                       ),
                                       hintText: " Password :",
                                       hintStyle: TextStyle(color: Colors.white),
@@ -179,6 +182,8 @@ class Login extends StatelessWidget {
                                       if (textValue == null ||
                                           textValue.isEmpty) {
                                         return 'required!';
+                                      } else if (textValue.length < 6) {
+                                        return 'password is too short';
                                       }
                                       return null;
                                     },

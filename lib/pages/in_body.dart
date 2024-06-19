@@ -160,6 +160,7 @@ class _MyWidgetState extends State<InBody> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 26),
                               child: TextFormField(
+                                keyboardType: TextInputType.number,
                                 decoration: const InputDecoration(
                                     hintText: "Enter your Age ",
                                     hintStyle: TextStyle(color: Colors.black38),

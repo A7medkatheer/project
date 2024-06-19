@@ -1,12 +1,22 @@
 // ignore_for_file: library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/workout_category.dart';
+import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'in_body.dart';
 import 'weight.dart';
 
 class HeightPicker extends StatefulWidget {
-  const HeightPicker({super.key});
+  final String gender;
+  final String weight;
+  final String age;
+  const HeightPicker(
+      {super.key,
+      required this.gender,
+      required this.weight,
+      required this.age});
 
   @override
   _HeightPickerState createState() => _HeightPickerState();
@@ -91,10 +101,7 @@ class _HeightPickerState extends State<HeightPicker> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Weight()),
-                    );
+                    Navigator.pop(context);
                   },
                   child: const Icon(
                     Icons.arrow_circle_left_outlined,
@@ -115,17 +122,44 @@ class _HeightPickerState extends State<HeightPicker> {
                     shape: WidgetStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(27))),
                   ),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const InBody()),
-                      );
+                  child: BlocConsumer<UserCubit, UserState>(
+                    listener: (context, state) {
+                      if (state is InBodyFailure) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(state.errMessage),
+                          ),
+                        );
+                      } else if (state is InBodySuccess) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const WorkoutCategory(),
+                          ),
+                        );
+                      }
                     },
-                    child: const Text(
-                      " Next > ",
-                      style: TextStyle(fontSize: 24, color: Colors.black),
-                    ),
+                    builder: (context, state) {
+                      return state is InBodyLoading
+                          ? const CircularProgressIndicator()
+                          : GestureDetector(
+                              onTap: () {
+                                print(
+                                    'Gender: ${widget.gender},\n Age: ${widget.age},\n Weight: ${widget.weight}, \n Height: $selectedHeight');
+                                context.read<UserCubit>().inBody(
+                                    gender: widget.gender,
+                                    userId: userId,
+                                    height: selectedHeight.toString(),
+                                    weight: widget.weight,
+                                    age: widget.age);
+                              },
+                              child: const Text(
+                                " Next > ",
+                                style: TextStyle(
+                                    fontSize: 24, color: Colors.black),
+                              ),
+                            );
+                    },
                   ),
                 ),
               ],

@@ -6,7 +6,8 @@ import 'gender.dart';
 import 'weight.dart';
 
 class Age extends StatefulWidget {
-  const Age({super.key});
+  final String gender;
+  const Age({super.key, required this.gender});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -95,7 +96,7 @@ class _AgePickerState extends State<Age> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const GenderSelection()),
+                          builder: (context) => GenderSelection()),
                     );
                   },
                   child: const Icon(
@@ -122,9 +123,15 @@ class _AgePickerState extends State<Age> {
                   ),
                   child: GestureDetector(
                     onTap: () {
+                      print('Gender: ${widget.gender},\n Age: $selectedAge');
+
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const Weight()),
+                        MaterialPageRoute(
+                            builder: (context) => Weight(
+                                  age: selectedAge.toString(),
+                                  gender: widget.gender,
+                                )),
                       );
                     },
                     child: const Text(

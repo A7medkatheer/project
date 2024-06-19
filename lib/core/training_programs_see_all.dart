@@ -75,11 +75,19 @@ class TrainingPrograms extends StatelessWidget {
                 'Exercises(Push - Pull -Legs system)',
                 style: TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
               ),
-              Image.asset(
-                'assets/assets/images/push_pull_legs_system.png',
-                fit: BoxFit.cover,
-                width: 382,
-                height: 237,
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const TrainingPrograms()),
+                  );
+                },
+                child: Image.asset(
+                  'assets/assets/images/push_pull_legs_system.png',
+                  fit: BoxFit.cover,
+                  width: 382,
+                  height: 237,
+                ),
               ),
             ],
           ),

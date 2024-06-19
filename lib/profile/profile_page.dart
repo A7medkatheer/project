@@ -114,7 +114,18 @@ class _ProfilePageState extends State<ProfilePage> {
             context.read<UserCubit>().getUser();
             nameController.clear();
             emailController.clear();
-          } else {}
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Profile Pic Uploaded"),
+              ),
+            );
+          } else if (state is UploadProfilePicSucess) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text("Profile Pic Uploaded"),
+              ),
+            );
+          }
         },
         builder: (context, state) {
           var image = CacheHelper().getData(key: ApiKey.profilePic);

@@ -12,9 +12,9 @@ class Welcome extends StatefulWidget {
 }
 
 class _IntroductionState extends State<Welcome> {
-  final double weight = 65; 
-  final double height = 177; 
-  final int age = 22; 
+  final double weight = 65;
+  final double height = 177;
+  final int age = 22;
   final String activityLevel = 'moderately active'; // Activity level
 
   double calculateBMR() {
@@ -48,15 +48,15 @@ class _IntroductionState extends State<Welcome> {
                 padding: const EdgeInsets.all(12.0),
                 child: Row(
                   children: [
-                    CircleAvatar(
-                      backgroundColor: const Color(0xffD0FD3E),
+                    const CircleAvatar(
+                      backgroundColor: Color(0xffD0FD3E),
                       radius: 30,
                       child: CircleAvatar(
                         backgroundColor: Colors.white,
                         radius: 28,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Column(
@@ -68,7 +68,7 @@ class _IntroductionState extends State<Welcome> {
                               color: Colors.white.withOpacity(0.7),
                               fontSize: 18),
                         ),
-                        Text(
+                        const Text(
                           'Said Ahmed ',
                           style: TextStyle(color: Colors.white, fontSize: 22),
                         ),
@@ -78,18 +78,18 @@ class _IntroductionState extends State<Welcome> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               'Welcome, This App Recommends Your Body \nBulking Up To Gain Weight',
               textAlign: TextAlign.center,
               style: TextStyle(color: Color(0xffD0FD3E), fontSize: 19),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InfoCard(label: 'Height', value: '177 cm'),
@@ -97,20 +97,20 @@ class _IntroductionState extends State<Welcome> {
                 InfoCard(label: 'Age', value: '22 years'),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Container(
               decoration: BoxDecoration(
-                color: Color(0xff4D4D4D),
+                color: const Color(0xff4D4D4D),
                 borderRadius: BorderRadius.circular(15),
               ),
               width: 370,
               height: 252,
               child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
+                  const Padding(
+                    padding: EdgeInsets.all(12.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -134,7 +134,7 @@ class _IntroductionState extends State<Welcome> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Padding(
@@ -143,15 +143,15 @@ class _IntroductionState extends State<Welcome> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xff4D4D4D),
+                      color: const Color(0xff4D4D4D),
                       borderRadius: BorderRadius.circular(15),
                     ),
                     width: 280,
                     height: 238,
-                    child: Column(
+                    child: const Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Row(
                             children: [
                               ProgressIndicatorWithLabel(
@@ -163,7 +163,7 @@ class _IntroductionState extends State<Welcome> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Row(
                             children: [
                               ProgressIndicatorWithLabel(
@@ -175,7 +175,7 @@ class _IntroductionState extends State<Welcome> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(12.0),
+                          padding: EdgeInsets.all(12.0),
                           child: Row(
                             children: [
                               ProgressIndicatorWithLabel(
@@ -192,7 +192,7 @@ class _IntroductionState extends State<Welcome> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -200,6 +200,12 @@ class _IntroductionState extends State<Welcome> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0),
                   child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xffD0FD3E),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    width: 174,
+                    height: 63,
                     child: Padding(
                       padding: const EdgeInsets.all(14.0),
                       child: GestureDetector(
@@ -207,26 +213,26 @@ class _IntroductionState extends State<Welcome> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomeScreen()),
+                                builder: (context) => const HomeScreen()),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           'Go to system',
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
                     ),
-                    decoration: BoxDecoration(
-                      color: Color(0xffD0FD3E),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    width: 174,
-                    height: 63,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0),
                   child: Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xffD0FD3E),
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    width: 174,
+                    height: 63,
                     child: Padding(
                       padding: const EdgeInsets.all(14.0),
                       child: GestureDetector(
@@ -234,21 +240,15 @@ class _IntroductionState extends State<Welcome> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => HomePrivate()),
+                                builder: (context) => const HomePrivate()),
                           );
                         },
-                        child: Text(
+                        child: const Text(
                           'Home Private',
                           style: TextStyle(fontSize: 20),
                         ),
                       ),
                     ),
-                    decoration: BoxDecoration(
-                      color: Color(0xffD0FD3E),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    width: 174,
-                    height: 63,
                   ),
                 ),
               ],
@@ -264,13 +264,13 @@ class InfoCard extends StatelessWidget {
   final String label;
   final String value;
 
-  InfoCard({required this.label, required this.value});
+  const InfoCard({super.key, required this.label, required this.value});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Color(0xff4D4D4D),
+        color: const Color(0xff4D4D4D),
         borderRadius: BorderRadius.circular(15),
       ),
       width: 100,
@@ -282,7 +282,7 @@ class InfoCard extends StatelessWidget {
           children: [
             Text(
               value,
-              style: TextStyle(color: Colors.white, fontSize: 15),
+              style: const TextStyle(color: Colors.white, fontSize: 15),
             ),
             Text(
               label,
@@ -299,11 +299,11 @@ class InfoCard extends StatelessWidget {
 class CaloriesWidget extends StatelessWidget {
   final double calories;
 
-  CaloriesWidget({required this.calories});
+  const CaloriesWidget({super.key, required this.calories});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 200,
       height: 230,
       child: Stack(
@@ -313,19 +313,19 @@ class CaloriesWidget extends StatelessWidget {
             value: calories / 3000,
             strokeWidth: 10,
             backgroundColor: Colors.grey,
-            valueColor: AlwaysStoppedAnimation<Color>(Color(0xffD0FD3E)),
+            valueColor: const AlwaysStoppedAnimation<Color>(Color(0xffD0FD3E)),
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
                 '${calories.toInt()}',
-                style: TextStyle(fontSize: 30, color: Color(0xffD0FD3E)),
+                style: const TextStyle(fontSize: 30, color: Color(0xffD0FD3E)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
-              Text(
+              const Text(
                 'KCal',
                 style: TextStyle(fontSize: 20, color: Color(0xffD0FD3E)),
               ),
@@ -342,7 +342,8 @@ class ProgressIndicatorWithLabel extends StatelessWidget {
   final Color color;
   final String label;
 
-  ProgressIndicatorWithLabel({
+  const ProgressIndicatorWithLabel({
+    super.key,
     required this.percentage,
     required this.color,
     required this.label,
@@ -367,14 +368,14 @@ class ProgressIndicatorWithLabel extends StatelessWidget {
             ),
             Text(
               '${percentage.toInt()}%',
-              style: TextStyle(color: Colors.white, fontSize: 12),
+              style: const TextStyle(color: Colors.white, fontSize: 12),
             ),
           ],
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Text(
           label,
-          style: TextStyle(color: Colors.white, fontSize: 18),
+          style: const TextStyle(color: Colors.white, fontSize: 18),
         ),
       ],
     );

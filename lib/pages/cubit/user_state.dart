@@ -83,6 +83,7 @@ final class ResetPasswordFailure extends UserState {
 
   ResetPasswordFailure({required this.errMessage});
 }
+
 final class PasswordSucess extends UserState {}
 
 final class PasswordLoading extends UserState {}
@@ -91,13 +92,14 @@ final class PasswordFailure extends UserState {
   final String errMessage;
 
   PasswordFailure({required this.errMessage});
-
-  
 }
 
 final class UploadProfilePic extends UserState {}
+
 final class UploadProfilePicLoading extends UserState {}
+
 final class UploadProfilePicSucess extends UserState {}
+
 final class UploadProfilePicFailure extends UserState {
   final String errMessage;
 
@@ -105,16 +107,19 @@ final class UploadProfilePicFailure extends UserState {
 }
 
 final class GetUserLoading extends UserState {}
-final class GetUserSucess extends UserState {
 
-}
+final class GetUserSucess extends UserState {}
+
 final class GetUserFailure extends UserState {
   final String errMessage;
 
   GetUserFailure({required this.errMessage});
 }
+
 final class UpdataDataLoading extends UserState {}
+
 final class UpdataDataSucess extends UserState {}
+
 final class UpdataDataFailure extends UserState {
   final String errMessage;
 
