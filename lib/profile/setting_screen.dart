@@ -92,9 +92,10 @@ class SettingScreen extends StatelessWidget {
               text: 'Report a problem',
             ),
             ProfileItem(
-              onTap: () async {
-                CacheHelper cacheHelper = CacheHelper();
-                await cacheHelper.clearData();
+              onTap: () {
+                // CacheHelper cacheHelper = CacheHelper();
+                // cacheHelper.clearData();
+
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const Splash()),

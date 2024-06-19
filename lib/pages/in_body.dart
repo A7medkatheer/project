@@ -66,6 +66,8 @@ class _MyWidgetState extends State<InBody> {
                 MaterialPageRoute(
                     builder: (context) => const WorkoutCategory()),
               );
+              context.read<UserCubit>().mBodyData();
+              context.read<UserCubit>().getUser();
             } else if (state is InBodyFailure) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
@@ -425,12 +427,6 @@ class _MyWidgetState extends State<InBody> {
                                     ? const CircularProgressIndicator()
                                     : GestureDetector(
                                         onTap: () {
-                                          // Navigator.push(
-                                          //   context,
-                                          //   MaterialPageRoute(
-                                          //       builder: (context) =>
-                                          //           const HomeScreen()),
-                                          // );
                                           context.read<UserCubit>().inBody(
                                               gender: selectedGender,
                                               userId: userId,

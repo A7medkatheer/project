@@ -29,13 +29,13 @@ class Login extends StatelessWidget {
               Center(
                 child: SingleChildScrollView(
                   child: BlocConsumer<UserCubit, UserState>(
-                    listener: (context, state) {
+                    listener: (context, state) async {
                       if (state is SignInSuccess) {
-                        context.read<UserCubit>().getUser();
-                        context.read<UserCubit>().mBodyData();
+                        await context.read<UserCubit>().getUser();
+                        await context.read<UserCubit>().mBodyData();
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Welcome()),
+                          MaterialPageRoute(builder: (context) => InBody()),
                         );
                       } else if (state is SignInFailure) {
                         ScaffoldMessenger.of(context).showSnackBar(

@@ -15,7 +15,7 @@ class HomePrivate extends StatelessWidget {
   const HomePrivate({super.key});
   @override
   Widget build(BuildContext context) {
-final index = CacheHelper().getData(key: ApiKey.index);
+    final index = CacheHelper().getData(key: ApiKey.index) ?? 0;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -265,7 +265,9 @@ final index = CacheHelper().getData(key: ApiKey.index);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>  DryingLevels(initialIndex: index,)),
+                          builder: (context) => DryingLevels(
+                                initialIndex: index,
+                              )),
                     );
                   },
                   child:
@@ -278,8 +280,9 @@ final index = CacheHelper().getData(key: ApiKey.index);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                               HealthyRecipesBulkingUp1(initialIndex:index,)),
+                          builder: (context) => HealthyRecipesBulkingUp1(
+                                initialIndex: index,
+                              )),
                     );
                   },
                   child: Image.asset(

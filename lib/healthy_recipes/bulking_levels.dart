@@ -10,7 +10,7 @@ class HealthyRecipesBulkingUp1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      initialIndex: initialIndex > 1 ? 1 : 0,
+      initialIndex: initialIndex >= 1 ? 1 : 0,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black,

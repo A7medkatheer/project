@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final int  index = CacheHelper().getData(key: ApiKey.index);
+    final int index = CacheHelper().getData(key: ApiKey.index) ?? 0;
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -231,7 +231,9 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>  DryingLevels(initialIndex: index,)),
+                          builder: (context) => DryingLevels(
+                                initialIndex: index,
+                              )),
                     );
                   },
                   child: Image.asset('assets/assets/images/Dietart.jpg')),
@@ -243,8 +245,9 @@ class HomeScreen extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                               HealthyRecipesBulkingUp1(initialIndex: index,)),
+                          builder: (context) => HealthyRecipesBulkingUp1(
+                                initialIndex: index,
+                              )),
                     );
                   },
                   child: Image.asset('assets/assets/images/Nutritional.jpg')),
