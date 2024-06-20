@@ -3,14 +3,14 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewApp extends StatefulWidget {
   const WebViewApp({super.key, required this.urlPath});
-final String urlPath;
+  final String urlPath;
   @override
   State<WebViewApp> createState() => _WebViewAppState();
 }
 
 class _WebViewAppState extends State<WebViewApp> {
   late final WebViewController controller;
- late String url = widget.urlPath;
+  late String url = widget.urlPath;
 
   @override
   void initState() {
@@ -34,7 +34,7 @@ class _WebViewAppState extends State<WebViewApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter WebView'),
+        title: const Text('Payment'),
       ),
       body: WebViewWidget(
         controller: controller,

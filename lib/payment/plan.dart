@@ -16,16 +16,14 @@ class Plan extends StatelessWidget {
       body: BlocConsumer<UserCubit, UserState>(
         listener: (context, state) {
           if (state is PaymentSucess) {
-              final paymentUrl = state.paymentUrl;
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Payment Success'),
-                backgroundColor: Colors.green,
-              ),
-            );
+            final paymentUrl = state.paymentUrl;
+           
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) =>  WebViewApp(urlPath:paymentUrl,)),
+              MaterialPageRoute(
+                  builder: (context) => WebViewApp(
+                        urlPath: paymentUrl,
+                      )),
             );
           } else if (state is PaymentFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -37,71 +35,76 @@ class Plan extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.only(top: 10, left: 25),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const TrainingPrograms()),
-                      );
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        'assets/assets/images/GymTipc.png',
-                        height: 445,
-                      ),
+          return state is PaymentLoading
+              ? Container(
+                  color: Colors.white,
+                  child: const Center(child: CircularProgressIndicator()))
+              : Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 25),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const SizedBox(
+                          height: 60,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const TrainingPrograms()),
+                            );
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              'assets/assets/images/GymTipc.png',
+                              height: 445,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            context
+                                .read<UserCubit>()
+                                .payment(price: "100", plane: "3 Months");
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              'assets/assets/images/feeding.png',
+                              height: 445,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            context
+                                .read<UserCubit>()
+                                .payment(price: "300", plane: "12 Months");
+                          },
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: Image.asset(
+                              'assets/assets/images/feeding&exercise.png',
+                              height: 445,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 300,
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      context
-                          .read<UserCubit>()
-                          .payment(price: "100", plane: "3 Months");
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        'assets/assets/images/feeding.png',
-                        height: 445,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 30,
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      context
-                          .read<UserCubit>()
-                          .payment(price: "300", plane: "12 Months");
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.asset(
-                        'assets/assets/images/feeding&exercise.png',
-                        height: 445,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 300,
-                  ),
-                ],
-              ),
-            ),
-          );
+                );
         },
       ),
     );
