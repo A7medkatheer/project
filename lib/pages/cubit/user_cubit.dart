@@ -309,7 +309,7 @@ class UserCubit extends Cubit<UserState> {
     try {
       final response = await api.get(
         EndPoint.getMbodyId(
-          CacheHelper().getData(key: ApiKey.mBodyId),
+          CacheHelper().getData(key: ApiKey.userId),
         ),
       );
       final getData = BodyDataModel.fromJson(response);
@@ -324,9 +324,9 @@ class UserCubit extends Cubit<UserState> {
     }
   }
 
-  payment({required String price,
-  required String plane,
-  
+  payment({
+    required String price,
+    required String plane,
   }) async {
     try {
       emit(PaymentLoading());
@@ -334,16 +334,14 @@ class UserCubit extends Cubit<UserState> {
         EndPoint.payment(CacheHelper().getData(key: ApiKey.userId)),
         data: {
           "price": price,
-          "plane":plane,
+          "plane": plane,
         },
       );
       final getPayment = PaymentModel.fromJson(response);
       print(getPayment.paymentUrl);
-emit(PaymentSucess(paymentUrl: getPayment.paymentUrl));
+      emit(PaymentSucess(paymentUrl: getPayment.paymentUrl));
     } on ServerException catch (e) {
       emit(PaymentFailure(errMessage: e.errModel.errorMessage));
     }
   }
-  
-
 }

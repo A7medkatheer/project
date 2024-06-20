@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
+import 'package:flutter_application_1/pages/welcome.dart';
 
 class WorkoutCategory extends StatefulWidget {
   const WorkoutCategory({super.key});
@@ -54,7 +55,7 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const Welcome(),
                         ),
                       );
                     },
@@ -86,7 +87,7 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const Welcome(),
                         ),
                       );
                       print(index);
@@ -119,7 +120,7 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
+                          builder: (context) => const Welcome(),
                         ),
                       );
                     },

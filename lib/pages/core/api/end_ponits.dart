@@ -15,7 +15,7 @@ class EndPoint {
   }
 
   static String getMbodyId(id) {
-    return "mbody/$id";
+    return "user/$id/mbody";
   }
 
   static String changePassword(id) {

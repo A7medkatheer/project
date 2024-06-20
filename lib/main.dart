@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Drying/drying_levels.dart';
+import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/core/training_programs_see_all.dart';
 import 'package:flutter_application_1/core/workout_category.dart';
 import 'package:flutter_application_1/guide/armor_guide.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splash(),
+      home: InBody(),
     );
   }
 }
