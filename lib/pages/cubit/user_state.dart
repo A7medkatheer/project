@@ -115,7 +115,8 @@ final class GetUserFailure extends UserState {
 
   GetUserFailure({required this.errMessage});
 }
-final class MBodyDataLoading   extends UserState {}
+
+final class MBodyDataLoading extends UserState {}
 
 final class MBodyDataSucess extends UserState {}
 
@@ -123,6 +124,20 @@ final class MBodyDataFailure extends UserState {
   final String errMessage;
 
   MBodyDataFailure({required this.errMessage});
+}
+
+final class PaymentLoading extends UserState {}
+
+final class PaymentSucess extends UserState {
+  final String paymentUrl;
+
+  PaymentSucess({required this.paymentUrl});
+}
+
+final class PaymentFailure extends UserState {
+  final String errMessage;
+
+  PaymentFailure({required this.errMessage});
 }
 
 final class UpdataDataLoading extends UserState {}

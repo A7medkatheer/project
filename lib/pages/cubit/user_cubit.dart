@@ -7,6 +7,7 @@ import 'package:flutter_application_1/pages/core/errors/error_model.dart';
 import 'package:flutter_application_1/pages/core/errors/exceptions.dart';
 import 'package:flutter_application_1/pages/core/functions/upload_image_to_api.dart';
 import 'package:flutter_application_1/pages/core/models/get_mbody_model.dart';
+import 'package:flutter_application_1/pages/core/models/paymeny_model.dart';
 import 'package:flutter_application_1/pages/core/models/sign_in_model.dart';
 import 'package:flutter_application_1/pages/core/models/sign_up_model.dart';
 import 'package:flutter_application_1/pages/core/models/user_model.dart';
@@ -322,4 +323,27 @@ class UserCubit extends Cubit<UserState> {
       emit(MBodyDataFailure(errMessage: e.errModel.errorMessage));
     }
   }
+
+  payment({required String price,
+  required String plane,
+  
+  }) async {
+    try {
+      emit(PaymentLoading());
+      final response = await api.post(
+        EndPoint.payment(CacheHelper().getData(key: ApiKey.userId)),
+        data: {
+          "price": price,
+          "plane":plane,
+        },
+      );
+      final getPayment = PaymentModel.fromJson(response);
+      print(getPayment.paymentUrl);
+emit(PaymentSucess(paymentUrl: getPayment.paymentUrl));
+    } on ServerException catch (e) {
+      emit(PaymentFailure(errMessage: e.errModel.errorMessage));
+    }
+  }
+  
+
 }

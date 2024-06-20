@@ -1,3 +1,4 @@
+import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CacheHelper {
@@ -50,7 +51,14 @@ class CacheHelper {
   Future<bool> clearData() async {
     return await sharedPreferences.clear();
   }
-
+void signOut() {
+    CacheHelper().removeData(key: ApiKey.token);
+    CacheHelper().removeData(key: ApiKey.userId);
+    CacheHelper().removeData(key: ApiKey.name);
+    CacheHelper().removeData(key: ApiKey.email);
+    CacheHelper().removeData(key: ApiKey.profilePic);
+  
+}
 //! this fun to put data in local data base using key
   Future<dynamic> put({
     required String key,

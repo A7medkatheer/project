@@ -13,6 +13,8 @@ import 'package:flutter_application_1/pages/core/login.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/pages/gender.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
+import 'package:flutter_application_1/payment/payment_card.dart';
+import 'package:flutter_application_1/payment/payment_resend_code.dart';
 import 'package:flutter_application_1/profile/profile_page.dart';
 import 'package:flutter_application_1/profile/setting_screen.dart';
 // import 'package:flutter_application_1/pages/in_body.dart';
@@ -20,6 +22,7 @@ import 'package:flutter_application_1/profile/setting_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'pages/welcome.dart';
+import 'payment/plan.dart';
 
 // import 'profile/pirvacy_policy.dart';
 // import 'profile/profile_page.dart';
@@ -42,7 +45,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Welcome(),
+      home: Plan(),
     );
   }
 }

@@ -13,12 +13,17 @@ class EndPoint {
   static String getUserData(id) {
     return "user/$id";
   }
+
   static String getMbodyId(id) {
     return "mbody/$id";
   }
 
   static String changePassword(id) {
     return "user/changePassword/$id";
+  }
+
+  static String payment(id) {
+    return "user/payment/$id";
   }
 }
 
