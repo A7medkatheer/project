@@ -131,6 +131,7 @@ class _HeightPickerState extends State<HeightPicker> {
                           ),
                         );
                       } else if (state is InBodySuccess) {
+                        context.read<UserCubit>().mBodyData();
                         Navigator.push(
                           context,
                           MaterialPageRoute(

@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../constant/constant.dart';
 import '../TargetPage/custom_target_page.dart';
 
-class BeginnerIncreaseWightBackDay4 extends StatelessWidget {
-  const BeginnerIncreaseWightBackDay4({super.key});
+class BeginnerDryingDay4 extends StatelessWidget {
+  const BeginnerDryingDay4({super.key});
 
   Widget _exerciseContainer(BuildContext context, String title, String subTitle,
       String imagePath, String Gifimage) {
@@ -24,8 +24,8 @@ class BeginnerIncreaseWightBackDay4 extends StatelessWidget {
         );
       },
       child: Container(
-        height: 120,
-        width: 382,
+        height: 130,
+        width: 392,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: const Color.fromARGB(255, 83, 76, 76),

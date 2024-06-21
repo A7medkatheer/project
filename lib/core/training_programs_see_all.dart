@@ -5,6 +5,7 @@ import 'package:flutter_application_1/loss_weight/loss_wight_level_one.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 
+import '../levels/Beginner/beginner_screen.dart';
 import 'home.dart';
 
 class TrainingPrograms extends StatelessWidget {
@@ -59,7 +60,7 @@ class TrainingPrograms extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            DryingLevels(initialIndex: index)),
+                            LevelBeginnerScreen(initialIndex: 1)),
                   );
                 },
                 child: Image.asset(
@@ -81,8 +82,8 @@ class TrainingPrograms extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => HealthyRecipesBulkingUp1(
-                              initialIndex: index,
+                        builder: (context) => LevelBeginnerScreen(
+                              initialIndex: 0,
                             )),
                   );
                 },
@@ -105,7 +106,9 @@ class TrainingPrograms extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const LossWightUp1()),
+                        builder: (context) => const LevelBeginnerScreen(
+                              initialIndex: 2,
+                            )),
                   );
                 },
                 child: Image.asset(

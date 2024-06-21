@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/pages/Forget_password.dart';
 import 'package:flutter_application_1/pages/core/signUp.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
@@ -35,7 +36,7 @@ class Login extends StatelessWidget {
                         await context.read<UserCubit>().mBodyData();
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => InBody()),
+                          MaterialPageRoute(builder: (context) => HomeScreen()),
                         );
                       } else if (state is SignInFailure) {
                         ScaffoldMessenger.of(context).showSnackBar(

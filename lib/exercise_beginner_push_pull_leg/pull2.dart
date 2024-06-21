@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
 import '../../../TargetPage/custom_target_page.dart';
 import '../../../constant/constant.dart';
 
@@ -25,8 +24,8 @@ class Pull_2 extends StatelessWidget {
         );
       },
       child: Container(
-        height: 120,
-        width: 382,
+        height: 130,
+        width: 392,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: const Color.fromARGB(255, 83, 76, 76),
@@ -54,9 +53,8 @@ class Pull_2 extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(top: 20.0, left: 30),
                   child: Text(
-                    '3 Sets 15-12-10 Reps',
-                    style:
-                        TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
+                    '3Sets 15-12-10 Reps',
+                    style: TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
                   ),
                 ),
               ],
@@ -177,5 +175,4 @@ class Pull_2 extends StatelessWidget {
       ),
     );
   }
-
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Top_sources/Top_Sources.dart';
 import 'package:flutter_application_1/core/home.dart';
 
-
 import '../constant/constant.dart';
 
 class Nutritionguide extends StatelessWidget {
@@ -49,38 +48,100 @@ class Nutritionguide extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) =>  const TopSources()),
+                    MaterialPageRoute(
+                        builder: (context) => const TopSources(
+                              initialIndex: 0,
+                            )),
                   );
                 },
-                child: Image.asset(
-                  'assets/assets/images/Nutritionguide_see_all.jpg',
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: 750,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      20.0), // Adjust the radius as needed
+                  child: Image.asset(
+                    'assets/assets/images/top_protein_s.png',
+                  ),
                 ),
               ),
               const SizedBox(
                 height: 10,
               ),
               GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  const TopSources()),
-                    );
-                  },
-                  child: Image.asset('assets/assets/images/egg_products.png')),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TopSources(
+                              initialIndex: 1,
+                            )),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      20.0), // Adjust the radius as needed
+                  child: Image.asset(
+                    'assets/assets/images/top_carbs_s.png',
+                  ),
+                ),
+              ),
               const SizedBox(
                 height: 10,
               ),
               GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) =>  const TopSources()),
-                    );
-                  },
-                  child: Image.asset('assets/assets/images/fat_oil.png')),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TopSources(
+                              initialIndex: 4,
+                            )),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      20.0), // Adjust the radius as needed
+                  child: Image.asset(
+                    'assets/assets/images/top_fat_s.png',
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TopSources(
+                              initialIndex: 3,
+                            )),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      20.0), // Adjust the radius as needed
+                  child: Image.asset('assets/assets/images/egg_products.png'),
+                ),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const TopSources(
+                              initialIndex: 2,
+                            )),
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(
+                      20.0), // Adjust the radius as needed
+                  child: Image.asset('assets/assets/images/fat_oil.png'),
+                ),
+              ),
               const Rate_Us(),
               const bottom_tab_bar(),
             ],

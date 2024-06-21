@@ -1,14 +1,17 @@
-// ignore_for_file: file_names, non_constant_identifier_names
+
+
+// ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
 
 import '../../../constant/constant.dart';
 import '../TargetPage/custom_target_page.dart';
 
-class BeginnerIncreaseWightBackDay2 extends StatelessWidget {
-  const BeginnerIncreaseWightBackDay2({super.key});
+class BeginnerDryingDay3 extends StatelessWidget {
+  const BeginnerDryingDay3({super.key});
 
   Widget _exerciseContainer(BuildContext context, String title, String subTitle,
+      // ignore: non_constant_identifier_names
       String imagePath, String Gifimage) {
     return GestureDetector(
       onTap: () {
@@ -24,8 +27,8 @@ class BeginnerIncreaseWightBackDay2 extends StatelessWidget {
         );
       },
       child: Container(
-        height: 120,
-        width: 382,
+        height: 130,
+        width: 392,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: const Color.fromARGB(255, 83, 76, 76),
@@ -83,7 +86,7 @@ class BeginnerIncreaseWightBackDay2 extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.asset('assets/assets/images/Back&Trapees2.png'),
+                  Image.asset('assets/assets/images/Cardio.jpg'),
                   const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Icon(
@@ -95,7 +98,7 @@ class BeginnerIncreaseWightBackDay2 extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(left: 30.0, top: 160),
                     child: Text(
-                      'Day 2 | Back&Trapees',
+                      'Day 3 | Cardio',
                       style: TextStyle(color: Colors.white, fontSize: 24),
                     ),
                   ),
@@ -127,84 +130,33 @@ class BeginnerIncreaseWightBackDay2 extends StatelessWidget {
               const SizedBox(height: 50),
               _exerciseContainer(
                   context,
-                  'Back Exercise',
-                  '    (Inverted bar)',
-                  'assets/assets/images/inverted_bar.jpg',
-                  'assets/assets/images/Inverted_bar.gif'),
+                  'Cardio Exercise',
+                  '(Fast walk for 0.5 hour)',
+                  'assets/assets/images/Fast_work.jpg',
+                  'assets/assets/images/FLAT_BAR.gif'),
               const SizedBox(height: 30),
               _exerciseContainer(
                   context,
-                  'Back Exercise',
-                  '  (Wide High pull)',
-                  'assets/assets/images/Wide_high_pull.jpg',
-                  'assets/assets/images/Wide_high_pull2.gif'),
+                  'Cardio Exercise',
+                  '  (100 push-ups)',
+                  'assets/assets/images/100_Push.jpg',
+                  'assets/assets/images/FLAT_BAR.gif'),
               const SizedBox(height: 30),
               _exerciseContainer(
                   context,
-                  'Back Exercise',
-                  '(Tight high pull)',
-                  'assets/assets/images/Tight_high_poll.jpg',
-                  'assets/assets/images/Tight_high_pull.gif'),
+                  'Cardio Exercise',
+                  '(150 push-ups)',
+                  'assets/assets/images/150_push.jpg',
+                  'assets/assets/images/FLAT_BAR.gif'),
               const SizedBox(height: 30),
               _exerciseContainer(
                   context,
-                  'Back Exercise',
-                  '  (Dumbbell)',
-                  'assets/assets/images/Dumbbell.jpg',
-                  'assets/assets/images/Dumbbell2.gif'),
-              const SizedBox(height: 30),
-              _exerciseContainer(
-                  context,
-                  'Back Exercise',
-                  '  (His mind)',
-                  'assets/assets/images/His_mind.jpg',
-                  'assets/assets/images/His_mind.gif'),
+                  'Cardio Exercise',
+                  '  (2 minutes plank)',
+                  'assets/assets/images/2_minutes.jpg',
+                  'assets/assets/images/FLAT_BAR.gif'),
               const SizedBox(
-                height: 30,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 200.0, top: 20),
-                child: Container(
-                  height: 44,
-                  width: 181,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: const Color.fromARGB(255, 83, 76, 76),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      "Exercise TRICEPS",
-                      style: TextStyle(color: Colors.white, fontSize: 22),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              const SizedBox(height: 30),
-              _exerciseContainer(
-                  context,
-                  'Biceps Exercise',
-                  '  (Bar zigzag dik)',
-                  'assets/assets/images/Bar_zigzag_dik2.jpg',
-                  'assets/assets/images/Bar_zig.gif'),
-              const SizedBox(height: 30),
-              _exerciseContainer(
-                  context,
-                  'Biceps Exercise',
-                  '(Exchange Dumbbells )',
-                  'assets/assets/images/Exchange_dimple.jpg',
-                  'assets/assets/images/Exchange_dumbbells2.gif'),
-              const SizedBox(height: 30),
-              _exerciseContainer(
-                  context,
-                  'Biceps Exercise',
-                  '  (Dumbbell Hammer)',
-                  'assets/assets/images/Dumbbell_hammer.jpg',
-                  'assets/assets/images/dumbbell_hammer2.gif'),
-              const SizedBox(
-                height: 30,
+                height: 300,
               ),
               const Rate_Us(),
               const bottom_tab_bar(),

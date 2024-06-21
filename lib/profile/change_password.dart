@@ -45,6 +45,7 @@ class _PasswordState extends State<ChangePassword> {
                 content: Text('Password Changed Successfully'),
               ),
             );
+            Navigator.pop(context);
           } else if (state is PasswordFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

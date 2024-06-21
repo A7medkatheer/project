@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/profile/profile_page.dart';
-
+import 'package:flutter_application_1/profile/setting_screen.dart';
 
 class bottom_tab_bar extends StatefulWidget {
   const bottom_tab_bar({super.key});
@@ -27,10 +27,16 @@ class _BottomTabBarState extends State<bottom_tab_bar> {
           MaterialPageRoute(builder: (context) => const HomeScreen()),
         );
         break;
+      case 1:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const SettingScreen()),
+        );
+        break;
       case 3:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  const ProfilePage()),
+          MaterialPageRoute(builder: (context) => const ProfilePage()),
         );
         break;
     }
@@ -51,7 +57,7 @@ class _BottomTabBarState extends State<bottom_tab_bar> {
         GestureDetector(
           onTap: () => _onIconTapped(1),
           child: Icon(
-            Icons.add_alert_sharp,
+            Icons.settings,
             color: _selectedIndex == 1 ? const Color(0xffD0FD3E) : Colors.white,
           ),
         ),

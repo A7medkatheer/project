@@ -1,17 +1,14 @@
-
-
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 
-import '../../../constant/constant.dart';
 import '../TargetPage/custom_target_page.dart';
+import '../constant/constant.dart';
 
-class BeginnerIncreaseWightBackDay3 extends StatelessWidget {
-  const BeginnerIncreaseWightBackDay3({super.key});
+class BeginnerDryingDay1 extends StatelessWidget {
+  const BeginnerDryingDay1({super.key});
 
   Widget _exerciseContainer(BuildContext context, String title, String subTitle,
-      // ignore: non_constant_identifier_names
       String imagePath, String Gifimage) {
     return GestureDetector(
       onTap: () {
@@ -27,8 +24,8 @@ class BeginnerIncreaseWightBackDay3 extends StatelessWidget {
         );
       },
       child: Container(
-        height: 120,
-        width: 382,
+        height: 130,
+        width: 392,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30),
           color: const Color.fromARGB(255, 83, 76, 76),
@@ -57,8 +54,7 @@ class BeginnerIncreaseWightBackDay3 extends StatelessWidget {
                   padding: EdgeInsets.only(top: 20.0, left: 30),
                   child: Text(
                     '3 Sets 15-12-10 Reps',
-                    style:
-                        TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
+                    style: TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
                   ),
                 ),
               ],
@@ -86,7 +82,7 @@ class BeginnerIncreaseWightBackDay3 extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Image.asset('assets/assets/images/Cardio.jpg'),
+                  Image.asset('assets/assets/images/Chest_triceps.jpg'),
                   const Padding(
                     padding: EdgeInsets.all(12.0),
                     child: Icon(
@@ -98,7 +94,7 @@ class BeginnerIncreaseWightBackDay3 extends StatelessWidget {
                   const Padding(
                     padding: EdgeInsets.only(left: 30.0, top: 160),
                     child: Text(
-                      'Day 3 | Cardio',
+                      'Day 1 | CHEST&TRICEPS',
                       style: TextStyle(color: Colors.white, fontSize: 24),
                     ),
                   ),
@@ -107,7 +103,7 @@ class BeginnerIncreaseWightBackDay3 extends StatelessWidget {
                     child: Row(
                       children: [
                         Text(
-                          '      6 Week ',
+                          '  6 Week ',
                           style: TextStyle(color: Colors.white, fontSize: 18),
                         ),
                         Icon(
@@ -127,36 +123,92 @@ class BeginnerIncreaseWightBackDay3 extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(height: 50),
+              const SizedBox(
+                height: 50,
+              ),
               _exerciseContainer(
                   context,
-                  'Cardio Exercise',
-                  '(Fast walk for 0.5 hour)',
-                  'assets/assets/images/Fast_work.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
-              const SizedBox(height: 30),
+                  'Chest Exercise',
+                  '      (High Bar)',
+                  'assets/assets/images/High_bar.jpeg',
+                  'assets/assets/images/High_Bar.gif'),
+              const SizedBox(
+                height: 30,
+              ),
               _exerciseContainer(
                   context,
-                  'Cardio Exercise',
-                  '  (100 push-ups)',
-                  'assets/assets/images/100_Push.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
-              const SizedBox(height: 30),
+                  'Chest Exercise',
+                  '      (Flat Dumbbells)',
+                  'assets/assets/images/flat_dumbbells2.jpg',
+                  'assets/assets/images/Flat_Dumbbell.gif'),
+              const SizedBox(
+                height: 30,
+              ),
               _exerciseContainer(
                   context,
-                  'Cardio Exercise',
-                  '(150 push-ups)',
-                  'assets/assets/images/150_push.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
-              const SizedBox(height: 30),
+                  'Chest Exercise',
+                  '(High Dumbbells)',
+                  'assets/assets/images/High_dumbbees.jpg',
+                  'assets/assets/images/High_Dumbbell.gif'),
+              const SizedBox(
+                height: 30,
+              ),
               _exerciseContainer(
                   context,
-                  'Cardio Exercise',
-                  '  (2 minutes plank)',
-                  'assets/assets/images/2_minutes.jpg',
+                  'Chest Exercise',
+                  ' (Butterfly)',
+                  'assets/assets/images/butterfly2.jpg',
+                  'assets/assets/images/Butterfly.gif'),
+              const SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 200.0, top: 20),
+                child: Container(
+                  height: 44,
+                  width: 181,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color.fromARGB(255, 83, 76, 76),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      "Exercise TRICEPS",
+                      style: TextStyle(color: Colors.white, fontSize: 22),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              _exerciseContainer(
+                  context,
+                  'Triceps Exercise',
+                  '      (Bar zigzag dik)',
+                  'assets/assets/images/Bar_zigzag_dik.jpg',
+                  'assets/assets/images/Bar_zigzag.gif'),
+              const SizedBox(
+                height: 30,
+              ),
+              _exerciseContainer(
+                context,
+                'Triceps Exercise',
+                '(Rope on the cable)',
+                'assets/assets/images/Rope_on_the_cable.jpg',
+                'assets/assets/images/Rope_on_the _cable.gif',
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              _exerciseContainer(
+                  context,
+                  'Triceps Exercise',
+                  ' (Exchange  dimple)',
+                  'assets/assets/images/Exchange_dimple2.jpg',
                   'assets/assets/images/FLAT_BAR.gif'),
               const SizedBox(
-                height: 300,
+                height: 30,
               ),
               const Rate_Us(),
               const bottom_tab_bar(),

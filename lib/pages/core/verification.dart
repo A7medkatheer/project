@@ -5,7 +5,9 @@ import 'package:flutter_application_1/pages/Forget_password.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
+import 'package:flutter_application_1/pages/inbody_opation.dart';
 import 'package:flutter_application_1/pages/password.dart';
+import 'package:flutter_application_1/pages/successful.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
@@ -59,7 +61,7 @@ class _PinputExampleState extends State<Verification> {
             );
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => const InBody()),
+              MaterialPageRoute(builder: (context) => const Successful()),
             );
           } else if (state is VerifyCodeFailure) {
             ScaffoldMessenger.of(context).showSnackBar(
@@ -148,7 +150,7 @@ class _PinputExampleState extends State<Verification> {
                             .sendCode(email: widget.email);
                   },
                   child: const Text(
-                    'Did you receive any code?',
+                    'Resend the code',
                     style: TextStyle(color: Color(0xffD0FD3E)),
                   ),
                 ),

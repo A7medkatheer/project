@@ -1,127 +1,137 @@
-// ignore_for_file: deprecated_member_use, prefer_const_constructors
+// // ignore_for_file: non_constant_identifier_names
 
-import 'package:flutter/material.dart';
-import 'package:flutter_application_1/pages/height.dart';
-import 'package:flutter_application_1/pages/in_body.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_application_1/core/home.dart';
+// // import 'package:ui_screens/core/home.dart';
 
-class Goal extends StatefulWidget {
-  const Goal({super.key});
+// class CustomTargetPage extends StatelessWidget {
+//   final String exerciseName;
+//   // final String exerciseImage;
+//   final String Gifimage;
 
-  @override
-  // ignore: library_private_types_in_public_api
-  _AgePickerState createState() => _AgePickerState();
-}
+//   const CustomTargetPage({super.key, required this.exerciseName, required this.Gifimage});
 
-class _AgePickerState extends State<Goal> {
-  int selectedAge = 11; // Default age
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Image.asset(
-            'assets/assets/images/Goal.png',
-            fit: BoxFit.cover,
-            width: double.infinity,
-            height: double.infinity,
-          ),
-          const Padding(
-            padding: EdgeInsets.all(70.0),
-            child: Text(
-              '     WHAT\'S YOUR GOAL?',
-              style: TextStyle(fontSize: 23, color: Colors.white),
-            ),
-          ),
-          const Padding(
-            padding: EdgeInsets.only(top: 110.0),
-            child: Text(
-              '             THIS HELPS US CREATE YOUR PERSONALIZED PLAN',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          Column(
-            children: [
-              const SizedBox(
-                height: 420,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(66),
-                ),
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 80),
-                child: const Center(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        hintText: "           Gain weight ",
-                        hintStyle: TextStyle(color: Colors.white, fontSize: 24),
-                        border: InputBorder.none),
-                  ),
-                ),
-              ),
-              const Divider(
-                thickness: 3,
-                color: Color(0xffD0FD3E),
-                indent: 78,
-                endIndent: 50,
-              ),
-              // Divider(
-              //   thickness: 2,
-              //   color: Color(0xffD0FD3E),
-              // )
-            ],
-          ),
-          Positioned(
-            bottom: 20,
-            left: 20,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Icon(
-                    Icons.arrow_circle_left_outlined,
-                    color: Color(0xffD0FD3E),
-                    size: 60,
-                  ),
-                ),
-                const SizedBox(
-                  width: 180,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    // Add your logic for the Skip button
-                  },
-                  style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(const Color(0xffD0FD3E)),
-                    padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(
-                            horizontal: 25, vertical: 10)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(27))),
-                  ),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const InBody()),
-                      );
-                    },
-                    child: const Text(
-                      " Next > ",
-                      style: TextStyle(fontSize: 24, color: Colors.black),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.black,
+//       appBar: AppBar(
+//         title: Center(
+//           child: Text(
+//             exerciseName,
+//             style: const TextStyle(color: Colors.black, fontSize: 28),
+//           ),
+//         ),
+//         elevation: 0,
+//         backgroundColor: const Color(0xffD0FD3E),
+//         actions: <Widget>[
+//           IconButton(
+//             icon: const Icon(
+//               Icons.home_outlined,
+//               color: Colors.black,
+//               size: 40,
+//             ),
+//             onPressed: () {
+//               Navigator.push(context,
+//                   MaterialPageRoute(builder: ((context) => const HomeScreen())));
+//             },
+//           ),
+//         ],
+//         centerTitle: true,
+//         leading: GestureDetector(
+//           onTap: () {
+//             Navigator.pop(context);
+//           },
+//           child: const Icon(
+//             Icons.arrow_circle_left_outlined,
+//             color: Colors.black,
+//             size: 50,
+//           ),
+//         ),
+//       ),
+//       body: Center(
+//         child: Column(
+//           children: [
+//             const SizedBox(
+//               height: 30,
+//             ),
+//             ClipRRect(
+//               borderRadius: BorderRadius.circular(40),
+//               child: Image.asset(
+//                 Gifimage,
+//                 width: 334,
+//                 height: 250,
+//                 fit: BoxFit.cover,
+//               ),
+//             ),
+//             const SizedBox(
+//               height: 30,
+//             ),
+//             GestureDetector(
+//               onTap: () {
+//                 Navigator.push(
+//                     context,
+//                     MaterialPageRoute(
+//                         builder: ((context) => const HomeScreen()))); // url video
+//               },
+//               child: Container(
+//                 decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.circular(12),
+//                   color: const Color(0xffD0FD3E),
+//                 ),
+//                 width: 314,
+//                 height: 64,
+//                 child: const Padding(
+//                   padding: EdgeInsets.all(8.0),
+//                   child: Row(
+//                     children: [
+//                       Icon(
+//                         Icons.ondemand_video_outlined,
+//                         size: 44,
+//                       ),
+//                       SizedBox(
+//                         width: 20,
+//                       ),
+//                       Text(
+//                         'Explanatory Video',
+//                         style: TextStyle(fontSize: 24),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             const SizedBox(
+//               height: 25,
+//             ),
+//             const Text(
+//               'Target Muscle',
+//               style: TextStyle(fontSize: 32, color: Colors.white),
+//             ),
+//             const SizedBox(
+//               height: 25,
+//             ),
+//             const Text(
+//               'Pectoralis Major Muscle',
+//               style: TextStyle(fontSize: 24, color: Colors.white70),
+//             ),
+//             const SizedBox(
+//               height: 25,
+//             ),
+//             const Text(
+//               'Synergistic Muscles',
+//               style: TextStyle(fontSize: 32, color: Colors.white),
+//             ),
+//             const SizedBox(
+//               height: 25,
+//             ),
+//             const Text(
+//               'Chest Muscle : Primary Impact\n              Triceps Muscl \n         Front Deltoid Muscles',
+//               style: TextStyle(fontSize: 24, color: Colors.white70),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

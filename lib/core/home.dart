@@ -5,6 +5,12 @@ import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import '../Drying/drying_levels.dart';
 import '../Top_sources/Top_Sources.dart';
 import '../constant/constant.dart';
+import '../guide/armor_guide.dart';
+import '../guide/back_guide.dart';
+import '../guide/cardio_guide.dart';
+import '../guide/chest_guide.dart';
+import '../guide/legs_guide.dart';
+import '../guide/shoulders_guide.dart';
 import '../healthy_recipes/bulking_levels.dart';
 import '../loss_weight/loss_wight_level_one.dart';
 import '../payment/plan.dart';
@@ -119,38 +125,123 @@ class HomeScreen extends StatelessWidget {
                     'Exercise guide',
                     style: TextStyle(color: Color(0xffD0FD3E), fontSize: 18),
                   ),
-                  SizedBox(
-                    width: 205,
-                  ),
-                  Text(
-                    'See All',
-                    style: TextStyle(color: Color(0xffD0FD3E), fontSize: 18),
-                  )
                 ],
               ),
               const SizedBox(
                 height: 10,
               ),
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CircleAvatar(
-                    backgroundColor: Color(0xffD9D9D9),
-                    maxRadius: 45,
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Color(0xffD9D9D9),
-                    maxRadius: 45,
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Color(0xffD9D9D9),
-                    maxRadius: 45,
-                  ),
-                  CircleAvatar(
-                    backgroundColor: Color(0xffD9D9D9),
-                    maxRadius: 45,
-                  ),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ChestGuide()),
+                        );
+                      },
+                      child: CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/assets/images/small_chest.jpg'),
+                        backgroundColor: Color(0xffD9D9D9),
+                        maxRadius: 45,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const BackGuide()),
+                        );
+                      },
+                      child: CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/assets/images/samll_back.jpg'),
+                        backgroundColor: Color(0xffD9D9D9),
+                        maxRadius: 45,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ShouldersGuide()),
+                        );
+                      },
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage(
+                            'assets/assets/images/small_sholder.png'),
+                        backgroundColor: Color(0xffD9D9D9),
+                        maxRadius: 45,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LegsGuide()),
+                        );
+                      },
+                      child: CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/assets/images/samll_leg.jpg'),
+                        backgroundColor: Color(0xffD9D9D9),
+                        maxRadius: 45,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ArmorGuide()),
+                        );
+                      },
+                      child: CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/assets/images/small_armor.jpg'),
+                        backgroundColor: Color(0xffD9D9D9),
+                        maxRadius: 45,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const CardioGuide()),
+                        );
+                      },
+                      child: CircleAvatar(
+                        backgroundImage:
+                            AssetImage('assets/assets/images/small_cardio.jpg'),
+                        backgroundColor: Color(0xffD9D9D9),
+                        maxRadius: 45,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 10,
