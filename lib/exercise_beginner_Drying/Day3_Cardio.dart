@@ -1,6 +1,4 @@
-
-
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import 'package:flutter/material.dart';
 
@@ -11,7 +9,6 @@ class BeginnerDryingDay3 extends StatelessWidget {
   const BeginnerDryingDay3({super.key});
 
   Widget _exerciseContainer(BuildContext context, String title, String subTitle,
-      // ignore: non_constant_identifier_names
       String imagePath, String Gifimage) {
     return GestureDetector(
       onTap: () {
@@ -57,8 +54,7 @@ class BeginnerDryingDay3 extends StatelessWidget {
                   padding: EdgeInsets.only(top: 20.0, left: 30),
                   child: Text(
                     '3 Sets 15-12-10 Reps',
-                    style:
-                        TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
+                    style: TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
                   ),
                 ),
               ],
@@ -133,28 +129,28 @@ class BeginnerDryingDay3 extends StatelessWidget {
                   'Cardio Exercise',
                   '(Fast walk for 0.5 hour)',
                   'assets/assets/images/Fast_work.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/fwfhah.gif'),
               const SizedBox(height: 30),
               _exerciseContainer(
                   context,
                   'Cardio Exercise',
                   '  (100 push-ups)',
                   'assets/assets/images/100_Push.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/100_push_up.gif'),
               const SizedBox(height: 30),
               _exerciseContainer(
                   context,
                   'Cardio Exercise',
-                  '(150 push-ups)',
+                  '(2 minutes plank)',
                   'assets/assets/images/150_push.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/100_push_down.gif'),
               const SizedBox(height: 30),
               _exerciseContainer(
                   context,
                   'Cardio Exercise',
-                  '  (2 minutes plank)',
+                  '  (100 App Wheel)',
                   'assets/assets/images/2_minutes.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/100_app_wheel.gif'),
               const SizedBox(
                 height: 300,
               ),

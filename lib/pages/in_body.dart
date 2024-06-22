@@ -3,6 +3,7 @@ import 'package:flutter_application_1/core/workout_category.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
+import 'package:flutter_application_1/private/home_private.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../core/home.dart';
@@ -47,7 +48,8 @@ class _MyWidgetState extends State<InBody> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                    MaterialPageRoute(
+                        builder: (context) => const HomePrivate()),
                   );
                 },
                 child: const Text(
@@ -401,7 +403,7 @@ class _MyWidgetState extends State<InBody> {
                       ),
                       //! bottom
                       const SizedBox(
-                        height: 300,
+                        height: 20,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,

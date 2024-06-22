@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
+import 'package:flutter_application_1/private/equations/examples_of_calculator.dart';
 import 'package:flutter_application_1/private/food_bulking/bulking_and_drying_level_2.dart';
 // import 'package:ui_screens/private/food_bulking/bulking_and_drying_level_2.dart';
 
@@ -9,6 +11,7 @@ import '../constant/constant.dart';
 import '../healthy_recipes/bulking_levels.dart';
 import 'equations/carb_calculator.dart';
 import 'equations/stop_watch.dart';
+import 'exercises_private.dart';
 import 'food_bulking/bulking_and_drying_level_1.dart';
 
 class HomePrivate extends StatelessWidget {
@@ -20,11 +23,21 @@ class HomePrivate extends StatelessWidget {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.all(14.0),
-            child: Icon(Icons.menu),
-          ),
+              padding: const EdgeInsets.all(14.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const HomeScreen()),
+                  );
+                },
+                child: const Text(
+                  'public-Home',
+                  style: TextStyle(color: Color(0xffD0FD3E), fontSize: 22),
+                ),
+              )),
         ],
       ),
       //!  singlechildScollview
@@ -63,7 +76,7 @@ class HomePrivate extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const CarbCalculatorScreen()),
+                        builder: (context) => ExamplesOfCalculator()),
                   );
                 },
                 child: Stack(
@@ -177,8 +190,9 @@ class HomePrivate extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) =>
-                              const FoodBulkingAndDryingUp1()),
+                          builder: (context) => const FoodBulkingAndDryingUp1(
+                                initialIndex: 0,
+                              )),
                     );
                   },
                   child: Image.asset('assets/assets/images/Private_NP.png')),
@@ -193,7 +207,9 @@ class HomePrivate extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const FoodBulkingAndDryingUp1()),
+                        builder: (context) => const FoodBulkingAndDryingUp1(
+                              initialIndex: 1,
+                            )),
                   );
                 },
                 child: Image.asset(
@@ -210,7 +226,9 @@ class HomePrivate extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const FoodBulkingAndDryingUp2()),
+                        builder: (context) => const FoodBulkingAndDryingUp2(
+                              initialIndex: 0,
+                            )),
                   );
                 },
                 child: Image.asset(
@@ -227,7 +245,9 @@ class HomePrivate extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const FoodBulkingAndDryingUp2()),
+                        builder: (context) => const FoodBulkingAndDryingUp2(
+                              initialIndex: 1,
+                            )),
                   );
                 },
                 child: Image.asset(
@@ -265,8 +285,8 @@ class HomePrivate extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => DryingLevels(
-                                initialIndex: index,
+                          builder: (context) => ExercisesPrivate(
+                                initialIndex: 0,
                               )),
                     );
                   },
@@ -280,8 +300,8 @@ class HomePrivate extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => HealthyRecipesBulkingUp1(
-                                initialIndex: index,
+                          builder: (context) => ExercisesPrivate(
+                                initialIndex: 1,
                               )),
                     );
                   },

@@ -8,6 +8,7 @@ import 'package:flutter_application_1/profile/change_password.dart';
 import 'package:flutter_application_1/profile/setting_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:io';
 
 import '../constant/constant.dart';
@@ -22,7 +23,6 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePageState extends State<ProfilePage> {
   DateTime? _selectedDate;
   String _selectedCity = 'Ismailia';
-  // File? _profileImage;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -61,6 +61,35 @@ class _ProfilePageState extends State<ProfilePage> {
     'South Sinai'
   ];
 
+  @override
+  void initState() {
+    super.initState();
+    loadUserData();
+  }
+
+  Future<void> saveUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setString('name', nameController.text);
+    await prefs.setString('email', emailController.text);
+    if (_selectedDate != null) {
+      await prefs.setString('dateOfBirth', _selectedDate.toString());
+    }
+    await prefs.setString('city', _selectedCity);
+  }
+
+  Future<void> loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    nameController.text = prefs.getString('name') ?? '';
+    emailController.text = prefs.getString('email') ?? '';
+    String? dateOfBirth = prefs.getString('dateOfBirth');
+    if (dateOfBirth != null) {
+      _selectedDate = DateTime.parse(dateOfBirth);
+    }
+    setState(() {
+      _selectedCity = prefs.getString('city') ?? 'Ismailia';
+    });
+  }
+
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -74,17 +103,6 @@ class _ProfilePageState extends State<ProfilePage> {
       });
     }
   }
-
-  // Future<void> _pickImage() async {
-  //   final ImagePicker picker = ImagePicker();
-  //   final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-
-  //   if (image != null) {
-  //     setState(() {
-  //       _profileImage = File(image.path);
-  //     });
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -112,8 +130,6 @@ class _ProfilePageState extends State<ProfilePage> {
         listener: (context, state) {
           if (state is UpdataDataSucess) {
             context.read<UserCubit>().getUser();
-            nameController.clear();
-            emailController.clear();
           } else if (state is UploadProfilePicSucess) {
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(
@@ -148,7 +164,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     null
                                 ? FileImage(File(
                                     context.read<UserCubit>().profilePic!.path))
-                                : NetworkImage(image),
+                                : NetworkImage(image) as ImageProvider,
                           ),
                         ),
                         IconButton(
@@ -220,18 +236,14 @@ class _ProfilePageState extends State<ProfilePage> {
                             state is GetUserLoading
                         ? const CircularProgressIndicator()
                         : ElevatedButton(
-                            onPressed: () {
-                              if (state is UploadProfilePic) {
-                                context.read<UserCubit>().uploadImage(
-                                    profilePic:
-                                        context.read<UserCubit>().profilePic!);
-                              }
+                            onPressed: () async {
                               if (nameController.text.isNotEmpty ||
                                   emailController.text.isNotEmpty) {
                                 context.read<UserCubit>().updataData(
                                       name: nameController.text,
                                       email: emailController.text,
                                     );
+                                await saveUserData();
                               }
                             },
                             style: ElevatedButton.styleFrom(

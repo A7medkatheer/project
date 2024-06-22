@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types, library_private_types_in_public_api, unused_element
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/home.dart';
+import 'package:flutter_application_1/pages/access.dart';
 import 'package:flutter_application_1/profile/profile_page.dart';
 import 'package:flutter_application_1/profile/setting_screen.dart';
 
@@ -33,6 +33,12 @@ class _BottomTabBarState extends State<bottom_tab_bar> {
           MaterialPageRoute(builder: (context) => const SettingScreen()),
         );
         break;
+      case 2:
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Access()),
+        );
+        break;
       case 3:
         Navigator.push(
           context,
@@ -42,39 +48,40 @@ class _BottomTabBarState extends State<bottom_tab_bar> {
     }
   }
 
+  Widget _buildTabItem(IconData icon, String label, int index) {
+    return GestureDetector(
+      onTap: () => _onIconTapped(index),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            icon,
+            color: _selectedIndex == index
+                ? const Color(0xffD0FD3E)
+                : Colors.white,
+          ),
+          Text(
+            label,
+            style: TextStyle(
+              color: _selectedIndex == index
+                  ? const Color(0xffD0FD3E)
+                  : Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        GestureDetector(
-          onTap: () => _onIconTapped(0),
-          child: Icon(
-            Icons.home,
-            color: _selectedIndex == 0 ? const Color(0xffD0FD3E) : Colors.white,
-          ),
-        ),
-        GestureDetector(
-          onTap: () => _onIconTapped(1),
-          child: Icon(
-            Icons.settings,
-            color: _selectedIndex == 1 ? const Color(0xffD0FD3E) : Colors.white,
-          ),
-        ),
-        GestureDetector(
-          onTap: () => _onIconTapped(2),
-          child: Icon(
-            Icons.bar_chart,
-            color: _selectedIndex == 2 ? const Color(0xffD0FD3E) : Colors.white,
-          ),
-        ),
-        GestureDetector(
-          onTap: () => _onIconTapped(3),
-          child: Icon(
-            Icons.person_3_outlined,
-            color: _selectedIndex == 3 ? const Color(0xffD0FD3E) : Colors.white,
-          ),
-        ),
+        _buildTabItem(Icons.home, 'Home', 0),
+        _buildTabItem(Icons.settings, 'Settings', 1),
+        _buildTabItem(Icons.bar_chart, 'Calory', 2),
+        _buildTabItem(Icons.person_3_outlined, 'Profile', 3),
       ],
     );
   }

@@ -11,17 +11,25 @@ import 'package:flutter_application_1/profile/profile_page.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
+
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
+  bool isPasswordVisible = false; // Track password visibility
+
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> signInEmailKey = GlobalKey<FormState>();
     final TextEditingController signInEmail = TextEditingController();
     final TextEditingController signInPassword = TextEditingController();
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Colors.black,
-        body: SizedBox(
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: SafeArea(
+        child: SizedBox(
           height: double.infinity,
           width: double.infinity,
           child: Stack(
@@ -147,12 +155,25 @@ class Login extends StatelessWidget {
                                   width: double.infinity,
                                   padding: EdgeInsets.symmetric(horizontal: 16),
                                   child: TextFormField(
-                                    obscureText: true,
+                                    obscureText:
+                                        !isPasswordVisible, // Toggle password visibility
                                     style: TextStyle(color: Colors.white),
                                     decoration: InputDecoration(
-                                      suffix: Icon(
-                                        Icons.visibility,
-                                        color: Colors.purple[900],
+                                      suffix: IconButton(
+                                        icon: Icon(
+                                          isPasswordVisible
+                                              ? Icons.visibility
+                                              : Icons.visibility_off,
+                                          color: Colors.purple[900],
+                                        ),
+                                        onPressed: () {
+                                          setState(() {
+                                            isPasswordVisible =
+                                                !isPasswordVisible;
+                                            FocusScope.of(context)
+                                                .unfocus(); // Hide keyboard
+                                          });
+                                        },
                                       ),
                                       icon: Icon(
                                         Icons.lock,

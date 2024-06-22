@@ -29,12 +29,16 @@ import 'core/Nutrition_Program_see_all.dart';
 import 'core/nutrition_guide_see_all.dart';
 import 'exercise_beginner_Drying/Day1_Chest&triceps.dart';
 import 'exercise_beginner_Drying/Day2_Back&Trapees.dart';
+import 'exercise_beginner_Drying/Day3_Cardio.dart';
 import 'exercise_beginner_push_pull_leg/push_1.dart';
 import 'levels/Beginner/beginner_screen.dart';
+import 'pages/access.dart';
 import 'pages/password_resat.dart';
 import 'pages/successful.dart';
 import 'pages/welcome.dart';
 import 'payment/plan.dart';
+import 'private/equations/examples_of_calculator.dart';
+import 'private/exercises_private.dart';
 
 // import 'profile/pirvacy_policy.dart';
 // import 'profile/profile_page.dart';
@@ -57,7 +61,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Nutritionguide(),
+      home: HomePrivate(),
     );
   }
 }

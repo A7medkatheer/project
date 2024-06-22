@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/onBoardingScreens/On_Boarding_Screen2.dart';
+import 'package:flutter_application_1/pages/access.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
 import 'package:flutter_application_1/pages/gender.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
@@ -38,7 +39,7 @@ class _InbodyOpationState extends State<InbodyOpation> {
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => InBody()));
+                            MaterialPageRoute(builder: (context) => Access()));
                       },
                       style: ButtonStyle(
                         backgroundColor:

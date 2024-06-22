@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/pages/core/models/paymeny_model.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/payment/payment_view.dart';
@@ -17,7 +18,7 @@ class Plan extends StatelessWidget {
         listener: (context, state) {
           if (state is PaymentSucess) {
             final paymentUrl = state.paymentUrl;
-           
+
             Navigator.push(
               context,
               MaterialPageRoute(
@@ -52,8 +53,7 @@ class Plan extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      const TrainingPrograms()),
+                                  builder: (context) => const HomeScreen()),
                             );
                           },
                           child: ClipRRect(

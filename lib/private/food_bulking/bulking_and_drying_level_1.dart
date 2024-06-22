@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import '../../constant/constant.dart';
 
+
+  
 class FoodBulkingAndDryingUp1 extends StatelessWidget {
-  const FoodBulkingAndDryingUp1({super.key});
+  const FoodBulkingAndDryingUp1({super.key,  required this.initialIndex });
+  final int initialIndex;
+
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
+            initialIndex: initialIndex,
+
       length: 2,
       child: SafeArea(
         child: Scaffold(

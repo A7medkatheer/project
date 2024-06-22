@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
+import 'package:flutter_application_1/private/home_private.dart';
 
 import '../Drying/drying_levels.dart';
 import '../Top_sources/Top_Sources.dart';
@@ -12,6 +13,7 @@ import '../guide/chest_guide.dart';
 import '../guide/legs_guide.dart';
 import '../guide/shoulders_guide.dart';
 import '../healthy_recipes/bulking_levels.dart';
+import '../levels/Beginner/beginner_screen.dart';
 import '../loss_weight/loss_wight_level_one.dart';
 import '../payment/plan.dart';
 import '../supplement/supplement_screen.dart';
@@ -37,7 +39,8 @@ class HomeScreen extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Plan()),
+                    MaterialPageRoute(
+                        builder: (context) => const HomePrivate()),
                   );
                 },
                 child: const Text(
@@ -278,9 +281,8 @@ class HomeScreen extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => DryingLevels(
-                              initialIndex: index,
-                            )),
+                        builder: (context) =>
+                            LevelBeginnerScreen(initialIndex: 1)),
                   );
                 },
                 child: Image.asset(
@@ -386,10 +388,21 @@ class HomeScreen extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Image.asset(
-                    'assets/assets/images/protein.png',
-                    height: 189,
-                    width: 182,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const TopSources(
+                                  initialIndex: 0,
+                                )),
+                      );
+                    },
+                    child: Image.asset(
+                      'assets/assets/images/protein.png',
+                      height: 189,
+                      width: 182,
+                    ),
                   ),
                   const SizedBox(
                     width: 20,

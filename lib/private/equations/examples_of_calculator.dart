@@ -162,41 +162,41 @@ class ExamplesOfCalculator extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                color: const Color(0xff454545),
-              ),
-              height: 72,
-              width: 381,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const StopwatchApp()),
-                    );
-                  },
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Stop watch',
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                      Text(
-                        '>|',
-                        style: TextStyle(
-                            color: Color(0xffD0FD3E),
-                            fontSize: 30,
-                            fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
+            // Container(
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(20),
+            //     color: const Color(0xff454545),
+            //   ),
+            //   height: 72,
+            //   width: 381,
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(8.0),
+            //     child: GestureDetector(
+            //       onTap: () {
+            //         Navigator.push(
+            //           context,
+            //           MaterialPageRoute(builder: (context) => const StopwatchApp()),
+            //         );
+            //       },
+            //       child: const Row(
+            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //         children: [
+            //           Text(
+            //             'Stop watch',
+            //             style: TextStyle(color: Colors.white, fontSize: 20),
+            //           ),
+            //           Text(
+            //             '>|',
+            //             style: TextStyle(
+            //                 color: Color(0xffD0FD3E),
+            //                 fontSize: 30,
+            //                 fontWeight: FontWeight.bold),
+            //           )
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
