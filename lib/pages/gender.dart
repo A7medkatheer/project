@@ -1,22 +1,28 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/age.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
 
 class GenderSelection extends StatefulWidget {
-  GenderSelection({super.key});
+  GenderSelection({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _GenderSelectionState createState() => _GenderSelectionState();
-  late String gender = "Male";
 }
 
 class _GenderSelectionState extends State<GenderSelection> {
-  bool isMaleSelected = false;
-  bool isFemaleSelected = false;
   String backgroundImage = 'assets/assets/images/Gender.jpg';
+  String? selectedGender;
+
+  void selectGender(String gender) {
+    setState(() {
+      selectedGender = gender;
+      if (gender == "Male") {
+        backgroundImage = 'assets/assets/images/Gender.jpg';
+      } else if (gender == "Female") {
+        backgroundImage = 'assets/assets/images/girl2.png';
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,40 +39,28 @@ class _GenderSelectionState extends State<GenderSelection> {
             child: Center(
               child: SingleChildScrollView(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 50,
-                    ),
+                    const SizedBox(height: 50),
                     const Text(
                       'TELL US ABOUT YOURSELF!',
                       style: TextStyle(color: Colors.white, fontSize: 28),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     const Text(
-                      '         TO GIVE YOU A BETTER EXPERIENCE WE NEED \n                            TO KNOW YOUR GENDER',
+                      'TO GIVE YOU A BETTER EXPERIENCE WE NEED\nTO KNOW YOUR GENDER',
                       style: TextStyle(color: Colors.white, fontSize: 15),
+                      textAlign: TextAlign.center,
                     ),
-                    const SizedBox(
-                      height: 200,
-                    ),
+                    const SizedBox(height: 150),
                     GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isMaleSelected = true;
-                          isFemaleSelected = false;
-                          backgroundImage = 'assets/assets/images/Gender.jpg';
-                          widget.gender = "Male";
-                        });
-                      },
+                      onTap: () => selectGender("Male"),
                       child: Container(
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: isMaleSelected
+                          color: selectedGender == "Male"
                               ? const Color(0xffD0FD3E)
                               : Colors.grey,
                         ),
@@ -80,20 +74,13 @@ class _GenderSelectionState extends State<GenderSelection> {
                     ),
                     const SizedBox(height: 20),
                     GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          isMaleSelected = false;
-                          isFemaleSelected = true;
-                          backgroundImage = 'assets/assets/images/girl2.png';
-                          widget.gender = "Female";
-                        });
-                      },
+                      onTap: () => selectGender("Female"),
                       child: Container(
                         width: 100,
                         height: 100,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: isFemaleSelected
+                          color: selectedGender == "Female"
                               ? const Color(0xffD0FD3E)
                               : Colors.grey,
                         ),
@@ -104,9 +91,6 @@ class _GenderSelectionState extends State<GenderSelection> {
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      height: 280,
                     ),
                   ],
                 ),
@@ -121,10 +105,7 @@ class _GenderSelectionState extends State<GenderSelection> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const Login()),
-                    );
+                    Navigator.pop(context); // Go back to previous screen
                   },
                   child: const Icon(
                     Icons.arrow_circle_left_outlined,
@@ -132,12 +113,31 @@ class _GenderSelectionState extends State<GenderSelection> {
                     size: 60,
                   ),
                 ),
-                const SizedBox(
-                  width: 210,
-                ),
+                const SizedBox(width: 190),
                 ElevatedButton(
                   onPressed: () {
-                    // Add your logic for the Skip button
+                    if (selectedGender != null) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Age(gender: selectedGender!),
+                        ),
+                      );
+                    } else {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: const Text('Select Gender'),
+                          content: const Text('Please select your gender.'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        ),
+                      );
+                    }
                   },
                   style: ButtonStyle(
                     backgroundColor:
@@ -148,21 +148,9 @@ class _GenderSelectionState extends State<GenderSelection> {
                     shape: MaterialStateProperty.all(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(27))),
                   ),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => Age(
-                                  gender: widget.gender,
-                                )),
-                      );
-                      print(widget.gender);
-                    },
-                    child: const Text(
-                      " Next > ",
-                      style: TextStyle(fontSize: 24, color: Colors.black),
-                    ),
+                  child: const Text(
+                    " Next > ",
+                    style: TextStyle(fontSize: 24, color: Colors.black),
                   ),
                 ),
               ],

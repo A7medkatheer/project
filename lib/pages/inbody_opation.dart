@@ -39,7 +39,7 @@ class _InbodyOpationState extends State<InbodyOpation> {
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Access()));
+                            MaterialPageRoute(builder: (context) => InBody()));
                       },
                       style: ButtonStyle(
                         backgroundColor:

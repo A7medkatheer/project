@@ -131,14 +131,14 @@ class Pull_1 extends StatelessWidget {
                     ' Exercise Chest',
                     '(High Bar)',
                     'assets/assets/images/High_bar.jpeg',
-                    'assets/assets/images/High_bar.gif'),
+                    'assets/assets/images/Flat_barr.gif'),
                 const SizedBox(height: 30),
                 _exerciseContainer(
                     context,
                     'Exercise Chest',
                     '(Flat Bar)',
                     'assets/assets/images/flat_bar2.png',
-                    'assets/assets/images/Flat_bar.gif'),
+                    'assets/assets/images/Flat_barr.gif'),
                 const SizedBox(height: 30),
                 _exerciseContainer(
                     context,

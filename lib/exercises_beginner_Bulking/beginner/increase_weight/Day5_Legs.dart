@@ -125,7 +125,7 @@ class BeginnerIncreaseWightDay5 extends StatelessWidget {
                   'Legs Exercise',
                   '(Calf)',
                   'assets/assets/images/calf.png',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/Flat_barr.gif'),
               const Rate_Us(),
               const bottom_tab_bar(),
             ],

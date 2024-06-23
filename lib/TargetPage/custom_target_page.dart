@@ -45,7 +45,8 @@ class CustomTargetPage extends StatefulWidget {
 
 class _CustomTargetPageState extends State<CustomTargetPage> {
   List<WorkoutSet> sets = [];
-
+  bool is_paid = true; 
+  
   @override
   void initState() {
     super.initState();
@@ -147,38 +148,6 @@ class _CustomTargetPageState extends State<CustomTargetPage> {
                   fit: BoxFit.cover,
                 ),
               ),
-              // GestureDetector(
-              //   onTap: () {
-              //     Navigator.push(
-              //         context,
-              //         MaterialPageRoute(
-              //             builder: ((context) => const HomeScreen())));
-              //   },
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(12),
-              //       color: const Color(0xffD0FD3E),
-              //     ),
-              //     width: 314,
-              //     height: 64,
-              //     child: const Padding(
-              //       padding: EdgeInsets.all(8.0),
-              //       child: Row(
-              //         children: [
-              //           Icon(
-              //             Icons.ondemand_video_outlined,
-              //             size: 44,
-              //           ),
-              //           SizedBox(width: 20),
-              //           Text(
-              //             'Explanatory Video',
-              //             style: TextStyle(fontSize: 24),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
               const SizedBox(height: 25),
               const Text(
                 'Target Muscle',
@@ -200,175 +169,178 @@ class _CustomTargetPageState extends State<CustomTargetPage> {
                 style: TextStyle(fontSize: 24, color: Colors.white70),
               ),
               const SizedBox(height: 25),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    ElevatedButton.icon(
-                      onPressed: _addSet,
-                      icon: const Icon(Icons.add),
-                      label: const Text('Add Set'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          sets = [];
-                          _saveSets();
-                        });
-                      },
-                      child: const Text('Clear All'),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 10),
-              ListView(
-                shrinkWrap: true,
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                children: [
-                  Table(
-                    columnWidths: const {
-                      0: FlexColumnWidth(1),
-                      1: FlexColumnWidth(1),
-                      2: FlexColumnWidth(2),
-                      3: FlexColumnWidth(2),
-                      4: FlexColumnWidth(1),
-                    },
-                    border: TableBorder.all(color: Colors.white, width: 1),
+              if (is_paid) // Conditionally render the buttons and table
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      TableRow(
-                        decoration: const BoxDecoration(color: Colors.grey),
-                        children: const [
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              'Done',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              'Set',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              'Weight (Kg)',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              'Reps',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Text(
-                              'Remove',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ],
+                      ElevatedButton.icon(
+                        onPressed: _addSet,
+                        icon: const Icon(Icons.add),
+                        label: const Text('Add Set'),
                       ),
-                      ...sets.map((set) {
-                        return TableRow(
-                          children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            sets = [];
+                            _saveSets();
+                          });
+                        },
+                        child: const Text('Clear All'),
+                      ),
+                    ],
+                  ),
+                ),
+              const SizedBox(height: 10),
+              if (is_paid)
+                ListView(
+                  shrinkWrap: true,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  children: [
+                    Table(
+                      columnWidths: const {
+                        0: FlexColumnWidth(1),
+                        1: FlexColumnWidth(1),
+                        2: FlexColumnWidth(2),
+                        3: FlexColumnWidth(2),
+                        4: FlexColumnWidth(1),
+                      },
+                      border: TableBorder.all(color: Colors.white, width: 1),
+                      children: [
+                        TableRow(
+                          decoration: const BoxDecoration(color: Colors.grey),
+                          children: const [
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Checkbox(
-                                value: set.isDone,
-                                onChanged: (bool? value) {
-                                  _toggleDone(set, value);
-                                },
-                                activeColor: Colors.green,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: EdgeInsets.all(8.0),
                               child: Text(
-                                set.setNumber.toString(),
-                                style: const TextStyle(color: Colors.white),
+                                'Done',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: TextField(
-                                controller: set.weightController,
-                                keyboardType: TextInputType.number,
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'Set',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
-                                decoration: const InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Weight',
-                                  hintStyle: TextStyle(color: Colors.white70),
-                                ),
-                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: TextField(
-                                controller: set.repsController,
-                                keyboardType: TextInputType.number,
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'Weight (Kg)',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
                                 textAlign: TextAlign.center,
-                                decoration: const InputDecoration(
-                                  border: InputBorder.none,
-                                  hintText: 'Reps',
-                                  hintStyle: TextStyle(color: Colors.white70),
-                                ),
-                                style: const TextStyle(color: Colors.white),
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: IconButton(
-                                icon:
-                                    const Icon(Icons.delete, color: Colors.red),
-                                onPressed: () {
-                                  _removeSet(set);
-                                },
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'Reps',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'Remove',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.center,
                               ),
                             ),
                           ],
-                        );
-                      }).toList(),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _saveSets,
-                child: const Text('SAVE'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xffD0FD3E),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                  textStyle: const TextStyle(fontSize: 20),
+                        ),
+                        ...sets.map((set) {
+                          return TableRow(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Checkbox(
+                                  value: set.isDone,
+                                  onChanged: (bool? value) {
+                                    _toggleDone(set, value);
+                                  },
+                                  activeColor: Colors.green,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text(
+                                  set.setNumber.toString(),
+                                  style: const TextStyle(color: Colors.white),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: TextField(
+                                  controller: set.weightController,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Weight',
+                                    hintStyle: TextStyle(color: Colors.white70),
+                                  ),
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: TextField(
+                                  controller: set.repsController,
+                                  keyboardType: TextInputType.number,
+                                  textAlign: TextAlign.center,
+                                  decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    hintText: 'Reps',
+                                    hintStyle: TextStyle(color: Colors.white70),
+                                  ),
+                                  style: const TextStyle(color: Colors.white),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: IconButton(
+                                  icon: const Icon(Icons.delete,
+                                      color: Colors.red),
+                                  onPressed: () {
+                                    _removeSet(set);
+                                  },
+                                ),
+                              ),
+                            ],
+                          );
+                        }).toList(),
+                      ],
+                    ),
+                  ],
                 ),
-              ),
+              const SizedBox(height: 20),
+              if (is_paid)
+                ElevatedButton(
+                  onPressed: _saveSets,
+                  child: const Text('SAVE'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xffD0FD3E),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 50, vertical: 15),
+                    textStyle: const TextStyle(fontSize: 20),
+                  ),
+                ),
               const SizedBox(height: 20),
             ],
           ),

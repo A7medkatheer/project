@@ -131,7 +131,7 @@ class BeginnerDryingDay1 extends StatelessWidget {
                   'Chest Exercise',
                   '      (High Bar)',
                   'assets/assets/images/High_bar.jpeg',
-                  'assets/assets/images/High_Bar.gif'),
+                  'assets/assets/images/High_bar_smss.gif'),
               const SizedBox(
                 height: 30,
               ),
@@ -140,7 +140,7 @@ class BeginnerDryingDay1 extends StatelessWidget {
                   'Chest Exercise',
                   '      (Flat Dumbbells)',
                   'assets/assets/images/flat_dumbbells2.jpg',
-                  'assets/assets/images/Flat_Dumbbell.gif'),
+                  'assets/assets/images/Flat_Dumbbells2.gif'),
               const SizedBox(
                 height: 30,
               ),
@@ -206,7 +206,7 @@ class BeginnerDryingDay1 extends StatelessWidget {
                   'Triceps Exercise',
                   ' (Exchange  dimple)',
                   'assets/assets/images/Exchange_dimple2.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/Flat_barr.gif'),
               const SizedBox(
                 height: 30,
               ),

@@ -120,7 +120,7 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const Welcome(),
+                          builder: (context) => const HomeScreen(),
                         ),
                       );
                     },

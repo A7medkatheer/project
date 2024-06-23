@@ -236,11 +236,11 @@ class _LoginState extends State<Login> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 1)),
-                                        child: SvgPicture.asset(
-                                          "assets/assets/icons/facebook.svg",
-                                          color: Colors.white,
-                                          height: 21,
-                                        ),
+                                        // child: SvgPicture.asset(
+                                        //   "assets/assets/icons/facebook.svg",
+                                        //   color: Colors.white,
+                                        //   height: 21,
+                                        // ),
                                       ),
                                       SizedBox(
                                         width: 40,
@@ -251,11 +251,11 @@ class _LoginState extends State<Login> {
                                             shape: BoxShape.circle,
                                             border: Border.all(
                                                 color: Colors.black, width: 1)),
-                                        child: SvgPicture.asset(
-                                          "assets/assets/icons/google-plus.svg",
-                                          color: Colors.white,
-                                          height: 21,
-                                        ),
+                                        // child: SvgPicture.asset(
+                                        //   "assets/assets/icons/google-plus.svg",
+                                        //   color: Colors.white,
+                                        //   height: 21,
+                                        // ),
                                       ),
                                       SizedBox(
                                         width: 130,

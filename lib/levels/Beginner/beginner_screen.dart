@@ -10,11 +10,11 @@ import '../../exercise_beginner_push_pull_leg/legs.dart';
 import '../../exercise_beginner_push_pull_leg/pull_1.dart';
 import '../../exercise_beginner_push_pull_leg/push2.dart';
 import '../../exercise_beginner_push_pull_leg/push_1.dart';
-import '../../exercises/beginner/increase_weight/Day1_Chest.dart';
-import '../../exercises/beginner/increase_weight/Day2_Back&Trapees.dart';
-import '../../exercises/beginner/increase_weight/Day3_Shoulders.dart';
-import '../../exercises/beginner/increase_weight/Day4_Biceps&Triceps.dart';
-import '../../exercises/beginner/increase_weight/Day5_Legs.dart';
+import '../../exercises_beginner_Bulking/beginner/increase_weight/Day1_Chest.dart';
+import '../../exercises_beginner_Bulking/beginner/increase_weight/Day2_Back&Trapees.dart';
+import '../../exercises_beginner_Bulking/beginner/increase_weight/Day3_Shoulders.dart';
+import '../../exercises_beginner_Bulking/beginner/increase_weight/Day4_Biceps&Triceps.dart';
+import '../../exercises_beginner_Bulking/beginner/increase_weight/Day5_Legs.dart';
 
 class LevelBeginnerScreen extends StatelessWidget {
   final int initialIndex;

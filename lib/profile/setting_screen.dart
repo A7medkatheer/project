@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/onBoardingScreens/Splash.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/welcome.dart';
+import 'package:flutter_application_1/payment/plan.dart';
+import 'package:flutter_application_1/profile/pirvacy_policy.dart';
+import 'package:flutter_application_1/profile/profile_page.dart';
 import '../constant/constant.dart';
+import 'connect_with_us.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -15,9 +20,17 @@ class SettingScreen extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.black,
         centerTitle: true,
-        leading: const Icon(
-          Icons.arrow_back_ios,
-          color: Colors.white,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const HomeScreen()),
+            );
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
         ),
         title: const Text(
           'Settings',
@@ -36,12 +49,20 @@ class SettingScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const ProfileItem(
-              icon: Icon(
-                Icons.person_2_outlined,
-                color: Color(0xffD0FD3E),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProfilePage()),
+                );
+              },
+              child: const ProfileItem(
+                icon: Icon(
+                  Icons.person_2_outlined,
+                  color: Color(0xffD0FD3E),
+                ),
+                text: 'Edit Profil',
               ),
-              text: 'Edit Profil',
             ),
             const SizedBox(
               height: 10,
@@ -53,26 +74,52 @@ class SettingScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const ProfileItem(
-              icon: Icon(
-                Icons.credit_card,
-                color: Color(0xffD0FD3E),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Plan()),
+                );
+              },
+              child: const ProfileItem(
+                icon: Icon(
+                  Icons.credit_card,
+                  color: Color(0xffD0FD3E),
+                ),
+                text: 'My Subscribtion',
               ),
-              text: 'My Subscribtion',
             ),
-            const ProfileItem(
-              icon: Icon(
-                Icons.question_mark_rounded,
-                color: Color(0xffD0FD3E),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ConnectWithUs()),
+                );
+              },
+              child: const ProfileItem(
+                icon: Icon(
+                  Icons.question_mark_rounded,
+                  color: Color(0xffD0FD3E),
+                ),
+                text: 'Help & Support',
               ),
-              text: 'Help & Support',
             ),
-            const ProfileItem(
-              icon: Icon(
-                Icons.info_outlined,
-                color: Color(0xffD0FD3E),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const PirvacyPolicy()),
+                );
+              },
+              child: const ProfileItem(
+                icon: Icon(
+                  Icons.info_outlined,
+                  color: Color(0xffD0FD3E),
+                ),
+                text: 'Terms and Policies',
               ),
-              text: 'Terms and Policies',
             ),
             const SizedBox(
               height: 10,
@@ -84,12 +131,21 @@ class SettingScreen extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            const ProfileItem(
-              icon: Icon(
-                Icons.flag_outlined,
-                color: Color(0xffD0FD3E),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const ConnectWithUs()),
+                );
+              },
+              child: const ProfileItem(
+                icon: Icon(
+                  Icons.flag_outlined,
+                  color: Color(0xffD0FD3E),
+                ),
+                text: 'Report a problem',
               ),
-              text: 'Report a problem',
             ),
             ProfileItem(
               onTap: () {

@@ -53,8 +53,7 @@ class BeginnerIncreaseWightDay4 extends StatelessWidget {
                   padding: EdgeInsets.only(top: 20.0, left: 30),
                   child: Text(
                     '3 Sets 15-12-10 Reps',
-                    style:
-                        TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
+                    style: TextStyle(color: Color(0xffD0FD3E), fontSize: 20),
                   ),
                 ),
               ],
@@ -166,7 +165,7 @@ class BeginnerIncreaseWightDay4 extends StatelessWidget {
                   'Triceps Exercise',
                   '(Cable pulled ruler)',
                   'assets/assets/images/Cable_pulled_ruler.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/Flat_barr.gif'),
               const SizedBox(height: 30),
               _exerciseContainer(
                   context,

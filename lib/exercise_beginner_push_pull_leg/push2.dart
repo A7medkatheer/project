@@ -145,7 +145,7 @@ class Push_2 extends StatelessWidget {
                     'Exercise Biceps',
                     '(Rope on the cable)',
                     'assets/assets/images/Rope_on_the_cable2.png',
-                    'assets/assets/images/FLAT_BAR.gif'),
+                    'assets/assets/images/Flat_barr.gif'),
                 const SizedBox(height: 30),
                 _exerciseContainer(
                     context,

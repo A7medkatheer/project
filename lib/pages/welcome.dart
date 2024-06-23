@@ -21,6 +21,8 @@ class _IntroductionState extends State<Welcome> {
   final String activityLevel = 'moderately active'; // Activity level
   var image = CacheHelper().getData(key: ApiKey.profilePic);
   var name = CacheHelper().getData(key: ApiKey.name);
+  String _result = "";
+
   double calculateBMR() {
     return 88.362 +
         (13.397 * weight.toDouble()) +
@@ -40,11 +42,32 @@ class _IntroductionState extends State<Welcome> {
     return bmr * activityFactors[activityLevel]!;
   }
 
+  double calculateBMI(double weight, double height) {
+    return weight / (height * height);
+  }
+
+  double calculateLevel(double bmi, int age) {
+    return 1.20 * bmi + 0.23 * age - 16.2;
+  }
+
+  void _calculate() {
+    double bmi = calculateBMI(weight.toDouble(),
+        height.toDouble() / 100); // converting height from cm to meters
+    double bfp = calculateLevel(bmi, age);
+    String recommendation = bfp < 15
+        ? "You should focus on Bulking."
+        : "You should focus on Drying.";
+
+    setState(() {
+      _result = "BFP: ${bfp.toStringAsFixed(2)}%. $recommendation";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double bmr = calculateBMR();
     double tdee = calculateTDEE(bmr);
-    
+    _calculate(); // calculate on widget build to get the initial BFP and recommendation
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -89,12 +112,31 @@ class _IntroductionState extends State<Welcome> {
               ),
             ),
             const SizedBox(
-              height: 20,
+              height: 5,
             ),
             const Text(
-              'Welcome, This App Recommends Your Body \nBulking Up To Gain Weight',
+              'Welcome, This App Recommends Your Body Exercise To be Healthy',
               textAlign: TextAlign.center,
               style: TextStyle(color: Color(0xffD0FD3E), fontSize: 19),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              height: 55,
+              width: 380,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: const Color(0xff4D4D4D),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  _result,
+                  style:
+                      const TextStyle(color: Color(0xffD0FD3E), fontSize: 19),
+                ),
+              ),
             ),
             const SizedBox(
               height: 30,
@@ -248,10 +290,9 @@ class _IntroductionState extends State<Welcome> {
                       child: GestureDetector(
                         onTap: () {
                           Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const HomePrivate()),
-                          );
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const HomePrivate()));
                         },
                         child: const Text(
                           'Home Private',
@@ -262,7 +303,10 @@ class _IntroductionState extends State<Welcome> {
                   ),
                 ),
               ],
-            )
+            ),
+            const SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),

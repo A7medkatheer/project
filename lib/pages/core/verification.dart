@@ -42,7 +42,10 @@ class _PinputExampleState extends State<Verification> {
       appBar: AppBar(
         backgroundColor: Colors.amber.withOpacity(0),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.white,
+          ),
           onPressed: () {
             // Navigator.push(
             //   context,

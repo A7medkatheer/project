@@ -270,11 +270,11 @@ class Signup extends StatelessWidget {
                                       shape: BoxShape.circle,
                                       border: Border.all(
                                           color: Colors.black, width: 1)),
-                                  child: SvgPicture.asset(
-                                    "assets/assets/icons/facebook.svg",
-                                    color: Colors.white,
-                                    height: 21,
-                                  ),
+                                  // child: SvgPicture.asset(
+                                  //   "assets/assets/icons/facebook.svg",
+                                  //   color: Colors.white,
+                                  //   height: 21,
+                                  // ),
                                 ),
                                 const SizedBox(
                                   width: 40,
@@ -285,11 +285,11 @@ class Signup extends StatelessWidget {
                                       shape: BoxShape.circle,
                                       border: Border.all(
                                           color: Colors.black, width: 1)),
-                                  child: SvgPicture.asset(
-                                    "assets/assets/icons/google-plus.svg",
-                                    color: Colors.white,
-                                    height: 21,
-                                  ),
+                                  // child: SvgPicture.asset(
+                                  //   "assets/assets/icons/google-plus.svg",
+                                  //   color: Colors.white,
+                                  //   height: 21,
+                                  // ),
                                 ),
                                 const SizedBox(
                                   width: 100,

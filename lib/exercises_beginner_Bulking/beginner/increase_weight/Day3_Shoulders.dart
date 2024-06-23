@@ -165,7 +165,7 @@ class BeginnerIncreaseWightDay3 extends StatelessWidget {
                   'Shoulders Exercise',
                   '(Back Dumbbell)',
                   'assets/assets/images/Back_dumbbell.jpg',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/Flat_barr.gif'),
               const SizedBox(height: 30),
               _exerciseContainer(
                   context,

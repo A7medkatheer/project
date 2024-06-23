@@ -171,7 +171,7 @@ class BeginnerDryingDay5 extends StatelessWidget {
                   'Legs Exercise',
                   '(Calf)',
                   'assets/assets/images/calf2.png',
-                  'assets/assets/images/FLAT_BAR.gif'),
+                  'assets/assets/images/Flat_barr.gif'),
               const SizedBox(
                 height: 30,
               ),
