@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/pages/gender.dart';
 import 'package:flutter_application_1/payment/plan.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../core/home.dart';
 import '../private/home_private.dart';
@@ -14,14 +16,14 @@ class Access extends StatelessWidget {
       backgroundColor: Colors.black,
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 400,
           ),
-          Text(
+          const Text(
             '     To Use This Feature, Please \n Subscribe To Tje Private System',
             style: TextStyle(color: Color(0xffD0FD3E), fontSize: 24),
           ),
-          SizedBox(
+          const SizedBox(
             height: 300,
           ),
           Row(
@@ -65,7 +67,8 @@ class Access extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),
                     child: GestureDetector(
-                      onTap: () {
+                      onTap: () async {
+                        await context.read<UserCubit>().getUser();
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => const Plan()),

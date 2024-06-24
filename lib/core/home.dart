@@ -28,6 +28,8 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final int index = CacheHelper().getData(key: ApiKey.index) ?? 0;
+    final String gender = CacheHelper().getData(key: ApiKey.gender);
+      late bool ispayment = CacheHelper().getData(key: ApiKey.ispayment);
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -37,6 +39,7 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(14.0),
               child: GestureDetector(
                 onTap: () {
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -146,14 +149,14 @@ class HomeScreen extends StatelessWidget {
                               builder: (context) => const ChestGuide()),
                         );
                       },
-                      child: CircleAvatar(
+                      child: const CircleAvatar(
                         backgroundImage:
                             AssetImage('assets/assets/images/small_chest.jpg'),
                         backgroundColor: Color(0xffD9D9D9),
                         maxRadius: 45,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     GestureDetector(
@@ -164,14 +167,14 @@ class HomeScreen extends StatelessWidget {
                               builder: (context) => const BackGuide()),
                         );
                       },
-                      child: CircleAvatar(
+                      child: const CircleAvatar(
                         backgroundImage:
                             AssetImage('assets/assets/images/samll_back.jpg'),
                         backgroundColor: Color(0xffD9D9D9),
                         maxRadius: 45,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     GestureDetector(
@@ -182,14 +185,14 @@ class HomeScreen extends StatelessWidget {
                               builder: (context) => const ShouldersGuide()),
                         );
                       },
-                      child: CircleAvatar(
+                      child: const CircleAvatar(
                         backgroundImage: AssetImage(
                             'assets/assets/images/small_sholder.png'),
                         backgroundColor: Color(0xffD9D9D9),
                         maxRadius: 45,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     GestureDetector(
@@ -200,14 +203,14 @@ class HomeScreen extends StatelessWidget {
                               builder: (context) => const LegsGuide()),
                         );
                       },
-                      child: CircleAvatar(
+                      child: const CircleAvatar(
                         backgroundImage:
                             AssetImage('assets/assets/images/samll_leg.jpg'),
                         backgroundColor: Color(0xffD9D9D9),
                         maxRadius: 45,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     GestureDetector(
@@ -218,14 +221,14 @@ class HomeScreen extends StatelessWidget {
                               builder: (context) => const ArmorGuide()),
                         );
                       },
-                      child: CircleAvatar(
+                      child: const CircleAvatar(
                         backgroundImage:
                             AssetImage('assets/assets/images/small_armor.jpg'),
                         backgroundColor: Color(0xffD9D9D9),
                         maxRadius: 45,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 5,
                     ),
                     GestureDetector(
@@ -236,7 +239,7 @@ class HomeScreen extends StatelessWidget {
                               builder: (context) => const CardioGuide()),
                         );
                       },
-                      child: CircleAvatar(
+                      child: const CircleAvatar(
                         backgroundImage:
                             AssetImage('assets/assets/images/small_cardio.jpg'),
                         backgroundColor: Color(0xffD9D9D9),
@@ -282,7 +285,7 @@ class HomeScreen extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
-                            LevelBeginnerScreen(initialIndex: 1)),
+                            const LevelBeginnerScreen(initialIndex: 1)),
                   );
                 },
                 child: Image.asset(

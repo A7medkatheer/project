@@ -38,23 +38,26 @@ class _InbodyOpationState extends State<InbodyOpation> {
                     const SizedBox(height: 150),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => InBody()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const InBody()));
                       },
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.all(Color(0xffD0FD3E)),
-                        padding: MaterialStateProperty.all(EdgeInsets.symmetric(
-                            horizontal: 100, vertical: 15)),
-                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                            WidgetStateProperty.all(const Color(0xffD0FD3E)),
+                        padding: WidgetStateProperty.all(
+                            const EdgeInsets.symmetric(
+                                horizontal: 100, vertical: 15)),
+                        shape: WidgetStateProperty.all(RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20))),
                       ),
-                      child: Text(
+                      child: const Text(
                         "You have inbody",
                         style: TextStyle(fontSize: 24, color: Colors.black),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                     GestureDetector(
@@ -75,15 +78,14 @@ class _InbodyOpationState extends State<InbodyOpation> {
                         },
                         style: ButtonStyle(
                           backgroundColor:
-                              MaterialStateProperty.all(Color(0xffD0FD3E)),
-                          padding: MaterialStateProperty.all(
-                              EdgeInsets.symmetric(
+                              WidgetStateProperty.all(const Color(0xffD0FD3E)),
+                          padding: WidgetStateProperty.all(
+                              const EdgeInsets.symmetric(
                                   horizontal: 70, vertical: 15)),
-                          shape: MaterialStateProperty.all(
-                              RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20))),
+                          shape: WidgetStateProperty.all(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20))),
                         ),
-                        child: Text(
+                        child: const Text(
                           "You don't have inbody",
                           style: TextStyle(fontSize: 24, color: Colors.black),
                         ),

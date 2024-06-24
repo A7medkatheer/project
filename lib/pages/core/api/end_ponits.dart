@@ -29,10 +29,13 @@ class EndPoint {
 
 class ApiKey {
   static String index = "index";
+  static String plane = "plane";
+  static String ispayment = "ispayment";
   static String mBodyId = "mBodyId";
   static String error = "errors";
   static String age = "age";
   static String height = "height";
+  static String gender = "gender";
   static String weight = "weight";
   static String name = "name";
   static String email = "email";

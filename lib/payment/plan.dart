@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/home.dart';
+import 'package:flutter_application_1/pages/cache/cache_helper.dart';
+import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:flutter_application_1/pages/core/models/paymeny_model.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/payment/payment_view.dart';
+import 'package:flutter_application_1/private/home_private.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../core/training_programs_see_all.dart';
@@ -12,6 +15,8 @@ class Plan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    late String plane = CacheHelper().getData(key: ApiKey.plane);
+    late bool ispayment = CacheHelper().getData(key: ApiKey.ispayment);
     return Scaffold(
       backgroundColor: Colors.black,
       body: BlocConsumer<UserCubit, UserState>(
@@ -69,9 +74,17 @@ class Plan extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            context
-                                .read<UserCubit>()
-                                .payment(price: "100", plane: "3 Months");
+                            if (ispayment == true && plane == "3 Months") {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePrivate()),
+                              );
+                            } else {
+                              context
+                                  .read<UserCubit>()
+                                  .payment(price: "50", plane: "3 Months");
+                            }
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
@@ -86,9 +99,17 @@ class Plan extends StatelessWidget {
                         ),
                         GestureDetector(
                           onTap: () {
-                            context
-                                .read<UserCubit>()
-                                .payment(price: "300", plane: "12 Months");
+                            if (ispayment == true && plane == "oneyear") {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const HomePrivate()),
+                              );
+                            } else {
+                              context
+                                  .read<UserCubit>()
+                                  .payment(price: "100", plane: "oneyear");
+                            }
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),

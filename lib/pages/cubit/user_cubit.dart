@@ -218,6 +218,8 @@ class UserCubit extends Cubit<UserState> {
       CacheHelper().saveData(key: ApiKey.name, value: getData.name);
       CacheHelper().saveData(key: ApiKey.email, value: getData.email);
       CacheHelper().saveData(key: ApiKey.profilePic, value: getData.profilePic);
+      CacheHelper().saveData(key: ApiKey.ispayment, value: getData.ispayment);
+      CacheHelper().saveData(key: ApiKey.plane, value: getData.plane);
 
       print("${getData.name} ${getData.email} ${getData.profilePic}");
       emit(GetUserSucess());
@@ -317,6 +319,7 @@ class UserCubit extends Cubit<UserState> {
       CacheHelper().saveData(key: ApiKey.age, value: getData.age);
       CacheHelper().saveData(key: ApiKey.weight, value: getData.weight);
       CacheHelper().saveData(key: ApiKey.height, value: getData.height);
+      CacheHelper().saveData(key: ApiKey.gender, value: getData.gender);
       print("${getData.age} ${getData.weight} ${getData.height}");
       emit(MBodyDataSucess());
     } on ServerException catch (e) {
