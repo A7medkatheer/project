@@ -18,6 +18,7 @@ class _GenderSelectionState extends State<WorkoutCategory> {
   bool isBeginner = false;
   bool isIntermediate = false;
   bool isAdvance = false;
+  late bool ispayment = CacheHelper().getData(key: ApiKey.ispayment);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,13 +52,24 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                   GestureDetector(
                     onTap: () {
                       index = 0;
-                      CacheHelper().saveData(key: ApiKey.index, value: index);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Welcome(),
-                        ),
-                      );
+
+                      if (ispayment == true) {
+                        CacheHelper().saveData(key: ApiKey.index, value: index);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Welcome(),
+                          ),
+                        );
+                      } else {
+                        CacheHelper().saveData(key: ApiKey.index, value: index);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeScreen(),
+                          ),
+                        );
+                      }
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
@@ -75,6 +87,7 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                   )
                 ],
               ),
+
               const SizedBox(
                 height: 30,
               ),
@@ -83,14 +96,24 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                   GestureDetector(
                     onTap: () {
                       index = 1;
-                      CacheHelper().saveData(key: ApiKey.index, value: index);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const Welcome(),
-                        ),
-                      );
-                      print(index);
+
+                      if (ispayment == true) {
+                        CacheHelper().saveData(key: ApiKey.index, value: index);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Welcome(),
+                          ),
+                        );
+                      } else {
+                        CacheHelper().saveData(key: ApiKey.index, value: index);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeScreen(),
+                          ),
+                        );
+                      }
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
@@ -116,13 +139,24 @@ class _GenderSelectionState extends State<WorkoutCategory> {
                   GestureDetector(
                     onTap: () {
                       index = 2;
-                      CacheHelper().saveData(key: ApiKey.index, value: index);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomeScreen(),
-                        ),
-                      );
+
+                      if (ispayment == true) {
+                        CacheHelper().saveData(key: ApiKey.index, value: index);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Welcome(),
+                          ),
+                        );
+                      } else {
+                        CacheHelper().saveData(key: ApiKey.index, value: index);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeScreen(),
+                          ),
+                        );
+                      }
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),

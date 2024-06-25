@@ -2,6 +2,7 @@
 
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/private/home_private.dart';
 // import 'package:ui_screens/equations/examples_of_calculator.dart';
 // import 'package:ui_screens/private/home_private.dart';
 import 'examples_of_calculator.dart';
@@ -129,7 +130,7 @@ class _StopwatchScreenState extends State<StopwatchScreen> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ExamplesOfCalculator()),
+                MaterialPageRoute(builder: (context) => const HomePrivate()),
               );
             },
             child: const Icon(

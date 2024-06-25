@@ -18,6 +18,7 @@ import '../loss_weight/loss_wight_level_one.dart';
 import '../payment/plan.dart';
 import '../supplement/supplement_screen.dart';
 import '../supplement/the_most_important_tips.dart';
+import '../woman/woman_levels.dart';
 import 'Nutrition_Program_see_all.dart';
 import 'nutrition_guide_see_all.dart';
 import 'training_programs_see_all.dart';
@@ -29,7 +30,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final int index = CacheHelper().getData(key: ApiKey.index) ?? 0;
     final String gender = CacheHelper().getData(key: ApiKey.gender);
-      late bool ispayment = CacheHelper().getData(key: ApiKey.ispayment);
+    late bool ispayment = CacheHelper().getData(key: ApiKey.ispayment);
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -39,12 +40,21 @@ class HomeScreen extends StatelessWidget {
               padding: const EdgeInsets.all(14.0),
               child: GestureDetector(
                 onTap: () {
-                  
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HomePrivate()),
-                  );
+                  if (ispayment = true) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomePrivate(),
+                      ),
+                    );
+                  } else {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Plan(),
+                      ),
+                    );
+                  }
                 },
                 child: const Text(
                   'Private-Home',
@@ -324,13 +334,26 @@ class HomeScreen extends StatelessWidget {
               ),
               GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
+                    //  print(gender);
+                    if (gender == 'Male') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
                           builder: (context) => DryingLevels(
-                                initialIndex: index,
-                              )),
-                    );
+                            initialIndex: index,
+                          ),
+                        ),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WomanLevels(
+                            initialIndex: 2,
+                          ),
+                        ),
+                      );
+                    }
                   },
                   child: Image.asset('assets/assets/images/Dietart.jpg')),
               const SizedBox(
@@ -338,13 +361,25 @@ class HomeScreen extends StatelessWidget {
               ),
               GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
+                    if (gender == 'Male') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
                           builder: (context) => HealthyRecipesBulkingUp1(
-                                initialIndex: index,
-                              )),
-                    );
+                            initialIndex: index,
+                          ),
+                        ),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WomanLevels(
+                            initialIndex: 0,
+                          ),
+                        ),
+                      );
+                    }
                   },
                   child: Image.asset('assets/assets/images/Nutritional.jpg')),
               const SizedBox(
@@ -352,11 +387,25 @@ class HomeScreen extends StatelessWidget {
               ),
               GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const LossWightUp1()),
-                    );
+                    if (gender == 'Male') {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => LossWightUp1(
+                              // initialIndex: index,
+                              ),
+                        ),
+                      );
+                    } else {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => WomanLevels(
+                            initialIndex: 1,
+                          ),
+                        ),
+                      );
+                    }
                   },
                   child: Image.asset('assets/assets/images/weight loss.jpg')),
               const SizedBox(

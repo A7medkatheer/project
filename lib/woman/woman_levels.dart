@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import '../../constant/constant.dart';
 
 class WomanLevels extends StatelessWidget {
-  const WomanLevels({super.key});
+  const WomanLevels({super.key, required this.initialIndex});
+  final int initialIndex;
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
+      initialIndex: initialIndex,
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black,
@@ -27,9 +29,9 @@ class WomanLevels extends StatelessWidget {
                       context,
                       "First meal : Breakfast",
                       [
-                        'Qats               100 g           347           12        60       7',
-                        'Walnuts          30  g            196          4.56   4.08    19.6',
-                        'Cattage\nCheese          100 g             98.5           11     3.4     1.2 ',
+                        'Qats               100 g           347           12           60       7',
+                        'Walnuts          30  g           196          4.56     4.08    19.6',
+                        'Cattage\nCheese          100 g            98.5          11       3.4      1.2 ',
                         '       Preparation Method : Mix Oats With Walnuts \n   And Protein, Then add Water And Stir The Mixture',
                       ],
                     ),
@@ -37,9 +39,9 @@ class WomanLevels extends StatelessWidget {
                       context,
                       "Second meal : Snack",
                       [
-                        'Medium\nSized Apple   150g       150               0         19.5      0 ',
-                        'Sweet\nPotato             75g         64.5            1.2        1.5   0.075',
-                        'Multivitamin\nSupplement  1 Table      0                 0            0         0',
+                        'Medium\nSized Apple    150g            150              0         19.5   0 ',
+                        'Sweet\nPotato             75g              64.5           1.2       1.5 0.075',
+                        'Multivitamin\nSupplement  1 Table          0                 0            0         0',
                       ],
                     ),
                     buildMealSection(
@@ -320,7 +322,7 @@ class CustomDividerWithText extends StatelessWidget {
     super.key,
     required this.text,
     this.dividerColor = Colors.white,
-    this.fontSize = 17,
+    this.fontSize = 16.2,
     this.padding = 8.0,
   });
 

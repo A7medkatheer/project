@@ -49,6 +49,7 @@ import 'payment/plan.dart';
 import 'private/equations/examples_of_calculator.dart';
 import 'private/exercises_private.dart';
 import 'profile/connect_with_us.dart';
+import 'woman/woman_levels.dart';
 
 // import 'profile/pirvacy_policy.dart';
 // import 'profile/profile_page.dart';
@@ -69,9 +70,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Splash(),
-    );
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Signup());
   }
 }

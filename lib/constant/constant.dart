@@ -2,8 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/pages/access.dart';
+import 'package:flutter_application_1/pages/access2.dart';
+import 'package:flutter_application_1/pages/in_body.dart';
 import 'package:flutter_application_1/profile/profile_page.dart';
 import 'package:flutter_application_1/profile/setting_screen.dart';
+
+import '../pages/cache/cache_helper.dart';
+import '../pages/core/api/end_ponits.dart';
 
 class bottom_tab_bar extends StatefulWidget {
   const bottom_tab_bar({super.key});
@@ -14,6 +19,7 @@ class bottom_tab_bar extends StatefulWidget {
 
 class _BottomTabBarState extends State<bottom_tab_bar> {
   int _selectedIndex = 0;
+  late bool ispayment = CacheHelper().getData(key: ApiKey.ispayment);
 
   void _onIconTapped(int index) {
     setState(() {
@@ -34,10 +40,22 @@ class _BottomTabBarState extends State<bottom_tab_bar> {
         );
         break;
       case 2:
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const Access()),
-        );
+        if (ispayment == true) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => InBody(),
+            ),
+          );
+        } else {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Access2(),
+            ),
+          );
+        }
+
         break;
       case 3:
         Navigator.push(

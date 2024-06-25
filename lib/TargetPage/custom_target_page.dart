@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
+import '../core/home.dart';
+import '../pages/cache/cache_helper.dart';
+import '../pages/core/api/end_ponits.dart';
+
 class WorkoutSet {
   int setNumber;
   bool isDone;
@@ -45,12 +49,21 @@ class CustomTargetPage extends StatefulWidget {
 
 class _CustomTargetPageState extends State<CustomTargetPage> {
   List<WorkoutSet> sets = [];
-  bool is_paid = true; 
-  
+  bool is_paid = false;
+  late bool ispayment;
+
   @override
   void initState() {
     super.initState();
+    _loadPaymentStatus();
     _loadSets();
+  }
+
+  Future<void> _loadPaymentStatus() async {
+    ispayment = CacheHelper().getData(key: ApiKey.ispayment);
+    setState(() {
+      is_paid = ispayment;
+    });
   }
 
   Future<void> _loadSets() async {
@@ -345,22 +358,6 @@ class _CustomTargetPageState extends State<CustomTargetPage> {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
-      body: const Center(
-        child: Text('Home Screen'),
       ),
     );
   }

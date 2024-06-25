@@ -6,6 +6,7 @@ import 'package:flutter_application_1/pages/access.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
 import 'package:flutter_application_1/pages/gender.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
+import 'package:flutter_application_1/payment/plan.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class InbodyOpation extends StatefulWidget {
@@ -41,7 +42,7 @@ class _InbodyOpationState extends State<InbodyOpation> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const InBody()));
+                                builder: (context) => const Plan()));
                       },
                       style: ButtonStyle(
                         backgroundColor:

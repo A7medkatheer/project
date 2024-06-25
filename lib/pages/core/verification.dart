@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/Forget_password.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
+import 'package:flutter_application_1/pages/core/signUp.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 import 'package:flutter_application_1/pages/in_body.dart';
 import 'package:flutter_application_1/pages/inbody_opation.dart';
@@ -47,10 +48,10 @@ class _PinputExampleState extends State<Verification> {
             color: Colors.white,
           ),
           onPressed: () {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => ForgetPassword()),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => Signup()),
+            );
           },
         ),
       ),

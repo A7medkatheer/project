@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/constant.dart';
+import 'package:flutter_application_1/private/home_private.dart';
 // import 'package:ui_screens/equations/bmi_screen.dart';
 // import 'package:ui_screens/equations/carb_calculator.dart';
 // import 'package:ui_screens/equations/protein_calculator.dart';
@@ -28,7 +29,7 @@ class ExamplesOfCalculator extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const HomeScreen()),
+                MaterialPageRoute(builder: (context) => const HomePrivate()),
               );
             },
             child: const Icon(
