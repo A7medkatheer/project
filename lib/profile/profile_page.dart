@@ -79,8 +79,8 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Future<void> loadUserData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    nameController.text = prefs.getString('name') ?? '';
-    emailController.text = prefs.getString('email') ?? '';
+    // nameController.text = prefs.getString('name') ?? '';
+    // emailController.text = prefs.getString('email') ?? '';
     String? dateOfBirth = prefs.getString('dateOfBirth');
     if (dateOfBirth != null) {
       _selectedDate = DateTime.parse(dateOfBirth);
