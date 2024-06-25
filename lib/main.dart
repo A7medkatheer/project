@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/dio_consumer.dart';
 import 'package:flutter_application_1/pages/core/login.dart';
+import 'package:flutter_application_1/pages/core/signUp.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
 // import 'package:flutter_application_1/pages/in_body.dart';
 // import 'package:flutter_application_1/pages/password.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 
 // import 'profile/pirvacy_policy.dart';
 // import 'profile/profile_page.dart';
@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: Signup(),
     );
   }
 }

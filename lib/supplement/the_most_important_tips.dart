@@ -10,6 +10,11 @@ class TheMostImportantTips extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        title: Text(
+          'Questions',
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24),
+        ),
         elevation: 0,
         backgroundColor: const Color(0xffD0FD3E),
         actions: <Widget>[
@@ -20,8 +25,10 @@ class TheMostImportantTips extends StatelessWidget {
               size: 40,
             ),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => const HomeScreen())));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => const HomeScreen())));
             },
           ),
         ],

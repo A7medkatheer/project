@@ -56,7 +56,7 @@ class Splash extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          '   Fitness \n     hhi    & \n   FEEDING ',
+                          '   Fitness \n        &    \n   FEEDING ',
                           style: TextStyle(
                             color: Color(0xffD0FD3E),
                             fontSize: 48,
