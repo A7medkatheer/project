@@ -6,10 +6,6 @@ import '../../exercise_beginner_Drying/Day2_Back&Trapees.dart';
 import '../../exercise_beginner_Drying/Day3_Cardio.dart';
 import '../../exercise_beginner_Drying/Day4_Shoulders.dart';
 import '../../exercise_beginner_Drying/Day5_Legs.dart';
-import '../../exercise_beginner_push_pull_leg/legs.dart';
-import '../../exercise_beginner_push_pull_leg/pull_1.dart';
-import '../../exercise_beginner_push_pull_leg/push2.dart';
-import '../../exercise_beginner_push_pull_leg/push_1.dart';
 import '../exercises_beginner_Bulking/beginner/increase_weight/Day1_Chest.dart';
 import '../exercises_beginner_Bulking/beginner/increase_weight/Day2_Back&Trapees.dart';
 import '../exercises_beginner_Bulking/beginner/increase_weight/Day3_Shoulders.dart';
@@ -79,11 +75,11 @@ class ExercisesPrivate extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -161,11 +157,11 @@ class ExercisesPrivate extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -243,11 +239,11 @@ class ExercisesPrivate extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -326,11 +322,11 @@ class ExercisesPrivate extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -408,11 +404,11 @@ class ExercisesPrivate extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -473,7 +469,7 @@ class ExercisesPrivate extends StatelessWidget {
                       width: 380,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Color(0xffD0FD3E)),
+                          color: const Color(0xffD0FD3E)),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -543,11 +539,11 @@ class ExercisesPrivate extends StatelessWidget {
                                 height: 170,
                                 fit: BoxFit.cover,
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -627,11 +623,11 @@ class ExercisesPrivate extends StatelessWidget {
                                 height: 170,
                                 fit: BoxFit.cover,
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -701,8 +697,8 @@ class ExercisesPrivate extends StatelessWidget {
                           width: 380,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: Color(0xffD0FD3E)),
-                          child: Row(
+                              color: const Color(0xffD0FD3E)),
+                          child: const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               //             Image.asset(
@@ -761,11 +757,11 @@ class ExercisesPrivate extends StatelessWidget {
                                 height: 170,
                                 fit: BoxFit.cover,
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -845,11 +841,11 @@ class ExercisesPrivate extends StatelessWidget {
                                 height: 170,
                                 fit: BoxFit.cover,
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -911,8 +907,8 @@ class ExercisesPrivate extends StatelessWidget {
                         width: 380,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xffD0FD3E)),
-                        child: Row(
+                            color: const Color(0xffD0FD3E)),
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             //             Image.asset(
@@ -945,8 +941,6 @@ class ExercisesPrivate extends StatelessWidget {
                   ),
                 ),
               ),
-
-            
             ],
           ),
         ),

@@ -138,6 +138,7 @@ class _HeightPickerState extends State<HeightPicker> {
                             builder: (context) => const WorkoutCategory(),
                           ),
                         );
+                        context.read<UserCubit>().getUser();
                       }
                     },
                     builder: (context, state) {

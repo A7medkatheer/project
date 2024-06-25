@@ -8,48 +8,49 @@ class Successful extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1c1c1c),
+      backgroundColor: const Color(0xff1c1c1c),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child: Image.asset('assets/assets/images/true.png'),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
-          Text(
+          const Text(
             'Successful',
             style: TextStyle(fontSize: 32, color: Colors.white),
           ),
-          Text(
+          const Text(
             'Your have successfully registered in our ',
             style: TextStyle(fontSize: 16, color: Colors.white),
           ),
-          Text(
+          const Text(
             'app and start workinging in it ',
             style: TextStyle(fontSize: 16, color: Colors.white),
           ),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           ElevatedButton(
             onPressed: () {},
             style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(Color(0xffD0FD3E)),
-              padding: MaterialStateProperty.all(
-                  EdgeInsets.symmetric(horizontal: 40, vertical: 10)),
-              shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              backgroundColor: WidgetStateProperty.all(const Color(0xffD0FD3E)),
+              padding: WidgetStateProperty.all(
+                  const EdgeInsets.symmetric(horizontal: 40, vertical: 10)),
+              shape: WidgetStateProperty.all(RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(22))),
             ),
             child: GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => InbodyOpation()),
+                  MaterialPageRoute(
+                      builder: (context) => const InbodyOpation()),
                 );
               },
-              child: Text(
+              child: const Text(
                 "Start",
                 style: TextStyle(fontSize: 24, color: Colors.black),
               ),

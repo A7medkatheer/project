@@ -79,11 +79,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -161,11 +161,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -243,11 +243,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -326,11 +326,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -408,11 +408,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                               height: 170,
                               fit: BoxFit.cover,
                             ),
-                            VerticalDivider(
+                            const VerticalDivider(
                               color: Colors.black,
                               //   thickness: 1,
                             ),
-                            Column(
+                            const Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -473,7 +473,7 @@ class LevelBeginnerScreen extends StatelessWidget {
                       width: 380,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Color(0xffD0FD3E)),
+                          color: const Color(0xffD0FD3E)),
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -543,11 +543,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                                 height: 170,
                                 fit: BoxFit.cover,
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -627,11 +627,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                                 height: 170,
                                 fit: BoxFit.cover,
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -701,8 +701,8 @@ class LevelBeginnerScreen extends StatelessWidget {
                           width: 380,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: Color(0xffD0FD3E)),
-                          child: Row(
+                              color: const Color(0xffD0FD3E)),
+                          child: const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               //             Image.asset(
@@ -761,11 +761,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                                 height: 170,
                                 fit: BoxFit.cover,
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -845,11 +845,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                                 height: 170,
                                 fit: BoxFit.cover,
                               ),
-                              VerticalDivider(
+                              const VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              Column(
+                              const Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -911,8 +911,8 @@ class LevelBeginnerScreen extends StatelessWidget {
                         width: 380,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xffD0FD3E)),
-                        child: Row(
+                            color: const Color(0xffD0FD3E)),
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             //             Image.asset(
@@ -979,7 +979,7 @@ class LevelBeginnerScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white70),
-                          child: Row(
+                          child: const Row(
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               // Image.asset(
@@ -988,11 +988,11 @@ class LevelBeginnerScreen extends StatelessWidget {
                               //   height: 170,
                               //   fit: BoxFit.cover,
                               // ),
-                              const VerticalDivider(
+                              VerticalDivider(
                                 color: Colors.black,
                                 //   thickness: 1,
                               ),
-                              const Column(
+                              Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -1061,7 +1061,7 @@ class LevelBeginnerScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white70),
-                          child: Row(
+                          child: const Row(
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               // Image.asset(
@@ -1144,7 +1144,7 @@ class LevelBeginnerScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white70),
-                          child: Row(
+                          child: const Row(
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               // Image.asset(
@@ -1219,8 +1219,8 @@ class LevelBeginnerScreen extends StatelessWidget {
                         width: 380,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xffD0FD3E)),
-                        child: Row(
+                            color: const Color(0xffD0FD3E)),
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             // Image.asset(
@@ -1266,7 +1266,7 @@ class LevelBeginnerScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white70),
-                          child: Row(
+                          child: const Row(
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               // Image.asset(
@@ -1349,7 +1349,7 @@ class LevelBeginnerScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
                               color: Colors.white70),
-                          child: Row(
+                          child: const Row(
                             //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               // Image.asset(
@@ -1424,8 +1424,8 @@ class LevelBeginnerScreen extends StatelessWidget {
                         width: 380,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xffD0FD3E)),
-                        child: Row(
+                            color: const Color(0xffD0FD3E)),
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             // Image.asset(

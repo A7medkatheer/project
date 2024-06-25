@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
+import 'package:flutter_application_1/payment/plan.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewApp extends StatefulWidget {
@@ -35,6 +38,16 @@ class _WebViewAppState extends State<WebViewApp> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Payment'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () async {
+            await context.read<UserCubit>().getUser();
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Plan()),
+            );
+          },
+        ),
       ),
       body: WebViewWidget(
         controller: controller,
