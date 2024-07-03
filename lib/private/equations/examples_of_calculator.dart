@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constant/constant.dart';
+import 'package:flutter_application_1/private/equations/add_meal.dart';
 import 'package:flutter_application_1/private/home_private.dart';
 // import 'package:ui_screens/equations/bmi_screen.dart';
 // import 'package:ui_screens/equations/carb_calculator.dart';
@@ -138,7 +139,8 @@ class ExamplesOfCalculator extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const ProteinCalculatorScreen()),
+                          builder: (context) =>
+                              const ProteinCalculatorScreen()),
                     );
                   },
                   child: const Row(
@@ -163,41 +165,41 @@ class ExamplesOfCalculator extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            // Container(
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(20),
-            //     color: const Color(0xff454545),
-            //   ),
-            //   height: 72,
-            //   width: 381,
-            //   child: Padding(
-            //     padding: const EdgeInsets.all(8.0),
-            //     child: GestureDetector(
-            //       onTap: () {
-            //         Navigator.push(
-            //           context,
-            //           MaterialPageRoute(builder: (context) => const StopwatchApp()),
-            //         );
-            //       },
-            //       child: const Row(
-            //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //         children: [
-            //           Text(
-            //             'Stop watch',
-            //             style: TextStyle(color: Colors.white, fontSize: 20),
-            //           ),
-            //           Text(
-            //             '>|',
-            //             style: TextStyle(
-            //                 color: Color(0xffD0FD3E),
-            //                 fontSize: 30,
-            //                 fontWeight: FontWeight.bold),
-            //           )
-            //         ],
-            //       ),
-            //     ),
-            //   ),
-            // ),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: const Color(0xff454545),
+              ),
+              height: 72,
+              width: 381,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const AddMeal()),
+                    );
+                  },
+                  child: const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Add Meal',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      Text(
+                        '>|',
+                        style: TextStyle(
+                            color: Color(0xffD0FD3E),
+                            fontSize: 30,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),

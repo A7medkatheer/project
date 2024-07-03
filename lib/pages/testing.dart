@@ -1,126 +1,261 @@
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
+// import 'package:o3d/o3d.dart';
 
-class ChatBotScreen extends StatefulWidget {
-  const ChatBotScreen({super.key});
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({super.key});
 
-  @override
-  _ChatBotScreenState createState() => _ChatBotScreenState();
-}
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
 
-class _ChatBotScreenState extends State<ChatBotScreen> {
-  final TextEditingController _controller = TextEditingController();
-  final List<String> _messages = [];
+// class _MyHomePageState extends State<MyHomePage> {
+//   O3DController o3dController = O3DController();
+//   PageController mainPageController = PageController();
+//   PageController textsPageController = PageController();
+//   int page = 0;
+//   double totalWaterIntake = 0;
+//   final double dailyGoal = 2000; // in ml
+//   final TextEditingController waterIntakeController = TextEditingController();
 
-  void _sendMessage() {
-    if (_controller.text.isEmpty) return;
+//   void _addWaterIntake() {
+//     setState(() {
+//       final double waterIntake = double.parse(waterIntakeController.text);
+//       totalWaterIntake += waterIntake;
+//       waterIntakeController.clear();
+//     });
+//   }
 
-    setState(() {
-      _messages.add("You: ${_controller.text}");
-      _messages.add("Bot: ${_getResponse(_controller.text)}");
-      _controller.clear();
-    });
-  }
+//   @override
+//   Widget build(BuildContext context) {
+//     final height = MediaQuery.sizeOf(context).height;
 
-  String _getResponse(String query) {
-    query = query.toLowerCase();
+//     return Scaffold(
+//       backgroundColor: Colors.blue.shade50,
+//       body: SafeArea(
+//         child: Stack(
+//           children: [
+//             O3D(
+//               src:
+//                   'assets/assets/images/facial__body_animated_party_m_0001_-_actorcore.glb',
+//               controller: o3dController,
+//               ar: false,
+//               autoPlay: true,
+//               autoRotate: false,
+//               cameraControls: false,
+//               cameraTarget: CameraTarget(-.25, 1.5, 1.5),
+//               cameraOrbit: CameraOrbit(0, 90, 1),
+//             ),
+//             PageView(
+//               controller: mainPageController,
+//               children: [
+//                 ListView(
+//                   padding: EdgeInsets.fromLTRB(12, height * 0.8, 12, 100),
+//                   children: [
+//                     Card(
+//                       child: Padding(
+//                         padding: const EdgeInsets.all(32.0),
+//                         child: Row(
+//                           crossAxisAlignment: CrossAxisAlignment.start,
+//                           children: [
+//                             // Image.asset(
+//                             //   'assets/water_glass.jpg',
+//                             //   fit: BoxFit.cover,
+//                             //   width: 70,
+//                             //   height: 70,
+//                             // ),
+//                             const Expanded(
+//                               child: Padding(
+//                                 padding: EdgeInsets.symmetric(horizontal: 8.0),
+//                                 child: Column(
+//                                   crossAxisAlignment: CrossAxisAlignment.start,
+//                                   children: [
+//                                     Text(
+//                                       'Drink Water',
+//                                       style: TextStyle(
+//                                         fontWeight: FontWeight.bold,
+//                                       ),
+//                                     ),
+//                                     Text(
+//                                       'Stay Hydrated',
+//                                       style: TextStyle(
+//                                         fontWeight: FontWeight.bold,
+//                                       ),
+//                                     ),
+//                                   ],
+//                                 ),
+//                               ),
+//                             ),
+//                             const Icon(
+//                               Icons.local_drink,
+//                               color: Colors.blue,
+//                             )
+//                           ],
+//                         ),
+//                       ),
+//                     ),
+//                     Padding(
+//                       padding: const EdgeInsets.all(8.0),
+//                       child: Column(
+//                         children: [
+//                           TextField(
+//                             controller: waterIntakeController,
+//                             keyboardType: TextInputType.number,
+//                             decoration: InputDecoration(
+//                               labelText: 'Water Intake (ml)',
+//                               labelStyle: TextStyle(color: Colors.black),
+//                               fillColor: Colors.white,
+//                               filled: true,
+//                               border: OutlineInputBorder(
+//                                 borderRadius: BorderRadius.circular(10),
+//                               ),
+//                             ),
+//                           ),
+//                           const SizedBox(height: 10),
+//                           ElevatedButton(
+//                             onPressed: _addWaterIntake,
+//                             child: const Text('Add Water Intake'),
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                     const SizedBox(height: 20),
+//                     Text(
+//                       'Total Water Intake: ${totalWaterIntake.toStringAsFixed(0)} ml',
+//                       style:
+//                           TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+//                     ),
+//                     const SizedBox(height: 20),
+//                     CircularProgressIndicator(
+//                       value: totalWaterIntake / dailyGoal,
+//                       strokeWidth: 10,
+//                       backgroundColor: Colors.grey,
+//                       valueColor:
+//                           const AlwaysStoppedAnimation<Color>(Colors.blue),
+//                     ),
+//                     const SizedBox(height: 10),
+//                     Text(
+//                       '${((totalWaterIntake / dailyGoal) * 100).toStringAsFixed(1)}% of Daily Goal',
+//                       style: TextStyle(fontSize: 20),
+//                     ),
+//                   ],
+//                 ),
+//                 ClipPath(
+//                   clipper: InvertedCircleClipper(),
+//                   child: Container(
+//                     color: Colors.white,
+//                   ),
+//                 )
+//               ],
+//             ),
+//             Container(
+//               width: 100,
+//               height: double.infinity,
+//               margin: const EdgeInsets.all(12),
+//               child: PageView(
+//                 controller: textsPageController,
+//                 physics: const NeverScrollableScrollPhysics(),
+//                 children: [
+//                   Column(
+//                     children: [
+//                       const SizedBox(
+//                         width: double.infinity,
+//                         child: FittedBox(
+//                           fit: BoxFit.fitWidth,
+//                           child: Text("Water Intake Tracker"),
+//                         ),
+//                       ),
+//                       const SizedBox(
+//                         width: double.infinity,
+//                         child: Row(
+//                           children: [
+//                             Expanded(
+//                               child: FittedBox(
+//                                 fit: BoxFit.fitWidth,
+//                                 child: Text("87"),
+//                               ),
+//                             ),
+//                             Text("%")
+//                           ],
+//                         ),
+//                       ),
+//                       Row(
+//                         children: [
+//                           const Padding(
+//                             padding: EdgeInsets.symmetric(horizontal: 8.0),
+//                             child: Icon(Icons.local_drink, color: Colors.blue),
+//                           ),
+//                           Expanded(
+//                               child: Column(
+//                             crossAxisAlignment: CrossAxisAlignment.start,
+//                             children: [
+//                               Text('${totalWaterIntake.toStringAsFixed(0)}'),
+//                               const Text(
+//                                 "ml",
+//                                 style:
+//                                     TextStyle(fontSize: 12, color: Colors.grey),
+//                               ),
+//                             ],
+//                           ))
+//                         ],
+//                       ),
+//                     ],
+//                   ),
+//                 ],
+//               ),
+//             )
+//           ],
+//         ),
+//       ),
+//       bottomNavigationBar: BottomNavigationBar(
+//           currentIndex: page,
+//           onTap: (page) {
+//             mainPageController.animateToPage(page,
+//                 duration: const Duration(milliseconds: 500),
+//                 curve: Curves.ease);
+//             textsPageController.animateToPage(page,
+//                 duration: const Duration(milliseconds: 500),
+//                 curve: Curves.ease);
 
-    if (query.contains("exercise")) {
-      return "Regular exercise is vital for maintaining good health. It helps in controlling weight, improving mood, and boosting energy. Aim for at least 150 minutes of moderate aerobic activity or 75 minutes of vigorous activity each week, combined with muscle-strengthening exercises on 2 or more days a week.";
-    } else if (query.contains("fitness")) {
-      return "Fitness encompasses various aspects, including cardiovascular health, muscle strength, flexibility, and mental well-being. To stay fit, it's important to maintain a balanced routine that includes aerobic exercises, strength training, and flexibility workouts. Consistency, variety, and gradual progression are key.";
-    } else if (query.contains("feeding") || query.contains("diet")) {
-      return "A balanced diet is essential for optimal health. It should include a variety of foods from all food groups: fruits, vegetables, proteins, grains, and dairy. Focus on whole, minimally processed foods, stay hydrated, and control portion sizes. Avoid excessive intake of sugars, saturated fats, and trans fats.";
-    } else if (query.contains("protein")) {
-      return "Protein is crucial for muscle repair and growth. Good sources of protein include lean meats, poultry, fish, beans, lentils, tofu, nuts, and seeds. It's important to consume adequate protein throughout the day, especially after workouts, to support muscle recovery.";
-    } else if (query.contains("cardio")) {
-      return "Cardio exercises are great for improving cardiovascular health and burning calories. Examples include running, cycling, swimming, and brisk walking. Aim for at least 150 minutes of moderate-intensity or 75 minutes of high-intensity cardio per week. Mix it up to keep it interesting and challenging.";
-    } else if (query.contains("hydration")) {
-      return "Staying hydrated is crucial for overall health. Water helps regulate body temperature, keeps joints lubricated, prevents infections, and delivers nutrients to cells. Aim to drink at least 8 glasses of water a day, more if you are physically active or in hot climates.";
-    } else if (query.contains("weight loss")) {
-      return "Weight loss involves burning more calories than you consume. Focus on a balanced diet with a calorie deficit, regular exercise, and adequate sleep. Incorporate both cardio and strength training exercises. Consistency and patience are key to sustainable weight loss.";
-    } else if (query.contains("muscle gain")) {
-      return "To gain muscle, combine strength training with a diet rich in protein. Lift heavy weights with low repetitions and gradually increase the weight. Ensure you're consuming more calories than you burn and get plenty of rest for muscle recovery.";
-    } else if (query.contains("flexibility")) {
-      return "Flexibility exercises, such as stretching and yoga, help improve the range of motion of your muscles and joints. Incorporate these exercises into your routine at least 2-3 times a week. Hold each stretch for 15-30 seconds and avoid bouncing.";
-    } else if (query.contains("supplements")) {
-      return "Supplements can help fill nutritional gaps but should not replace a balanced diet. Common supplements include multivitamins, protein powders, and omega-3 fatty acids. Consult with a healthcare provider before starting any new supplement regimen.";
-    } else if (query.contains("sleep")) {
-      return "Sleep is essential for recovery and overall health. Aim for 7-9 hours of quality sleep each night. Establish a regular sleep schedule, create a restful environment, and avoid caffeine and electronic devices before bedtime.";
-    } else if (query.contains("mental health")) {
-      return "Mental health is as important as physical health. Engage in activities that reduce stress, such as meditation, exercise, and spending time with loved ones. Seek professional help if you're struggling with mental health issues.";
-    } else if (query.contains("stress management")) {
-      return "Managing stress involves techniques like deep breathing, exercise, adequate sleep, and maintaining social connections. Identify stressors in your life and work on strategies to manage or reduce them.";
-    } else if (query.contains("recovery")) {
-      return "Recovery is crucial for muscle growth and injury prevention. Incorporate rest days into your routine, get adequate sleep, stay hydrated, and consider activities like stretching, foam rolling, and massage.";
-    } else if (query.contains("calories")) {
-      return "Caloric intake is the amount of energy you get from food. To maintain weight, consume the same amount of calories you burn. For weight loss, create a caloric deficit, and for muscle gain, aim for a caloric surplus.";
-    } else if (query.contains("macro nutrients") || query.contains("macros")) {
-      return "Macronutrients include carbohydrates, proteins, and fats. A balanced diet typically includes about 45-65% carbs, 10-35% protein, and 20-35% fats. Adjust these ratios based on your fitness goals.";
-    } else if (query.contains("micronutrients")) {
-      return "Micronutrients are vitamins and minerals essential for overall health. They support various bodily functions, including energy production, immune function, and bone health. Eat a diverse diet to ensure adequate intake.";
-    } else if (query.contains("gym etiquette")) {
-      return "Gym etiquette includes wiping down equipment after use, re-racking weights, being mindful of your surroundings, and respecting other gym-goers' space and time. Wear appropriate attire and use headphones if listening to music.";
-    } else if (query.contains("workout plan")) {
-      return "A good workout plan includes a mix of cardio, strength training, and flexibility exercises. Tailor the plan to your goals, schedule, and fitness level. Gradually increase intensity and vary your routine to prevent plateaus.";
-    } else if (query.contains("motivation")) {
-      return "Staying motivated can be challenging. Set realistic goals, track your progress, find a workout buddy, and mix up your routine to keep it interesting. Remember why you started and celebrate small victories along the way.";
-    } else {
-      return "I'm here to help with exercise, fitness, and feeding advice. Ask me anything!";
-    }
-  }
+//             if (page == 0) {
+//               o3dController.cameraTarget(-.25, 1.5, 1.5);
+//               o3dController.cameraOrbit(0, 90, 1);
+//             } else if (page == 1) {
+//               o3dController.cameraTarget(0, 1.8, 0);
+//               o3dController.cameraOrbit(-90, 90, 1.5);
+//             } else if (page == 2) {
+//               o3dController.cameraTarget(0, 3, 0);
+//               o3dController.cameraOrbit(0, 90, -3);
+//             }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Fitness Chat Bot"),
-        backgroundColor: const Color(0xffD0FD3E),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              padding: const EdgeInsets.all(8.0),
-              itemCount: _messages.length,
-              itemBuilder: (BuildContext context, int index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 4.0),
-                  child: Text(
-                    _messages[index],
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: _messages[index].startsWith("You") ? Colors.white : Colors.green,
-                    ),
-                  ),
-                );
-              },
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: const InputDecoration(
-                      hintText: "Ask me about exercise, fitness, or feeding...",
-                      hintStyle: TextStyle(color: Colors.white70),
-                      border: InputBorder.none,
-                    ),
-                    style: const TextStyle(color: Colors.white),
-                  ),
-                ),
-                IconButton(
-                  icon: const Icon(Icons.send, color: Colors.white),
-                  onPressed: _sendMessage,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-      backgroundColor: Colors.black,
-    );
-  }
-}
+//             setState(() {
+//               this.page = page;
+//             });
+//           },
+//           showUnselectedLabels: false,
+//           showSelectedLabels: false,
+//           items: const [
+//             BottomNavigationBarItem(
+//                 icon: Icon(Icons.analytics_outlined), label: 'home'),
+//             BottomNavigationBarItem(
+//                 icon: Icon(Icons.timer_outlined), label: 'home'),
+//             BottomNavigationBarItem(
+//                 icon: Icon(Icons.person_outline), label: 'home'),
+//           ]),
+//     );
+//   }
+// }
+
+// class InvertedCircleClipper extends CustomClipper<Path> {
+//   @override
+//   Path getClip(Size size) {
+//     Path path = Path();
+//     path.addOval(Rect.fromCircle(
+//         center: Offset(size.width / 2, size.height / 2), radius: size.height));
+//     return path;
+//   }
+
+//   @override
+//   bool shouldReclip(CustomClipper<Path> oldClipper) {
+//     return false;
+//   }
+// }

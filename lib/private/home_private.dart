@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
+import 'package:flutter_application_1/pages/chat_bot.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:flutter_application_1/private/equations/examples_of_calculator.dart';
 import 'package:flutter_application_1/private/food_bulking/bulking_and_drying_level_2.dart';
-// import 'package:ui_screens/private/food_bulking/bulking_and_drying_level_2.dart';
 
 import '../Drying/drying_levels.dart';
 import '../constant/constant.dart';
@@ -16,6 +16,7 @@ import 'food_bulking/bulking_and_drying_level_1.dart';
 
 class HomePrivate extends StatelessWidget {
   const HomePrivate({super.key});
+
   @override
   Widget build(BuildContext context) {
     final index = CacheHelper().getData(key: ApiKey.index) ?? 0;
@@ -313,6 +314,16 @@ class HomePrivate extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ChatBotScreen()),
+          );
+        },
+        backgroundColor: Color(0xffD0FD3E),
+        child: Icon(Icons.chat),
       ),
       bottomNavigationBar: const bottom_tab_bar(),
     );

@@ -156,31 +156,31 @@ class _CustomTargetPageState extends State<CustomTargetPage> {
                 borderRadius: BorderRadius.circular(40),
                 child: Image.asset(
                   widget.Gifimage,
-                  width: 334,
-                  height: 250,
+                  width: 480,
+                  height: 600,
                   fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(height: 25),
-              const Text(
-                'Target Muscle',
-                style: TextStyle(fontSize: 32, color: Colors.white),
-              ),
-              const SizedBox(height: 25),
-              const Text(
-                'Pectoralis Major Muscle',
-                style: TextStyle(fontSize: 24, color: Colors.white70),
-              ),
-              const SizedBox(height: 25),
-              const Text(
-                'Synergistic Muscles',
-                style: TextStyle(fontSize: 32, color: Colors.white),
-              ),
-              const SizedBox(height: 25),
-              const Text(
-                'Chest Muscle : Primary Impact\n              Triceps Muscle \n         Front Deltoid Muscles',
-                style: TextStyle(fontSize: 24, color: Colors.white70),
-              ),
+              // const Text(
+              //   'Target Muscle',
+              //   style: TextStyle(fontSize: 32, color: Colors.white),
+              // ),
+              // const SizedBox(height: 25),
+              // const Text(
+              //   'Pectoralis Major Muscle',
+              //   style: TextStyle(fontSize: 24, color: Colors.white70),
+              // ),
+              // const SizedBox(height: 25),
+              // const Text(
+              //   'Synergistic Muscles',
+              //   style: TextStyle(fontSize: 32, color: Colors.white),
+              // ),
+              // const SizedBox(height: 25),
+              // const Text(
+              //   'Chest Muscle : Primary Impact\n              Triceps Muscle \n         Front Deltoid Muscles',
+              //   style: TextStyle(fontSize: 24, color: Colors.white70),
+              // ),
               const SizedBox(height: 25),
               if (is_paid) // Conditionally render the buttons and table
                 Padding(
