@@ -223,7 +223,11 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Center(child: Text(title)),
+        title: Center(
+            child: Text(
+          title,
+          style: TextStyle(color: Colors.white),
+        )),
       ),
       body: Center(
         child: Column(

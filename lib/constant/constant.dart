@@ -219,3 +219,6 @@ class _RateUsState extends State<Rate_Us> {
     );
   }
 }
+
+
+const String GEMINI_API_KEY = "AIzaSyAOgcO7ALDUotxKMeO0B6_XAevDvh9LqDQ";

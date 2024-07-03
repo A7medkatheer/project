@@ -4,6 +4,7 @@ import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
 import 'package:flutter_application_1/pages/core/models/paymeny_model.dart';
 import 'package:flutter_application_1/pages/cubit/user_cubit.dart';
+import 'package:flutter_application_1/pages/in_body.dart';
 import 'package:flutter_application_1/payment/payment_view.dart';
 import 'package:flutter_application_1/private/home_private.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -78,7 +79,7 @@ class Plan extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const HomePrivate()),
+                                    builder: (context) => const InBody()),
                               );
                             } else {
                               context
@@ -103,7 +104,7 @@ class Plan extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const HomePrivate()),
+                                    builder: (context) => const InBody()),
                               );
                             } else {
                               context

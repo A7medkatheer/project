@@ -3,6 +3,7 @@ import 'package:flutter_application_1/core/home.dart';
 import 'package:flutter_application_1/pages/cache/cache_helper.dart';
 import 'package:flutter_application_1/pages/chat_bot.dart';
 import 'package:flutter_application_1/pages/core/api/end_ponits.dart';
+import 'package:flutter_application_1/pages/gemini.dart';
 import 'package:flutter_application_1/private/equations/examples_of_calculator.dart';
 import 'package:flutter_application_1/private/food_bulking/bulking_and_drying_level_2.dart';
 
@@ -319,7 +320,7 @@ class HomePrivate extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => ChatBotScreen()),
+            MaterialPageRoute(builder: (context) => HomePage()),
           );
         },
         backgroundColor: Color(0xffD0FD3E),

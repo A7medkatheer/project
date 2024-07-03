@@ -45,11 +45,8 @@ dependencies:
   shared_preferences: ^2.2.3
   smooth_page_indicator: ^1.1.0
   webview_flutter: ^4.8.0
-  o3d: ^1.1.1
-
-  chat_gpt_sdk:
-    git:
-      url: https://github.com/iampawan/Flutter-ChatGPT.git
+  flutter_gemini: ^2.0.3
+  dash_chat_2: ^0.0.20
 
   
 
